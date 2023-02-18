@@ -1,17 +1,32 @@
 import {Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs/blocks';
-import { useFormik } from 'formik';
+// import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 
+export const Template = (args) => {
+  return (
+    <>
+      <EquipmentCard
+        inputData={'HEADER'}
+      />
+    </>
+  )
+};
 
 <Meta
   title='Components/EquipmentCard'
   component={EquipmentCard}
 />
 
+# EquipmentCard
 <Description of={EquipmentCard}/>
 
+
+## Example
 <Canvas>
-  <Story name=''>
-    
+  <Story name='EquipmentCard'>
+    {Template.bind({})}
   </Story>
 </Canvas>
+
+# Props
+<ArgsTable story={'EquipmentCard'} />

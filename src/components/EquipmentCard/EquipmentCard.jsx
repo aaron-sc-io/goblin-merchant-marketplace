@@ -1,30 +1,57 @@
 import { useState, useCallback } from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  equipmentCard: {
-    width: '100%',
-    maxWidth: 500,
-  },
-});
+const equipmentCardStyles = {
+    width: '100px',
+    border: 1,
+    m: 1
+};
+
+/**
+  * MUI COLOR LIBRARY
+  * 
+  * 
+  * 
+**/
 
 const EquipmentCard = ({ inputData }) => {
-  const [equipmentData, setEquipmentData] = useState('');
+  const [equipmentData, setEquipmentData] = useState(inputData);
 
   useCallback(() => {
     setEquipmentData(inputData);
   }, [setEquipmentData]);
 
   return (
-    <>
-      <Box>
-        <Typography>
-          {equipmentData}
-        </Typography>
+    <div>
+      <Box 
+        display='flex'
+        justifyContent='center'
+        bgcolor='text.secondary'
+        px={0.5}
+        py={0.5}
+        border={3}
+        borderColor='text.primary'
+        width='275px'
+        height='400px'
+      >
+        <Box
+          bgcolor='primary.main'
+          color='primary.contrastText'
+          p={0.9}
+          height='5%'
+          width='100%'
+        >
+          <Box>
+            <Typography align='center'>
+              {equipmentData}
+            </Typography>
+          </Box>
+          
+        </Box>
       </Box>
-    </>
+      
+    </div>
   );
 };
 
