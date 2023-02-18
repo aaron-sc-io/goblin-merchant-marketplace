@@ -1,12 +1,14 @@
 import {Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs/blocks';
-// import { useFormik } from 'formik';
+import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 
-export const Template = (args) => {
+export const Template = ({args}) => {
+  const handleClick = async() => alert('will be redirected');
   return (
     <>
       <EquipmentCard
-        inputData={'HEADER'}
+        inputData={'Example Dagger'}
+        handleClick={handleClick}
       />
     </>
   )

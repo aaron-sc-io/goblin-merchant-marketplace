@@ -1,11 +1,75 @@
 import { useState, useCallback } from 'react';
+
+// MUI CORE
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+// MUI COLORS
+import { red, blue, purple, grey } from '@material-ui/core/colors';
+
 const equipmentCardStyles = {
-    width: '100px',
-    border: 1,
-    m: 1
+  width: '275px',
+  height: '375px',
+  border: 3
+};
+
+const equipmentCardHeaderColors = {
+  red: red[500],
+  lightGrey: grey[200],
+  grey: grey[500],
+  darkGrey: grey[800],
+  lightPurple: purple[300],
+  darkPurple: purple[900]
+};
+
+const EquipmentCard = ({ inputData, handleClick }) => {
+  const [equipmentData, setEquipmentData] = useState(inputData);
+
+  useCallback(() => {
+    setEquipmentData(inputData);
+  }, [setEquipmentData]);
+
+
+  return (
+    <div>
+      <Button onClick={handleClick}>
+        <Box
+          align
+          bgcolor={equipmentCardHeaderColors.darkGrey}
+          borderColor={equipmentCardHeaderColors.darkGrey}
+          border={equipmentCardStyles.border}
+          width={equipmentCardStyles.width}
+          height={equipmentCardStyles.height}
+        >
+          <Box
+            border={1}
+            borderColor={equipmentCardHeaderColors.grey}
+            borderBottom={1}
+            height='99%'
+          >
+            <Box
+              bgcolor={equipmentCardHeaderColors.darkPurple}
+              color={equipmentCardHeaderColors.lightPurple}
+              borderBottom={1}
+              borderColor={equipmentCardHeaderColors.lightPurple}
+              height='8%'
+              width='100%'
+            >
+              <Box>
+                <Typography>
+                  <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '20px' }}>
+                    {equipmentData}
+                  </Box>
+                </Typography>
+              </Box>
+            </Box>
+
+          </Box>
+        </Box>
+      </Button>
+    </div>
+  );
 };
 
 /**
@@ -15,44 +79,5 @@ const equipmentCardStyles = {
   * 
 **/
 
-const EquipmentCard = ({ inputData }) => {
-  const [equipmentData, setEquipmentData] = useState(inputData);
-
-  useCallback(() => {
-    setEquipmentData(inputData);
-  }, [setEquipmentData]);
-
-  return (
-    <div>
-      <Box 
-        display='flex'
-        justifyContent='center'
-        bgcolor='text.secondary'
-        px={0.5}
-        py={0.5}
-        border={3}
-        borderColor='text.primary'
-        width='275px'
-        height='400px'
-      >
-        <Box
-          bgcolor='primary.main'
-          color='primary.contrastText'
-          p={0.9}
-          height='5%'
-          width='100%'
-        >
-          <Box>
-            <Typography align='center'>
-              {equipmentData}
-            </Typography>
-          </Box>
-          
-        </Box>
-      </Box>
-      
-    </div>
-  );
-};
 
 export default EquipmentCard;
