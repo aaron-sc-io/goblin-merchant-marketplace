@@ -2,12 +2,29 @@ import {Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 
-export const Template = ({args}) => {
+export const Template = (props) => {
   const handleClick = async() => alert('will be redirected');
+  const formik = useFormik({
+    initialValues: {
+      weaponType: 'Dagger',
+      weaponName: 'Example Dagger',
+      weaponBaseStats: {
+        weaponDmg: 30,
+        weaponMoveSpd: -10
+      },
+      weaponBonusStats: {
+        bonusPhysDmg: 2,
+        bonusMgcDmg: 2,
+        bonusMoveSpd: 2
+      },
+      weaponSlotType: 'Secondary Weapon',
+      weaponHandType: 'One-Handed'
+    }
+  });
   return (
     <>
       <EquipmentCard
-        inputData={'Example Dagger'}
+        formik={formik}
         handleClick={handleClick}
       />
     </>
