@@ -3,31 +3,17 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-
 // MUI COLORS
 import { red, blue, purple, grey } from '@material-ui/core/colors';
-
-const equipmentCardStyles = {
-  width: '275px',
-  height: '375px',
-  border: 3
-};
-
-const equipmentCardHeaderColors = {
-  blu: blue[500],
-  red: red[500],
-  lightGrey: grey[200],
-  textGrey: grey[400],
-  grey: grey[500],
-  darkGrey: grey[800],
-  lightPurple: purple[300],
-  darkPurple: purple[900]
-};
+import { useState } from 'react';
 
 const EquipmentCard = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
-  console.log(weaponInfo);
-
+  const equipmentCardStyles = {
+    width: '275px',
+    height: '425px',
+    border: 3
+  };
   return (
     <>
       <Button onClick={handleClick}>
@@ -52,12 +38,37 @@ const EquipmentCard = ({ formik, handleClick }) => {
               <EquipmentStats formik={weaponInfo} />
               <Divider variant="middle" />
               <Divider variant="middle" />
+              <EquipmentDescription formik={weaponInfo} />
+              <Divider variant="middle" />
+              <Divider variant="middle" />
             </Box>
           </Box>
         </Box>
       </Button>
     </>
   );
+};
+
+const EquipmentHeader = ({ formik }) => {
+  const weaponInfo = formik;
+  return (
+    <Box
+      bgcolor={equipmentCardHeaderColors.darkPurple}
+      color={equipmentCardHeaderColors.lightPurple}
+      borderBottom={1}
+      borderColor={equipmentCardHeaderColors.lightPurple}
+      width='100%'
+      pt={1}
+    >
+      <Box>
+        <Typography component={'span'}>
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
+            {weaponInfo.weaponName}
+          </Box>
+        </Typography>
+      </Box>
+    </Box>
+  )
 };
 
 const EquipmentStats = ({ formik }) => {
@@ -99,26 +110,66 @@ const EquipmentStats = ({ formik }) => {
   )
 };
 
-const EquipmentHeader = ({ formik }) => {
-  const weaponInfo = formik;
+const EquipmentDescription = ({ formik }) => {
+  const [weaponInfo, setWeaponInfo] = useState(formik);
+  // const daggerDesc = {
+  //   requiredClass: 'Rogue, Fighter',
+  //   slotType: 'Secondary Weapon',
+  //   handType: 'One-Handed',
+  //   weaponBlurb: 'Crafted with a fine blade narrowing to a sharp point. The hilts riveted design ensuring a firm grip.'
+  // };
+
+  // let weaponDesc = {
+  //   requiredClass: '',
+  //   slotType: '',
+  //   handType: '',
+  //   weaponBlurb: ''
+  // };
+
+  const handleSetDescription = (weaponInfo) => {
+    
+  };
+
   return (
-    <Box
-      bgcolor={equipmentCardHeaderColors.darkPurple}
-      color={equipmentCardHeaderColors.lightPurple}
-      borderBottom={1}
-      borderColor={equipmentCardHeaderColors.lightPurple}
-      width='100%'
-      pt={1}
-    >
-      <Box>
-        <Typography component={'span'}>
-          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
-            {weaponInfo.weaponName}
-          </Box>
-        </Typography>
-      </Box>
+    <Box sx={{ py: 0.7 }}>
+      <Typography>
+        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.red }}>
+          Required Class:
+        </Box>
+      </Typography>
+      <Typography>
+        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.red }}>
+          {weaponInfo.weaponType}
+        </Box>
+      </Typography>
+      <Typography>
+        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
+          Slot Type: {weaponInfo.weaponSlotType}
+        </Box>
+      </Typography>
+      <Typography>
+        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
+          Hand Type: {weaponInfo.weaponHandType}
+        </Box>
+      </Typography>
+      <Typography>
+        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
+          Weapon Type: {weaponInfo.weaponType}
+        </Box>
+      </Typography>
     </Box>
-  )
+  );
+};
+
+const equipmentCardHeaderColors = {
+  blu: blue[500],
+  red: red[500],
+  lightGrey: grey[200],
+  textGrey: grey[400],
+  grey: grey[500],
+  darkGrey: grey[800],
+  lightPurple: purple[300],
+  darkPurple: purple[900]
 };
 
 export default EquipmentCard;
