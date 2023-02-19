@@ -51,7 +51,6 @@ const EquipmentCard = ({ formik, handleClick }) => {
               <EquipmentHeader formik={weaponInfo} />
               <EquipmentStats formik={weaponInfo} />
               <Divider variant="middle" />
-              <EquipmentStats formik={weaponInfo} />
               <Divider variant="middle" />
             </Box>
           </Box>
@@ -64,9 +63,9 @@ const EquipmentCard = ({ formik, handleClick }) => {
 const EquipmentStats = ({ formik }) => {
   const weaponBaseStats = formik.weaponBaseStats;
   const weaponBonusStats = formik.weaponBonusStats;
-
   return (
     <Box
+      sx={{ py: 0.7 }}
       color={equipmentCardHeaderColors.textGrey}
     > 
       <Typography>
@@ -113,7 +112,7 @@ const EquipmentHeader = ({ formik }) => {
     >
       <Box>
         <Typography component={'span'}>
-          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px' }}>
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
             {weaponInfo.weaponName}
           </Box>
         </Typography>
