@@ -6,6 +6,8 @@ import Divider from '@material-ui/core/Divider';
 // MUI COLORS
 import { red, blue, purple, grey } from '@material-ui/core/colors';
 import { useState } from 'react';
+// UTILITIES
+import { defaultItem } from '../../utility/defaultItem';
 
 const EquipmentCard = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
@@ -171,5 +173,6 @@ const equipmentCardHeaderColors = {
   lightPurple: purple[300],
   darkPurple: purple[900]
 };
+
 
 export default EquipmentCard;
