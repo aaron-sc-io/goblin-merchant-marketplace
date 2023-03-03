@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-    v1.1
+    Market and Marketer v1.1
     </>
   );
 }
