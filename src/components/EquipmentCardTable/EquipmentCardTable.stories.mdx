@@ -1,0 +1,48 @@
+import {Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs/blocks';
+import { useFormik } from 'formik';
+import EquipmentCardTable from './EquipmentCardTable';
+
+export const Template = (props) => {
+  // const handleClick = async() => alert('will be redirected to {weaponPage}');
+  const formik = useFormik({
+    initialValues: {
+      weaponType: 'Dagger',
+      weaponName: 'Example Dagger',
+      weaponBaseStats: {
+        weaponDmg: 30,
+        weaponMoveSpd: -10
+      },
+      weaponBonusStats: {
+        bonusPhysDmg: 2,
+        bonusMgcDmg: 2,
+        bonusMoveSpd: 2
+      },
+      weaponSlotType: 'Secondary Weapon',
+      weaponHandType: 'One-Handed'
+    }
+  });
+  return (
+    <>
+      <EquipmentCardTable formik={formik}/>
+    </>
+  )
+};
+
+<Meta
+  title='Components/EquipmentCardTable'
+  component={EquipmentCardTable}
+/>
+
+# EquipmentCardTable
+<Description of={EquipmentCardTable}/>
+
+
+## Example
+<Canvas>
+  <Story name='EquipmentCardTable'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'EquipmentCardTable'} />
