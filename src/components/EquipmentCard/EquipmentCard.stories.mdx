@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 
 export const Template = (props) => {
-  const handleClick = async() => alert('will be redirected to {weaponPage}');
   const formik = useFormik({
     initialValues: {
       weaponType: 'Dagger',
@@ -25,7 +24,6 @@ export const Template = (props) => {
     <>
       <EquipmentCard
         formik={formik}
-        handleClick={handleClick}
       />
     </>
   )

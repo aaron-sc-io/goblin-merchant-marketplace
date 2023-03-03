@@ -8,8 +8,32 @@ import { red, blue, purple, grey } from '@material-ui/core/colors';
 import { useState } from 'react';
 // UTILITIES
 import { defaultItem } from '../../utility/defaultItem';
+// FLIPCARD
+import ReactCardFlip from 'react-card-flip';
 
-const EquipmentCard = ({ formik, handleClick }) => {
+const EquipmentCard = ({ formik }) => {
+  const [isFront, setIsFront]= useState(true);
+  const handleClick = () => setIsFront(!isFront);
+  return (
+    <ReactCardFlip
+      isFlipped={isFront}
+      flipSpeedBackToFront={0.8}
+      flipSpeedFrontToBack={0.8}
+    >
+      <EquipmentCardFront 
+        formik={formik}
+        handleClick={handleClick}
+      />
+      {/*Replace with EquipmentCardBack*/}
+      <EquipmentCardFront 
+        formik={formik}
+        handleClick={handleClick}
+      />
+    </ReactCardFlip>
+  );
+};
+
+const EquipmentCardFront = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
   const equipmentCardStyles = {
     width: '275px',
