@@ -1,6 +1,7 @@
-import {Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
+import { Grid } from '@material-ui/core';
 
 export const Template = (props) => {
   const formik = useFormik({
@@ -21,11 +22,13 @@ export const Template = (props) => {
     }
   });
   return (
-    <>
-      <EquipmentCard
-        formik={formik}
-      />
-    </>
+    <Grid container>
+      <Grid item>
+        <EquipmentCard
+          formik={formik}
+        />
+      </Grid>
+    </Grid>
   )
 };
 
