@@ -8,9 +8,9 @@ import { Grid } from '@material-ui/core';
 const ItemForm = () => {
   const formik = useFormik({
     initialValues: {
-      itemClasses: null,
-      weapon: null,
-      rarity: null
+      itemClasses: '',
+      weapon: '',
+      rarity: ''
     }
   });
   console.log('Values: ', formik.values);
