@@ -1,3 +1,9 @@
+// HOOKS
+import { useState } from 'react';
+// UTILITIES
+import { defaultItem } from '../../utility/defaultItem';
+import ReactCardFlip from 'react-card-flip';
+
 // MUI CORE
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -5,18 +11,21 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 // MUI COLORS
 import { red, blue, purple, grey } from '@material-ui/core/colors';
-import { useState } from 'react';
-// UTILITIES
-import { defaultItem } from '../../utility/defaultItem';
-// FLIPCARD
-import ReactCardFlip from 'react-card-flip';
+
+////////////////////////////////////////////////////////////////////////////
+
+const equipmentCardStyles = {
+  width: '275px',
+  height: '425px',
+  border: 3
+};
 
 const EquipmentCard = ({ formik }) => {
-  const [isFront, setIsFront]= useState(true);
-  const handleClick = () => setIsFront(!isFront);
+  const [isFlipped, setIsFlipped]= useState(false);
+  const handleClick = () => setIsFlipped(!isFlipped);
   return (
     <ReactCardFlip
-      isFlipped={isFront}
+      isFlipped={isFlipped}
       flipSpeedBackToFront={0.8}
       flipSpeedFrontToBack={0.8}
     >
@@ -24,8 +33,7 @@ const EquipmentCard = ({ formik }) => {
         formik={formik}
         handleClick={handleClick}
       />
-      {/*Replace with EquipmentCardBack*/}
-      <EquipmentCardFront 
+      <EquipmentCardBack
         formik={formik}
         handleClick={handleClick}
       />
@@ -35,11 +43,6 @@ const EquipmentCard = ({ formik }) => {
 
 const EquipmentCardFront = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
-  const equipmentCardStyles = {
-    width: '275px',
-    height: '425px',
-    border: 3
-  };
   return (
     <>
       <Button onClick={handleClick}>
@@ -74,6 +77,38 @@ const EquipmentCardFront = ({ formik, handleClick }) => {
     </>
   );
 };
+
+const EquipmentCardBack = ({ formik, handleClick }) => {
+  const weaponInfo = formik.values;
+  return (
+    <>
+      <Button onClick={handleClick}>
+        {/* Container */}
+        <Box
+          align='center'
+          bgcolor={equipmentCardHeaderColors.darkGrey}
+          borderColor={equipmentCardHeaderColors.darkGrey}
+          border={equipmentCardStyles.border}
+          width={equipmentCardStyles.width}
+          height={equipmentCardStyles.height}
+        >
+          {/* Styling Box */}
+          <Box
+            border={1}
+            borderColor={equipmentCardHeaderColors.grey}
+            borderBottom={1}
+            height='99%'
+          > 
+            <Box>
+              
+            </Box>
+          </Box>
+        </Box>
+      </Button>
+    </>
+  );
+};
+
 
 const EquipmentHeader = ({ formik }) => {
   const weaponInfo = formik;
@@ -196,6 +231,10 @@ const equipmentCardHeaderColors = {
   darkGrey: grey[800],
   lightPurple: purple[300],
   darkPurple: purple[900]
+};
+
+const ContactHeader = ({ formik }) => {
+
 };
 
 
