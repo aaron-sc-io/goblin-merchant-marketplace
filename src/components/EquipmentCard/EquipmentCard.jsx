@@ -24,9 +24,9 @@ const EquipmentCard = ({ formik }) => {
   const handleClick = () => setIsFlipped(!isFlipped);
   return (
     <ReactCardFlip
-      isFlipped={isFlipped}
-      flipSpeedBackToFront={0.8}
-      flipSpeedFrontToBack={0.8}
+    isFlipped={isFlipped}
+    flipSpeedBackToFront={0.8}
+    flipSpeedFrontToBack={0.8}
     >
       <EquipmentCardFront 
         formik={formik}
@@ -43,68 +43,64 @@ const EquipmentCard = ({ formik }) => {
 const EquipmentCardFront = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
   return (
-    <>
-      <Button onClick={handleClick}>
-        {/* Container */}
+    <Button onClick={handleClick}>
+      {/* Container */}
+      <Box
+        align='center'
+        bgcolor={equipmentCardHeaderColors.darkGrey}
+        borderColor={equipmentCardHeaderColors.darkGrey}
+        border={equipmentCardStyles.border}
+        width={equipmentCardStyles.width}
+        height={equipmentCardStyles.height}
+      >
+        {/* Styling Box */}
         <Box
-          align='center'
-          bgcolor={equipmentCardHeaderColors.darkGrey}
-          borderColor={equipmentCardHeaderColors.darkGrey}
-          border={equipmentCardStyles.border}
-          width={equipmentCardStyles.width}
-          height={equipmentCardStyles.height}
-        >
-          {/* Styling Box */}
-          <Box
-            border={1}
-            borderColor={equipmentCardHeaderColors.grey}
-            borderBottom={1}
-            height='99%'
-          > 
-            <Box>
-              <EquipmentHeader formik={weaponInfo} />
-              <EquipmentStats formik={weaponInfo} />
-              <Divider variant="middle" />
-              <Divider variant="middle" />
-              <EquipmentDescription formik={weaponInfo} />
-              <Divider variant="middle" />
-              <Divider variant="middle" />
-            </Box>
+          border={1}
+          borderColor={equipmentCardHeaderColors.grey}
+          borderBottom={1}
+          height='99%'
+        > 
+          <Box>
+            <EquipmentHeader formik={weaponInfo} />
+            <EquipmentStats formik={weaponInfo} />
+            <Divider variant="middle" />
+            <Divider variant="middle" />
+            <EquipmentDescription formik={weaponInfo} />
+            <Divider variant="middle" />
+            <Divider variant="middle" />
           </Box>
         </Box>
-      </Button>
-    </>
+      </Box>
+    </Button>
   );
 };
 
 const EquipmentCardBack = ({ formik, handleClick }) => {
   const weaponInfo = formik.values;
   return (
-    <>
-      <Button onClick={handleClick}>
-        {/* Container */}
+    <Button onClick={handleClick}>
+      {/* Container */}
+      <Box
+        align='center'
+        bgcolor={equipmentCardHeaderColors.darkGrey}
+        borderColor={equipmentCardHeaderColors.darkGrey}
+        border={equipmentCardStyles.border}
+        width={equipmentCardStyles.width}
+        height={equipmentCardStyles.height}
+      >
+        {/* Styling Box */}
         <Box
-          align='center'
-          bgcolor={equipmentCardHeaderColors.darkGrey}
-          borderColor={equipmentCardHeaderColors.darkGrey}
-          border={equipmentCardStyles.border}
-          width={equipmentCardStyles.width}
-          height={equipmentCardStyles.height}
-        >
-          {/* Styling Box */}
-          <Box
-            border={1}
-            borderColor={equipmentCardHeaderColors.grey}
-            borderBottom={1}
-            height='99%'
-          > 
-            <Box>
-              <ContactHeader formik={weaponInfo} />
-            </Box>
+          border={1}
+          borderColor={equipmentCardHeaderColors.grey}
+          borderBottom={1}
+          height='99%'
+        > 
+          <Box>
+            <ContactHeader formik={weaponInfo} />
           </Box>
         </Box>
-      </Button>
-    </>
+      </Box>
+    </Button>
   );
 };
 
@@ -161,33 +157,31 @@ const EquipmentStats = ({ formik }) => {
       sx={{ py: 0.7 }}
       color={equipmentCardHeaderColors.textGrey}
     > 
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px' }}>
           Weapon Damage {weaponBaseStats.weaponDmg}
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px' }}>
           Move Speed {weaponBaseStats.weaponMoveSpd}
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.blu }}>
           +{weaponBonusStats.bonusPhysDmg} Additional Physical Damage
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.blu }}>
           +{weaponBonusStats.bonusMgcDmg} Additional Magical Damage
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.blu }}>
           +{weaponBonusStats.bonusMoveSpd} Additional Move Speed
         </Box>
       </Typography>
-
-
     </Box>  
   )
 };
@@ -214,27 +208,27 @@ const EquipmentDescription = ({ formik }) => {
 
   return (
     <Box sx={{ py: 0.7 }}>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.red }}>
           Required Class:
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.red }}>
           {weaponInfo.weaponType}
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
           Slot Type: {weaponInfo.weaponSlotType}
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
           Hand Type: {weaponInfo.weaponHandType}
         </Box>
       </Typography>
-      <Typography>
+      <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: equipmentCardHeaderColors.textGrey }}>
           Weapon Type: {weaponInfo.weaponType}
         </Box>
