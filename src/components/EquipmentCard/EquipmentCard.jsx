@@ -1,7 +1,6 @@
 // HOOKS
 import { useState } from 'react';
 // UTILITIES
-import { defaultItem } from '../../utility/defaultItem';
 import ReactCardFlip from 'react-card-flip';
 
 // MUI CORE
@@ -100,13 +99,35 @@ const EquipmentCardBack = ({ formik, handleClick }) => {
             height='99%'
           > 
             <Box>
-              
+              <ContactHeader formik={weaponInfo} />
             </Box>
           </Box>
         </Box>
       </Button>
     </>
   );
+};
+
+const ContactHeader = ({ formik }) => {
+  const weaponInfo = formik;
+  return (
+    <Box
+      bgcolor={equipmentCardHeaderColors.darkPurple}
+      color={equipmentCardHeaderColors.lightPurple}
+      borderBottom={1}
+      borderColor={equipmentCardHeaderColors.lightPurple}
+      width='100%'
+      pt={1}
+    >
+      <Box>
+        <Typography component={'span'}>
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
+            {'Discord: {}'}
+          </Box>
+        </Typography>
+      </Box>
+    </Box>
+  )
 };
 
 
@@ -232,10 +253,5 @@ const equipmentCardHeaderColors = {
   lightPurple: purple[300],
   darkPurple: purple[900]
 };
-
-const ContactHeader = ({ formik }) => {
-
-};
-
 
 export default EquipmentCard;
