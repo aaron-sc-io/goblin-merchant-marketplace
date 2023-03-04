@@ -33,6 +33,24 @@ const EquipmentCardListingTable = () => {
               formik={formik}
             />
         </Grid>
+        <Grid item xs={3}>
+          <EquipmentCard 
+              handleClick={handleClick}
+              formik={formik}
+            />
+        </Grid>
+        <Grid item xs={3}>
+          <EquipmentCard 
+              handleClick={handleClick}
+              formik={formik}
+            />
+        </Grid>
+        <Grid item xs={3}>
+          <EquipmentCard 
+              handleClick={handleClick}
+              formik={formik}
+            />
+        </Grid>
       </Grid>
     </>
   );
