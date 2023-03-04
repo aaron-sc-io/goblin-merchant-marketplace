@@ -112,6 +112,10 @@ const itemClasses = [
     value: 'Shields',
     label: 'Shields',
   },
+  {
+    value: 'Jewelry',
+    label: 'Jewelry',
+  }
 ];
 
 const rarities = [
