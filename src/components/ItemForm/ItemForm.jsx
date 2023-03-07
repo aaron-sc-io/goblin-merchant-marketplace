@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import { TextField } from '@material-ui/core';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
 import { Grid } from '@material-ui/core';
@@ -8,22 +8,19 @@ import { Grid } from '@material-ui/core';
 const ItemForm = () => {
   const formik = useFormik({
     initialValues: {
-      itemClasses: '',
-      weapon: '',
-      rarity: ''
+      rarity: 'Uncommon',
+      category: 'Sword',
+      item: ''
     }
   });
-  console.log('Values: ', formik.values);
+  console.log(formik);
   return (
     <Grid container>
-      <Grid item xs={4}>
+      <Grid item sm={12}>
+        <RaritySelector formik={formik} />
+      </Grid>
+      <Grid item sm={12}>
         <ItemClassSelector formik={formik} />
-      </Grid>
-      <Grid item xs={4}>
-        <RaritySelector formik={formik} />
-      </Grid>
-      <Grid item xs={4}>
-        <RaritySelector formik={formik} />
       </Grid>
     </Grid>
   );
@@ -55,29 +52,69 @@ const RaritySelector = ({ formik }) => {
 };
 
 const ItemClassSelector = ({ formik }) => {
-  const handleChange = (e) => {
-    formik.setFieldValue('itemType', e.target.value);
+  const [itemList, setItemList] = useState(allItems);
+  const handleCategoryChange = (e) => {
+    formik.setFieldValue('category', e.target.value);
+    handleItemListChange(e.target.value);
+  };
+  const handleItemChange = (e) => {
+    formik.setFieldValue('item', e.target.value);
+  };
+  const handleItemListChange = (category) => {
+    switch (category) {
+      case 'Dagger':
+        setItemList(daggers);
+        break;
+      case 'Sword':
+        setItemList(swords);
+        break;
+      case 'Axe':
+        setItemList(axes);
+        break;
+      default:
+        setItemList(allItems);
+    }
   };
   return (
-    <Box width='300px' pb={2}>
+    <Box sx={{display: 'flex', flexDirection: 'horizontal'}} >
+      <Box width='300px' pb={2} pr={2}>
+        <TextField
+            id="formik-textfield-category"
+            select
+            label="Item Category"
+            value={formik.values.category}
+            onChange={handleCategoryChange}
+            fullWidth
+            variant="outlined"
+          >
+            {itemClasses.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+        </TextField>
+      </Box>
+      <Box width='300px' pb={2}>
       <TextField
           id="formik-textfield-item"
           select
           label="Item"
-          value={formik.values.itemType}
-          onChange={handleChange}
+          value={formik.values.item}
+          onChange={handleItemChange}
           fullWidth
           variant="outlined"
         >
-          {itemClasses.map((option) => (
+          {itemList.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
       </TextField>
     </Box>
+  </Box>
   );
 };
+
 
 const itemClasses = [
   {
@@ -150,6 +187,38 @@ const statBonusTypes = [
     value: 'Armor',
     label: 'Armor'
   },
-]
+];
+
+const daggers = [
+  {
+    value: 'Rondel Dagger',
+    label: 'Rondel Dagger'
+  }
+];
+
+const axes = [
+  {
+    value: 'Felling Axe',
+    label: 'Felling Axe'
+  }
+];
+
+const swords = [
+  {
+    value: 'Two-Handed Sword',
+    label: 'Two-Handed Sword'
+  }
+];
+
+const allItems = [
+  {
+    value: 'Felling Axe',
+    label: 'Felling Axe'
+  },
+  {
+    value: 'Rondel Dagger',
+    label: 'Rondel Dagger'
+  }
+];
 
 export default ItemForm;
