@@ -63,14 +63,32 @@ const ItemClassSelector = ({ formik }) => {
   const handleItemListChange = (category) => {
     switch (category) {
       // define in global statics w/ enums(potentially)
-      case 'Dagger':
-        setItemList(daggers);
-        break;
-      case 'Sword':
+      case 'Swords':
         setItemList(swords);
         break;
-      case 'Axe':
+      case 'Maces':
+        setItemList(maces);
+        break;
+      case 'Daggers':
+        setItemList(daggers);
+        break;
+      case 'Polearms':
+          setItemList(polearms);
+          break;  
+      case 'Axes':
         setItemList(axes);
+        break;
+      case 'Bows':
+        setItemList(bows);
+        break;
+      case 'Magical Weapons':
+        setItemList(magicalWeapons);
+        break;
+      case 'Shields':
+        setItemList(shields);
+        break;
+      case 'Jewelry':
+        setItemList(jewelry);
         break;
       default:
         setItemList(allItems);
@@ -119,28 +137,28 @@ const ItemClassSelector = ({ formik }) => {
 
 const itemClasses = [
   {
-    value: 'Sword',
-    label: 'Sword',
+    value: 'Swords',
+    label: 'Swords',
   },
   {
-    value: 'Mace',
-    label: 'Mace',
+    value: 'Maces',
+    label: 'Maces',
   },
   {
-    value: 'Dagger',
-    label: 'Dagger',
+    value: 'Daggers',
+    label: 'Daggers',
   },
   {
-    value: 'Polearm',
-    label: 'Polearm',
+    value: 'Polearms',
+    label: 'Polearms',
   },
   {
-    value: 'Axe',
-    label: 'Axe',
+    value: 'Axes',
+    label: 'Axes',
   },
   {
-    value: 'Bow',
-    label: 'Bow',
+    value: 'Bows',
+    label: 'Bows',
   },
   {
     value: 'Magical Weapons',
@@ -194,23 +212,201 @@ const daggers = [
   {
     value: 'Rondel Dagger',
     label: 'Rondel Dagger'
+  },
+  {
+    value: 'Stiletto Dagger',
+    label: 'Stiletto Dagger'
+  },
+  {
+    value: 'Kris Dagger',
+    label: 'Kris Dagger'
+  },
+  {
+    value: 'Castillion Dagger',
+    label: 'Castillion Dagger'
   }
 ];
 
 const axes = [
   {
+    value: 'Battle Axe',
+    label: 'Battle Axe'
+  },
+  {
+    value: 'Double Axe',
+    label: 'Double Axe'
+  },
+  {
     value: 'Felling Axe',
     label: 'Felling Axe'
+  },
+  {
+    value: 'Hatchet',
+    label: 'Hatchet'
+  },
+  {
+    value: 'Horsemans Axe',
+    label: 'Horsemans Axe'
   }
 ];
 
 const swords = [
   {
-    value: 'Two-Handed Sword',
-    label: 'Two-Handed Sword'
+    value: 'Arming Sword',
+    label: 'Arming Sword'
+  },
+  {
+    value: 'Falchion',
+    label: 'Falchion'
+  },
+  {
+    value: 'Longsword',
+    label: 'Longsword'
+  },
+  {
+    value: 'Rapier',
+    label: 'Rapier'
+  },
+  {
+    value: 'Short Sword',
+    label: 'Short Sword'
+  },
+  {
+    value: 'Zweihander',
+    label: 'Zweihander'
   }
 ];
 
+const maces = [
+{
+  value: 'Flanged Mace',
+  label: 'Flanged Mace'
+},
+{
+  value: 'Morning Star',
+  label: 'Morning Star'
+},
+{
+  value: 'Quarterstaff',
+  label: 'Quarterstaff'
+},
+{
+  value: 'War Maul',
+  label: 'War Maul'
+}
+];
+
+const polearms = [
+  {
+    value: 'Bardiche',
+    label: 'Bardiche'
+  },
+  {
+    value: 'Halberd',
+    label: 'Halberd'
+  },
+  {
+    value: 'Spear',
+    label: 'Spear'
+  },
+];
+const bows = [
+  {
+    value: 'Longbow',
+    label: 'Longbow'
+  },
+  {
+    value: 'Recurve Bow',
+    label: 'Recurve Bow'
+  },
+  {
+    value: 'Survival Bow',
+    label: 'Survival Bow'
+  },
+  {
+    value: 'Crossbow',
+    label: 'Crossbow'
+  },
+  {
+    value: 'Windlass Crossbow',
+    label: 'Windlass Crossbow'
+  }
+];
+const magicalWeapons = [
+  {
+    value: 'Crystal Ball',
+    label: 'Crystal Ball'
+  },
+  {
+    value: 'Crystal Sword',
+    label: 'Crystal Sword'
+  },
+  {
+    value: 'Spellbook',
+    label: 'Spellbook'
+  },
+  {
+    value: 'Wizard Staff',
+    label: 'Wizard Staff'
+  }
+];
+
+const shields = [
+  {
+    value: 'Buckler',
+    label: 'Buckler'
+  },
+  {
+    value: 'Heater Shield',
+    label: 'Heater Shield'
+  },
+  {
+    value: 'Pavise',
+    label: 'Pavise'
+  },
+  {
+    value: 'Round Shield',
+    label: 'Round Shield'
+  }
+];
+const jewelry = [
+  {
+    value: 'Rat Pendant',
+    label: 'Rat Pendant'
+  },
+  {
+    value: 'Necklace of Peace',
+    label: 'Necklace of Peace'
+  },
+  {
+    value: 'Ox Pendant',
+    label: 'Ox Pendant'
+  },
+  {
+    value: 'Badger Pendant',
+    label: 'Badger Pendant'
+  },
+  {
+    value: 'Fox Pendant',
+    label: 'Fox Pendant'
+  },
+  {
+    value: 'Ring of Survival',
+    label: 'Ring of Survival'
+  },
+  {
+    value: 'Ring of Courage',
+    label: 'Ring of Courage'
+  },
+  {
+    value: 'Ring of Resolve',
+    label: 'Ring of Resolve'
+  },
+  {
+    value: 'Ring of Quickness',
+    label: 'Ring of Quickness'
+  },
+];
 const allItems = [
   {
     value: 'Felling Axe',
