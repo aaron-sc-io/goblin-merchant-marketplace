@@ -310,6 +310,7 @@ const polearms = [
     label: 'Spear'
   },
 ];
+
 const bows = [
   {
     value: 'Longbow',
@@ -369,6 +370,7 @@ const shields = [
     label: 'Round Shield'
   }
 ];
+
 const jewelry = [
   {
     value: 'Rat Pendant',
@@ -407,6 +409,7 @@ const jewelry = [
     label: 'Ring of Quickness'
   },
 ];
+
 const allItems = [
   {
     value: 'Felling Axe',
