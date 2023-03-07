@@ -62,6 +62,7 @@ const ItemClassSelector = ({ formik }) => {
   };
   const handleItemListChange = (category) => {
     switch (category) {
+      // define in global statics w/ enums(potentially)
       case 'Dagger':
         setItemList(daggers);
         break;

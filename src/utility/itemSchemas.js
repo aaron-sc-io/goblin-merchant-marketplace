@@ -45,3 +45,6 @@ export const jewelrySchema = {
     }
   }
 };
+
+// TODO const 
+// helmetSchema, gloveSchema, bootSchema, chestSchema, 
