@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
 // MUI CORE
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import { Button, Box, Typography, Divider }from '@material-ui/core'
 // MUI COLORS
 import { red, blue, purple, grey } from '@material-ui/core/colors';
 
@@ -67,10 +64,7 @@ const headerColorStyles = {
 
 const EquipmentCard = ({ formik }) => {
   const [isFlipped, setIsFlipped]= useState(false);
-  
   const handleClick = () => setIsFlipped(!isFlipped);
-  
-  
   return (
     <ReactCardFlip
     isFlipped={isFlipped}
@@ -114,11 +108,13 @@ const EquipmentCardFront = ({ formik, headerColorStyles, handleClick }) => {
           <Box>
             <EquipmentHeader formik={weaponInfo} headerColorStyles={headerColorStyles} />
             <EquipmentStats formik={weaponInfo} />
-            <Divider variant="middle" />
-            <Divider variant="middle" />
-            <EquipmentDescription formik={weaponInfo} />
-            <Divider variant="middle" />
-            <Divider variant="middle" />
+            <Divider variant='middle' />
+            <Divider variant='middle' /> 
+            <Box sx={{ height: '20%' }}>
+              <EquipmentDescription formik={weaponInfo} />
+            </Box>
+            <Divider variant='middle' />
+            <Divider variant='middle' />
           </Box>
         </Box>
       </Box>
@@ -177,7 +173,6 @@ const ContactHeader = ({ formik }) => {
   )
 };
 
-
 const EquipmentHeader = ({ formik }) => {
   const weaponInfo = formik;
   const [headerColors, setHeaderColors] = useState(headerColorStyles.common);
@@ -227,8 +222,48 @@ const EquipmentHeader = ({ formik }) => {
 };
 
 const EquipmentStats = ({ formik }) => {
+  console.log('equipment stats', formik);
+  const [rarityInteger, setRarityInteger] = useState(0);
   const weaponBaseStats = formik.weaponBaseStats;
   const weaponBonusStats = formik.weaponBonusStats;
+  const BonusStatTextLine = ({ bonusStatValue, bonusStatType }) => {
+    return (
+      <Typography component={'span'}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', color: colorLibrary.blu }}>
+          <circle align='left' fontSize='12px'>&#9900;</circle>  
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
+            + {bonusStatValue} {bonusStatType}
+          </Box>
+          <circle align='right'>&#9900;</circle>
+        </Box>
+          
+      </Typography>
+    );
+  };
+  const handleSetRarity = (rarityString) => {
+    switch (rarityString) {
+      case 'Uncommon':
+        setRarityInteger(1);
+        break;
+      case 'Rare':
+        setRarityInteger(2);
+        break;
+      case 'Epic':
+        setRarityInteger(3);
+        break;
+      case 'Legendary':
+        setRarityInteger(4);
+        break;
+      case 'Unique':
+        setRarityInteger(5);
+        break;
+      default:
+        setRarityInteger(0);
+    }
+  };
+  useEffect(() => {
+    handleSetRarity(formik.rarity);
+  }, [handleSetRarity]);
   return (
     <Box
       sx={{ py: 0.7 }}
@@ -244,23 +279,16 @@ const EquipmentStats = ({ formik }) => {
           Move Speed {weaponBaseStats.weaponMoveSpd}
         </Box>
       </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.blu }}>
-          +{weaponBonusStats.bonusPhysDmg} Additional Physical Damage
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.blu }}>
-          +{weaponBonusStats.bonusMgcDmg} Additional Magical Damage
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.blu }}>
-          +{weaponBonusStats.bonusMoveSpd} Additional Move Speed
-        </Box>
-      </Typography>
+      <Box>
+        {rarityInteger > 0 ? <BonusStatTextLine bonusStatType={'Uncommon'} bonusStatValue={2}/> : null} 
+        {rarityInteger > 1 ? <BonusStatTextLine bonusStatType={'Rare'} bonusStatValue={2}/> : null} 
+        {rarityInteger > 2 ? <BonusStatTextLine bonusStatType={'Epic'} bonusStatValue={2}/> : null} 
+        {rarityInteger > 3 ? <BonusStatTextLine bonusStatType={'Legendary'} bonusStatValue={2}/> : null}
+        {rarityInteger > 4 ? <BonusStatTextLine bonusStatType={'Unique'} bonusStatValue={2}/> : null} 
+      </Box>
+      
     </Box>  
-  )
+  );
 };
 
 const EquipmentDescription = ({ formik }) => {
