@@ -73,8 +73,8 @@ const ItemClassSelector = ({ formik }) => {
         setItemList(daggers);
         break;
       case 'Polearms':
-          setItemList(polearms);
-          break;  
+        setItemList(polearms);
+        break;  
       case 'Axes':
         setItemList(axes);
         break;
