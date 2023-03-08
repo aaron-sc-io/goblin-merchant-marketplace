@@ -25,7 +25,7 @@ needs a few essential features, described below.
   LandingPage: 
     SubmitListingButton
     ListingTableContainer
-      ListingTableFilter (* - low prio)
+      ListingTableFilter <sub>(* - low prio)</sub>
       ListingTable
         ListingCard
         
