@@ -1,7 +1,29 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
-import { Grid } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
+const rarities = [
+  {
+    value: 'Uncommon',
+    label: 'Uncommon',
+  },
+  {
+    value: 'Rare',
+    label: 'Rare',
+  },
+  {
+    value: 'Epic',
+    label: 'Epic',
+  },
+  {
+    value: 'Legendary',
+    label: 'Legendary',
+  },
+  {
+    value: 'Unique',
+    label: 'Unique',
+  }
+];
 
 export const Template = (props) => {
   const formik = useFormik({
@@ -22,6 +44,30 @@ export const Template = (props) => {
       weaponHandType: 'One-Handed'
     }
   });
+  const RaritySelector = ({ formik }) => {
+  const handleChange = (e) => {
+    formik.setFieldValue('rarity', e.target.value);
+  };
+  return (
+    <Box width='300px' pb={2}>
+      <TextField
+          id="formik-textfield-rarity"
+          select
+          label="Rarity"
+          value={formik.values.rarity}
+          onChange={handleChange}
+          fullWidth
+          variant="outlined"
+        >
+          {rarities.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+      </TextField>
+    </Box>
+  );
+};
   return (
     <Grid container>
       <Grid item>
@@ -29,6 +75,7 @@ export const Template = (props) => {
           formik={formik}
         />
       </Grid>
+      <RaritySelector formik={formik} />
     </Grid>
   )
 };
@@ -51,3 +98,4 @@ export const Template = (props) => {
 
 # Props
 <ArgsTable story={'EquipmentCard'} />
+
