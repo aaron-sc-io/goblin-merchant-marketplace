@@ -1,9 +1,6 @@
 import { useFormik } from 'formik';
-import { TextField } from '@material-ui/core';
+import { TextField, Grid, MenuItem, Box } from '@material-ui/core';
 import { useState, useEffect } from 'react';
-import MenuItem from '@material-ui/core/MenuItem';
-import Box from '@material-ui/core/Box';
-import { Grid } from '@material-ui/core';
 
 const ItemForm = () => {
   const formik = useFormik({
@@ -13,7 +10,7 @@ const ItemForm = () => {
       item: ''
     }
   });
-  console.log(formik);
+  console.log('form', formik.values);
   return (
     <Grid container>
       <Grid item sm={12}>
@@ -135,6 +132,7 @@ const ItemClassSelector = ({ formik }) => {
 };
 
 
+///////////////// ------- UTITILIES ------- /////////////////
 const itemClasses = [
   {
     value: 'Swords',
