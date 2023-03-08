@@ -4,9 +4,10 @@
 
 **Initial Requirements:**
 <pre>
-Market-n-Marketer ("MnM"), serves as a 3rd-party marketplace tool in order for players of the Extraction-Looter title
-'Dark and Darker' to provide players a superior trading tool to that which is offered in the game client. For MnM 
-to function in by the April playtset, the app needs a few essential features, described below.
+Market-n-Marketer ("MnM"), serves as a 3rd-party marketplace tool in order for players of the 
+Extraction-Looter title 'Dark and Darker' to provide players a superior trading tool to that
+which is offered in the game client. For MnM  to function in by the April playtset, the app
+needs a few essential features, described below.
 </pre>
 
 **Service:**
