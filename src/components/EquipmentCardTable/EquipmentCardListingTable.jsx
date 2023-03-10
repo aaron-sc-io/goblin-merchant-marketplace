@@ -1,7 +1,8 @@
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
-import { Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import { useFormik } from 'formik';
 import { weaponValues1, weaponValues2, weaponValues3 } from './listingExamples';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
 const EquipmentCardListingTable = () => {
   const formik1 = useFormik({
@@ -15,31 +16,38 @@ const EquipmentCardListingTable = () => {
   });
   // const handleUpdate = async() => {try() catch(e) loge};
   return (
-    <>
-      <Grid container>
-        {/* Populate with */}
-        <Grid item xs={3}>
+    <Box width={'1200px'}>
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{600: 3, 900: 4}}
+      >
+        <Masonry columnsCount={4}>
           <EquipmentCard
               formik={formik1}
             />
-        </Grid>
-        <Grid item xs={3}>
           <EquipmentCard
               formik={formik2}
             />
-        </Grid>
-        <Grid item xs={3}>
           <EquipmentCard
               formik={formik3}
             />
-        </Grid>
-        <Grid item xs={3}>
+          <EquipmentCard
+              formik={formik1}
+            />
+          <EquipmentCard
+              formik={formik3}
+            />
+          <EquipmentCard
+              formik={formik1}
+            />
           <EquipmentCard
               formik={formik2}
             />
-        </Grid>
-      </Grid>
-    </>
+          <EquipmentCard
+              formik={formik2}
+            />
+        </Masonry>
+      </ResponsiveMasonry>
+    </Box>
   );
 };
 
