@@ -31,7 +31,7 @@ const colorLibrary = {
 
 const equipmentCardStyles = {
   width: '300px',
-  height: '425px',
+  minHeight: '100px',
   border: 4
 };
 
@@ -94,22 +94,17 @@ const EquipmentCard = ({ formik }) => {
   }, [handleEquipmentCardHeaderStyle, formik.values.rarity]);
   
   return (
-    <ReactCardFlip 
-    isFlipped={isFlipped}
-    flipSpeedBackToFront={0.8}
-    flipSpeedFrontToBack={0.8}
-    > 
       <EquipmentCardFront
           formik={formik}
           headerColorStyles={headerColorStyles}
           handleClick={handleClick}
           headerColors={headerColors}
-        />
-      <EquipmentCardBack
-        formik={formik}
-        handleClick={handleClick}
       />
-    </ReactCardFlip>
+      // <EquipmentCardBack
+      //   formik={formik}
+      //   handleClick={handleClick}
+      //   headerColors={headerColors}
+      // />
   );
 };
 
@@ -125,7 +120,8 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
           borderColor: colorLibrary.darkGrey,
           bgcolor: colorLibrary.darkGrey,
           width: equipmentCardStyles.width,
-          height: equipmentCardStyles.height
+          minHeight: equipmentCardStyles.minHeight,
+          maxHeight: (equipmentCardStyles.maxHeight+1)
         }}
         border={equipmentCardStyles.border}
       >
@@ -133,9 +129,10 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
         <Box
           border={2}
           borderColor={headerColors.borderAndTextColor}
-          height='99%'
+          minHeight={equipmentCardStyles.minHeight}
+          maxHeight={equipmentCardStyles.maxHeight}
         > 
-          <Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
             <EquipmentStats formik={weaponInfo} />
             <Divider variant='middle' />
@@ -152,7 +149,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
   );
 };
 
-const EquipmentCardBack = ({ formik, handleClick }) => {
+const EquipmentCardBack = ({ formik, headerColors, handleClick }) => {
   const weaponInfo = formik.values;
   return (
     <Button onClick={handleClick}>
@@ -160,19 +157,20 @@ const EquipmentCardBack = ({ formik, handleClick }) => {
       <Box
         align='center'
         sx={{
-          borderColor: colorLibrary.grey2,
+          borderColor: colorLibrary.darkGrey,
           bgcolor: colorLibrary.darkGrey,
           width: equipmentCardStyles.width,
-          height: equipmentCardStyles.height
+          minHeight: equipmentCardStyles.minHeight,
+          maxHeight: (equipmentCardStyles.maxHeight+1)
         }}
         border={equipmentCardStyles.border}
       >
-        {/* Styling Box */}
+        {/* Styling Box for secondary border*/}
         <Box
-          border={1}
-          borderColor={colorLibrary.grey}
-          borderBottom={1}
-          height='99%'
+          border={2}
+          borderColor={headerColors.borderAndTextColor}
+          minHeight={equipmentCardStyles.minHeight}
+          maxHeight={equipmentCardStyles.maxHeight}
         > 
           <Box>
             <ContactHeader formik={weaponInfo} />
