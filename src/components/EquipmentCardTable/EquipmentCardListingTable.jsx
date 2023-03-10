@@ -1,5 +1,5 @@
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 
 
@@ -9,19 +9,45 @@ const EquipmentCardListingTable = () => {
     initialValues: {
       weaponType: 'Dagger',
       weaponName: 'Example Dagger',
-      weaponBaseStats: {
-        weaponDmg: 30,
-        weaponMoveSpd: -10
-      },
-      weaponBonusStats: {
-        bonusPhysDmg: 2,
-        bonusMgcDmg: 2,
-        bonusMoveSpd: 2
-      },
+      rarity: 'Rare',
       weaponSlotType: 'Secondary Weapon',
-      weaponHandType: 'One-Handed'
+      weaponHandType: 'One-Handed',
+      baseStats: {
+        statNames: {
+          statName1: 'Weapon Damage',
+          statName2: 'Movement Speed',
+          statName3: null,
+          statName4: null
+        },
+        statValues: {
+          statValue1: 20,
+          statValue2: -10,
+          statValue3: null,
+          statValue4: null
+        }
+      },
+      bonusStats: {
+        statNames: {
+          statName1: 'All Attributes',
+          statName2: 'Movement Speed',
+          statName3: null,
+          statName4: null,
+          statName5: null
+        },
+        statValues: {
+          statValue1: 2,
+          statValue2: 2,
+          statValue3: null,
+          statValue4: null,
+          statValue5: null
+        }
+      },
+    equipmentDescription: {
+      weaponSlotType: 'Secondary Weapon',
+      weaponHandType: 'One-Handed',
+      weaponDesc: 'Info'
     }
-  });
+  }});
   // const handleUpdate = async() => {try() catch(e) loge};
   return (
     <>
