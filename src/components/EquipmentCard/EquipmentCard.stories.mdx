@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
-import { Grid, TextField, Box, MenuItem } from '@material-ui/core';
+import { Grid, TextField, Box, MenuItem } from '@mui/material';
 const rarities = [
   {
     value: 'Uncommon',
@@ -68,8 +68,7 @@ export const Template = (props) => {
       weaponHandType: 'One-Handed',
       weaponDesc: 'Info'
     }
-    }
-  });
+  }});
   const RaritySelector = ({ formik }) => {
   const handleChange = (e) => {
     formik.setFieldValue('rarity', e.target.value);
