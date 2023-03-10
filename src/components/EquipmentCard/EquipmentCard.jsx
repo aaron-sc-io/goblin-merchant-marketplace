@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
 // MUI CORE
-import { Button, Box, Typography, Divider }from '@material-ui/core'
+import { Button, Box, Typography, Divider } from '@mui/material';
 // MUI COLORS
-import { red, blue, purple, grey } from '@material-ui/core/colors';
+import { red, blue, purple, grey } from '@mui/material/colors';
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ const colorLibrary = {
 const equipmentCardStyles = {
   width: '300px',
   height: '425px',
-  border: 3
+  border: 4
 };
 
 const headerColorStyles = {
@@ -64,18 +64,47 @@ const headerColorStyles = {
 
 const EquipmentCard = ({ formik }) => {
   const [isFlipped, setIsFlipped]= useState(false);
+  const [headerColors, setHeaderColors] = useState(headerColorStyles.common);
   const handleClick = () => setIsFlipped(!isFlipped);
+  const handleEquipmentCardHeaderStyle = (rarity) => {
+    switch (rarity) {
+      case 'Common':
+        setHeaderColors(headerColorStyles.common);
+        break;
+      case 'Uncommon':
+        setHeaderColors(headerColorStyles.uncommon);
+        break;
+      case 'Rare':
+        setHeaderColors(headerColorStyles.rare);
+        break;
+      case 'Epic':
+        setHeaderColors(headerColorStyles.epic);
+        break;
+      case 'Legendary':
+        setHeaderColors(headerColorStyles.legendary);
+        break;
+      default:
+        setHeaderColors(headerColorStyles.common);
+        break;
+    };
+  };
+
+  useEffect(() => {
+    handleEquipmentCardHeaderStyle(formik.values.rarity);
+  }, [handleEquipmentCardHeaderStyle, formik.values.rarity]);
+  
   return (
-    <ReactCardFlip
+    <ReactCardFlip 
     isFlipped={isFlipped}
     flipSpeedBackToFront={0.8}
     flipSpeedFrontToBack={0.8}
-    >
+    > 
       <EquipmentCardFront
-        formik={formik}
-        headerColorStyles={headerColorStyles}
-        handleClick={handleClick}
-      />
+          formik={formik}
+          headerColorStyles={headerColorStyles}
+          handleClick={handleClick}
+          headerColors={headerColors}
+        />
       <EquipmentCardBack
         formik={formik}
         handleClick={handleClick}
@@ -84,7 +113,7 @@ const EquipmentCard = ({ formik }) => {
   );
 };
 
-const EquipmentCardFront = ({ formik, headerColorStyles, handleClick }) => {
+const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
   const weaponInfo = formik.values;
   console.log(weaponInfo);
   return (
@@ -92,21 +121,22 @@ const EquipmentCardFront = ({ formik, headerColorStyles, handleClick }) => {
       {/* Container */}
       <Box
         align='center'
-        bgcolor={colorLibrary.darkGrey}
-        borderColor={colorLibrary.darkGrey}
+        sx={{
+          borderColor: colorLibrary.darkGrey,
+          bgcolor: colorLibrary.darkGrey,
+          width: equipmentCardStyles.width,
+          height: equipmentCardStyles.height
+        }}
         border={equipmentCardStyles.border}
-        width={equipmentCardStyles.width}
-        height={equipmentCardStyles.height}
       >
-        {/* Styling Box */}
+        {/* Styling Box for secondary border*/}
         <Box
-          border={1}
-          borderColor={colorLibrary.grey}
-          borderBottom={1}
+          border={2}
+          borderColor={headerColors.borderAndTextColor}
           height='99%'
         > 
           <Box>
-            <EquipmentHeader formik={weaponInfo} headerColorStyles={headerColorStyles} />
+            <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
             <EquipmentStats formik={weaponInfo} />
             <Divider variant='middle' />
             <Divider variant='middle' /> 
@@ -129,11 +159,13 @@ const EquipmentCardBack = ({ formik, handleClick }) => {
       {/* Container */}
       <Box
         align='center'
-        bgcolor={colorLibrary.darkGrey}
-        borderColor={colorLibrary.darkGrey}
+        sx={{
+          borderColor: colorLibrary.grey2,
+          bgcolor: colorLibrary.darkGrey,
+          width: equipmentCardStyles.width,
+          height: equipmentCardStyles.height
+        }}
         border={equipmentCardStyles.border}
-        width={equipmentCardStyles.width}
-        height={equipmentCardStyles.height}
       >
         {/* Styling Box */}
         <Box
@@ -173,34 +205,8 @@ const ContactHeader = ({ formik }) => {
   )
 };
 
-const EquipmentHeader = ({ formik }) => {
+const EquipmentHeader = ({ formik, headerColors }) => {
   const weaponInfo = formik;
-  const [headerColors, setHeaderColors] = useState(headerColorStyles.common);
-  const handleEquipmentCardHeaderStyle = (rarity) => {
-    switch (rarity) {
-      case 'Common':
-        setHeaderColors(headerColorStyles.common);
-        break;
-      case 'Uncommon':
-        setHeaderColors(headerColorStyles.uncommon);
-        break;
-      case 'Rare':
-        setHeaderColors(headerColorStyles.rare);
-        break;
-      case 'Epic':
-        setHeaderColors(headerColorStyles.epic);
-        break;
-      case 'Legendary':
-        setHeaderColors(headerColorStyles.legendary);
-        break;
-      default:
-        setHeaderColors(headerColorStyles.common);
-        break;
-    };
-  };
-  useEffect(() => {
-    handleEquipmentCardHeaderStyle(weaponInfo.rarity);
-  }, [handleEquipmentCardHeaderStyle, weaponInfo]);
   return (
     <Box
       bgcolor={headerColors.backGroundColor}
