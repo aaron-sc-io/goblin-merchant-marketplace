@@ -30,7 +30,7 @@ const colorLibrary = {
 };
 
 const equipmentCardStyles = {
-  width: '275px',
+  width: '300px',
   height: '425px',
   border: 3
 };
@@ -222,24 +222,10 @@ const EquipmentHeader = ({ formik }) => {
 };
 
 const EquipmentStats = ({ formik }) => {
-  console.log('equipment stats', formik);
+  const equipmentStats = formik;
   const [rarityInteger, setRarityInteger] = useState(0);
   const weaponBaseStats = formik.weaponBaseStats;
   const weaponBonusStats = formik.weaponBonusStats;
-  const BonusStatTextLine = ({ bonusStatValue, bonusStatType }) => {
-    return (
-      <Typography component={'span'}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', color: colorLibrary.blu }}>
-          <circle align='left' fontSize='12px'>&#9900;</circle>  
-          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
-            + {bonusStatValue} {bonusStatType}
-          </Box>
-          <circle align='right'>&#9900;</circle>
-        </Box>
-          
-      </Typography>
-    );
-  };
   const handleSetRarity = (rarityString) => {
     switch (rarityString) {
       case 'Uncommon':
@@ -265,28 +251,52 @@ const EquipmentStats = ({ formik }) => {
     handleSetRarity(formik.rarity);
   }, [handleSetRarity]);
   return (
-    <Box
-      sx={{ py: 0.7 }}
-      color={colorLibrary.textGrey}
-    > 
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px' }}>
-          Weapon Damage {weaponBaseStats.weaponDmg}
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px' }}>
-          Move Speed {weaponBaseStats.weaponMoveSpd}
-        </Box>
-      </Typography>
+    <Box sx={{ py: 0.7 }} color={colorLibrary.textGrey}> 
+      {/* BASE STATS */}
+      <BaseStatTextLine 
+        baseStatType={equipmentStats.baseStats.statNames.statName1}
+        baseStatValue={equipmentStats.baseStats.statValues.statValue1}
+      />
+      <BaseStatTextLine 
+        baseStatType={equipmentStats.baseStats.statNames.statName2}
+        baseStatValue={equipmentStats.baseStats.statValues.statValue2}
+      />
+      <BaseStatTextLine 
+        baseStatType={equipmentStats.baseStats.statNames.statName3}
+        baseStatValue={equipmentStats.baseStats.statValues.statValue3}
+      />
+      <BaseStatTextLine 
+        baseStatType={equipmentStats.baseStats.statNames.statName4}
+        baseStatValue={equipmentStats.baseStats.statValues.statValue4}
+      />
+      {/* BONUS STATS */}
       <Box>
-        {rarityInteger > 0 ? <BonusStatTextLine bonusStatType={'Uncommon'} bonusStatValue={2}/> : null} 
-        {rarityInteger > 1 ? <BonusStatTextLine bonusStatType={'Rare'} bonusStatValue={2}/> : null} 
-        {rarityInteger > 2 ? <BonusStatTextLine bonusStatType={'Epic'} bonusStatValue={2}/> : null} 
-        {rarityInteger > 3 ? <BonusStatTextLine bonusStatType={'Legendary'} bonusStatValue={2}/> : null}
-        {rarityInteger > 4 ? <BonusStatTextLine bonusStatType={'Unique'} bonusStatValue={2}/> : null} 
-      </Box>
-      
+        {rarityInteger > 0 ? 
+          <BonusStatTextLine 
+            bonusStatType={equipmentStats.bonusStats.statNames.statName1}
+            bonusStatValue={equipmentStats.bonusStats.statValues.statValue1}/>
+        : null} 
+        {rarityInteger > 1 ? 
+          <BonusStatTextLine
+            bonusStatType={equipmentStats.bonusStats.statNames.statName2}
+            bonusStatValue={equipmentStats.bonusStats.statValues.statValue2}/> 
+        : null}
+        {rarityInteger > 2 ? 
+          <BonusStatTextLine 
+            bonusStatType={equipmentStats.bonusStats.statNames.statName3}
+            bonusStatValue={equipmentStats.bonusStats.statValues.statValue3}/>
+        : null} 
+        {rarityInteger > 3 ? 
+          <BonusStatTextLine
+            bonusStatType={equipmentStats.bonusStats.statNames.statName4}
+            bonusStatValue={equipmentStats.bonusStats.statValues.statValue4}/> 
+        : null} 
+        {rarityInteger > 4 ? 
+          <BonusStatTextLine 
+            bonusStatType={equipmentStats.bonusStats.statNames.statName5}
+            bonusStatValue={equipmentStats.bonusStats.statValues.statValue5}/>
+        : null}
+      </Box>  
     </Box>  
   );
 };
@@ -315,7 +325,7 @@ const EquipmentDescription = ({ formik }) => {
     <Box sx={{ py: 0.7 }}>
       <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.red }}>
-          Required Class:
+          Required Class: 
         </Box>
       </Typography>
       <Typography component={'span'}>
@@ -342,6 +352,49 @@ const EquipmentDescription = ({ formik }) => {
   );
 };
 
+const BonusStatTextLine = ({ bonusStatValue, bonusStatType }) => {
+  return (
+    <>
+      {(bonusStatValue || bonusStatType) ? 
+        <Typography component={'span'}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', color: colorLibrary.blu }}>
+          <Typography align='left' fontSize='12px'>
+            &#9900;
+          </Typography>  
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
+            + {bonusStatValue} {bonusStatType}
+          </Box>
+          <Typography align='right' fontSize='12px'>
+            &#9900;
+          </Typography>
+        </Box>
+      </Typography>
+      : null}
+    </>
+  );
+};
+
+const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
+  return (
+    <>
+      {(baseStatValue || baseStatType) ? 
+        <Typography component={'span'}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', color: colorLibrary.textGrey }}>
+          <Typography align='left' fontSize='12px'>
+            &#9900;
+          </Typography>  
+          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
+            {baseStatType} {baseStatValue}
+          </Box>
+          <Typography align='right' fontSize='12px'>
+            &#9900;
+          </Typography>
+        </Box>
+      </Typography>
+      : null}
+    </>
+  );
+};
 
 
 export default EquipmentCard;
