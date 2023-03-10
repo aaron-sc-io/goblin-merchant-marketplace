@@ -1,15 +1,7 @@
-import { useFormik } from 'formik';
 import { TextField, Grid, MenuItem, Box } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 
-const ItemForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      rarity: 'Uncommon',
-      category: 'Sword',
-      item: ''
-    }
-  });
+const ItemForm = ({ formik }) => {
   console.log('form', formik.values);
   return (
     <Grid container>

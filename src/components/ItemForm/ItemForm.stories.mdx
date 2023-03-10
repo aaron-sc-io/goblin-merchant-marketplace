@@ -1,10 +1,18 @@
-import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { useFormik } from 'formik';
 import ItemForm from './ItemForm';
 
 export const Template = (props) => {
+  const formik = useFormik({
+    initialValues: {
+      rarity: 'Uncommon',
+      category: 'Swords',
+      item: ''
+    }
+  });
   return (
     <>
-      <ItemForm />
+      <ItemForm formik={formik}/>
     </>
   )
 };
