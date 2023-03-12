@@ -9,7 +9,7 @@ const ItemForm = ({ formik }) => {
       <Grid container>
         <Grid item sm={6}>
           <ItemCategorySelector formik={formik} />
-          {/* <BaseStatSelector formik={formik} /> */}
+          <BaseStatSelector formik={formik} />
         </Grid>
         <Grid item sm={6}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -65,45 +65,45 @@ const ItemCategorySelector = ({ formik }) => {
     switch (category) {
       // define in global statics w/ enums(potentially)
       //method should be, setItemBaseStatDefaults(itemType)
-      case ('Swords'):
+      case ('Sword'):
         setItemList(swords);
         formik.setFieldValue('name', swords[0].value);
-        formik.setFieldValue('category', 'Swords');
+        formik.setFieldValue('category', 'Sword');
         break;
-      case 'Maces':
+      case 'Mace':
         setItemList(maces);
         formik.setFieldValue('name', maces[0].value);
-        formik.setFieldValue('category', 'Maces');
+        formik.setFieldValue('category', 'Mace');
         break;
-      case 'Daggers':
+      case 'Dagger':
         setItemList(daggers);
         formik.setFieldValue('name', daggers[0].value);
-        formik.setFieldValue('category', 'Daggers');
+        formik.setFieldValue('category', 'Dagger');
         break;
-      case 'Polearms':
+      case 'Polearm':
         setItemList(polearms);
         formik.setFieldValue('name', polearms[0].value);
-        formik.setFieldValue('category', 'Polearms');
+        formik.setFieldValue('category', 'Polearm');
         break;  
-      case 'Axes':
+      case 'Axe':
         setItemList(axes);
         formik.setFieldValue('name', axes[0].value);
-        formik.setFieldValue('category', 'Axes');
+        formik.setFieldValue('category', 'Axe');
         break;
-      case 'Bows':
+      case 'Bow':
         setItemList(bows);
         formik.setFieldValue('name', bows[0].value);
-        formik.setFieldValue('category', 'Bows');
+        formik.setFieldValue('category', 'Bow');
         break;
-      case 'Magical Weapons':
+      case 'Magical Weapon':
         setItemList(magicalWeapons);
         formik.setFieldValue('name', magicalWeapons[0].value);
-        formik.setFieldValue('category', 'Magical Weapons');
+        formik.setFieldValue('category', 'Magical Weapon');
         break;
-      case 'Shields':
+      case 'Shield':
         setItemList(shields);
         formik.setFieldValue('name', shields[0].value);
-        formik.setFieldValue('category', 'Shields');
+        formik.setFieldValue('category', 'Shield');
         break;
       case 'Jewelry':
         setItemList(jewelry);
@@ -394,8 +394,18 @@ const BonusStatSelector = ({ formik }) => {
   
 };
 
-// const BaseStatSelector = ({ formik }) => {
-// };
+const BaseStatSelector = ({ formik }) => {
+  const item = formik.values;
+  useEffect(() => {
+    console.log(item.name);
+    //handleSetDefaults(item.name);
+  }, [item.name])
+  return (
+    <>
+      ${item.name}
+    </>
+  )
+};
 
 ///////////////// ------- UTITILIES ------- /////////////////
 const itemClasses = [
@@ -408,35 +418,35 @@ const itemClasses = [
     label: 'All Items',
   },
   {
-    value: 'Swords',
+    value: 'Sword',
     label: 'Swords',
   },
   {
-    value: 'Maces',
+    value: 'Mace',
     label: 'Maces',
   },
   {
-    value: 'Daggers',
+    value: 'Dagger',
     label: 'Daggers',
   },
   {
-    value: 'Polearms',
+    value: 'Polearm',
     label: 'Polearms',
   },
   {
-    value: 'Axes',
+    value: 'Axe',
     label: 'Axes',
   },
   {
-    value: 'Bows',
+    value: 'Bow',
     label: 'Bows',
   },
   {
-    value: 'Magical Weapons',
+    value: 'Magical Weapon',
     label: 'Magical Weapons',
   },
   {
-    value: 'Shields',
+    value: 'Shield',
     label: 'Shields',
   },
   {
