@@ -5,11 +5,47 @@ import ItemForm from './ItemForm';
 export const Template = (props) => {
   const formik = useFormik({
     initialValues: {
-      rarity: 'Uncommon',
       category: 'Swords',
-      item: ''
+      name: 'Arming Sword',
+      rarity: 'Common',
+      slotType: 'Secondary Weapon',
+      handType: 'One-Handed',
+      baseStats: {
+        statNames: {
+          statName1: 'Weapon Damage',
+          statName2: 'Movement Speed',
+          statName3: '',
+          statName4: ''
+        },
+        statValues: {
+          statValue1: 20,
+          statValue2: -10,
+          statValue3: 0,
+          statValue4: 0
+        }
+      },
+      bonusStats: {
+        statNames: {
+          statName1: 'All Attributes',
+          statName2: 'Movement Speed',
+          statName3: '',
+          statName4: '',
+          statName5: ''
+        },
+        statValues: {
+          statValue1: 2,
+          statValue2: 2,
+          statValue3: 0,
+          statValue4: 0,
+          statValue5: 0
+        }
+      },
+    equipmentDescription: {
+      weaponSlotType: 'Secondary Weapon',
+      weaponHandType: 'One-Handed',
+      weaponDesc: 'Info'
     }
-  });
+  }});
   return (
     <>
       <ItemForm formik={formik}/>
