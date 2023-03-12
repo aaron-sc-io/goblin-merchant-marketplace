@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { useFormik } from 'formik';
 import ItemForm from './ItemForm';
+import { Button, Box } from '@mui/material'
 
 export const Template = (props) => {
   const formik = useFormik({
@@ -18,8 +19,8 @@ export const Template = (props) => {
           statName4: ''
         },
         statValues: {
-          statValue1: 20,
-          statValue2: -10,
+          statValue1: 0,
+          statValue2: 0,
           statValue3: 0,
           statValue4: 0
         }
@@ -46,8 +47,16 @@ export const Template = (props) => {
       weaponDesc: 'Info'
     }
   }});
+   const handleSubmitClick = () => {
+    alert('Submit confirm Modal');
+  };
   return (
-    <>
+    <> 
+      <Box pb={2}>
+        <Button onClick={handleSubmitClick}>
+        Submit
+        </Button>
+      </Box>
       <ItemForm formik={formik}/>
     </>
   )

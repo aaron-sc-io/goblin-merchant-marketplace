@@ -1,15 +1,12 @@
-import { TextField, Grid, MenuItem, Box, Button } from '@mui/material';
+import { TextField, Grid, MenuItem, Box,  } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 const ItemForm = ({ formik }) => {
   console.log('form', formik.values);
-  const handleSubmitClick = () => {
-    alert('Submit confirm Modal');
-  };
+ 
   return (
     <>
       <Grid container>
-
         <Grid item sm={6}>
           <ItemCategorySelector formik={formik} />
           {/* <BaseStatSelector formik={formik} /> */}
@@ -19,15 +16,7 @@ const ItemForm = ({ formik }) => {
             <RaritySelector formik={formik} />
             <BonusStatSelector formik={formik} />
           </Box>
-          
         </Grid>
-        
-        <Grid item sm={12}>
-          <Button onClick={handleSubmitClick}>
-            Submit
-          </Button>
-        </Grid>
-
       </Grid>
     </>
   );
