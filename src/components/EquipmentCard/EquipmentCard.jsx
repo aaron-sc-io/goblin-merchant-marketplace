@@ -313,7 +313,312 @@ const EquipmentDescription = ({ formik }) => {
   //   handType: 'One-Handed',
   //   weaponBlurb: 'Crafted with a fine blade narrowing to a sharp point. The hilts riveted design ensuring a firm grip.'
   // };
-
+  const armingsworddesc = {
+    weaponname: 'Arming Sword',
+    speedpenalty: '-20',
+    requiredClass: 'Fighter, Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: 'A thin blade with leather bindings, supporting a firm grip for hasty attacks that feel light to the hand.'
+  };
+  const falchiondesc = {
+    weaponname: 'Falchion',
+    speedpenalty: '-25',
+    requiredClass: 'Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: 'A curved iron blade and broad hilt, the curvature of the blade is foreign and enigmatic.'
+  };
+  const longsworddesc = {
+    weaponname: 'Longsword',
+    speedpenalty: '-40',
+    requiredClass: 'Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: 'A very long blade crafted from durable metal with a staunch hilt, heavy yet still feels nimble in your grasp.'
+  };
+  const rapierdesc = {
+    weaponname: 'Rapier',
+    speedpenalty: '-17',
+    requiredClass: 'Ranger, Rogue',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: 'A slender but sharp blade crafted with a protective hand guard. Effective at both cutting and thrusting.'
+  };
+  const shortsworddesc = {
+    weaponname: 'Short Sword',
+    speedpenalty: '-10',
+    requiredClass: 'Ranger, Rogue',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: "A short and broad blade melded to a fine point with a round pommel at it's base."   //single quote inside double quote to avoid error
+  };
+  const zweihanderdesc = {
+    weaponname: 'Zweihander',
+    speedpenalty: '-50',
+    requiredClass: 'Barbarian, Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Sword',
+    weaponBlurb: 'The sheer weight and length of this mighty double-edge blade can be felt pulling on you as you swing.'
+  };
+  const flangedmacedesc = {
+    weaponname: 'Flanged Mace',
+    speedpenalty: '-25',
+    requiredClass: 'Cleric, Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Mace',
+    weaponBlurb: 'A slow and heavy mace designed with crown-shaped blunt edges, supporting even reckless swings.'
+  };
+  const morningstardesc = {
+    weaponname: 'Morning Star',
+    speedpenalty: '-25',
+    requiredClass: 'Cleric',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Mace',
+    weaponBlurb: 'Heavy to the hand, the sharpened spikes of this morningstar are perfect for bludgeoning attacks.'
+  };
+  const quarterstaffdesc = {
+    weaponname: 'Quarterstaff',
+    speedpenalty: '-10',
+    requiredClass: 'Fighter, Cleric',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Mace',
+    weaponBlurb: '--'
+  };
+  const castillondaggerdesc = {
+    weaponname: 'Castillon Dagger',
+    speedpenalty: '-10',
+    requiredClass: 'Fighter, Rogue',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Dagger',
+    weaponBlurb: '--'
+  };
+  const krisdaggerdesc = {
+    weaponname: 'Kris Dagger',
+    speedpenalty: '-10',
+    requiredClass: 'Rogue',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Dagger',
+    weaponBlurb: '--'
+  };
+  const rondeldaggerdesc = {
+    weaponname: 'Rondel Dagger',
+    speedpenalty: '-10',
+    requiredClass: 'Rogue, Wizard',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Dagger',
+    weaponBlurb: '--'
+  };
+  const stilettodaggerdesc = {
+    weaponname: 'Stiletto Dagger',
+    speedpenalty: '-10',
+    requiredClass: 'Rogue',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Dagger',
+    weaponBlurb: '--'
+  };
+  const bardichedesc = {
+    weaponname: 'Bardiche',
+    speedpenalty: '-50',
+    requiredClass: 'Barbarian',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Polearm',
+    weaponBlurb: '--'
+  };
+  const halberddesc = {
+    weaponname: 'Halberd',
+    speedpenalty: '-50',
+    requiredClass: 'Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Polearm',
+    weaponBlurb: '--'
+  };
+  const speardesc = {
+    weaponname: 'Spear',
+    speedpenalty: '-40',
+    requiredClass: 'Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Polearm',
+    weaponBlurb: '--'
+  };
+  const battleaxedesc = {
+    weaponname: 'Battle Axe',
+    speedpenalty: '-45',
+    requiredClass: 'Barbarian, Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Axe',
+    weaponBlurb: '--'
+  };
+  const doubleaxedesc = {
+    weaponname: 'Double Axe',
+    speedpenalty: '-45',
+    requiredClass: 'Barbarian',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Axe',
+    weaponBlurb: '--'
+  };
+  const fellingaxedesc = {
+    weaponname: 'Felling Axe',
+    speedpenalty: '-40',
+    requiredClass: 'Barbarian',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Axe',
+    weaponBlurb: '--'
+  };
+  const hatchetdesc = {
+    weaponname: 'Hatchet',
+    speedpenalty: '-25',
+    requiredClass: 'Barbarian, Fighter',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Axe',
+    weaponBlurb: '--'
+  };
+  const horsemansaxedesc = {
+    weaponname: 'Horsemans Axe',
+    speedpenalty: '-30',
+    requiredClass: 'Barbarian, Fighter',
+    slotType: 'Primary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Axe',
+    weaponBlurb: '--'
+  };
+  const longbowdesc = {
+    weaponname: 'Longbow',
+    speedpenalty: '-50',
+    requiredClass: 'Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Bow',
+    weaponBlurb: '--'
+  };
+  const recurvebowdesc = {
+    weaponname: 'Recurve Bow',
+    speedpenalty: '-40',
+    requiredClass: 'Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Bow',
+    weaponBlurb: '--'
+  };
+  const survivalbowdesc = {
+    weaponname: 'Survival Bow',
+    speedpenalty: '-40',
+    requiredClass: 'Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Bow',
+    weaponBlurb: '--'
+  };
+  const crossbowdesc = {
+    weaponname: 'Crossbow',
+    speedpenalty: '-40',
+    requiredClass: 'Fighter, Ranger, Wizard',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Crossbow',
+    weaponBlurb: '--'
+  };
+  const windlasscrossbowdesc = {
+    weaponname: 'Windlass Crossbow',
+    speedpenalty: '-40',
+    requiredClass: 'Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Crossbow',
+    weaponBlurb: '--'
+  };
+  const crystalballdesc = {
+    weaponname: 'Crystal Ball',
+    speedpenalty: '-25',
+    requiredClass: 'Wizard',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Magical Weapon',
+    weaponBlurb: '--'
+  };
+  const crystalsworddesc = {
+    weaponname: 'Crystal Sword',
+    speedpenalty: '-30',
+    requiredClass: 'Wizard',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Magical Weapon',
+    weaponBlurb: '--'
+  };
+  const spellbookdesc = {
+    weaponname: 'Spellbook',
+    speedpenalty: '-10',
+    requiredClass: 'Cleric, Wizard',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Magical Weapon',
+    weaponBlurb: '--'
+  };
+  const wizardstaffdesc = {
+    weaponname: 'Wizard Staff',
+    speedpenalty: '-20',
+    requiredClass: 'Cleric, Wizard',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Magical Weapon',
+    weaponBlurb: '--'
+  };
+  const bucklerdesc = {
+    weaponname: 'Buckler',
+    speedpenalty: '-7',
+    requiredClass: 'Cleric, Fighter',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Shield',
+    weaponBlurb: '--'
+  };
+  const heatershielddesc = {
+    weaponname: 'Heater Shield',
+    speedpenalty: '-15',
+    requiredClass: 'Cleric, Fighter',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Shield',
+    weaponBlurb: '--'
+  };
+  const pavisedesc = {
+    weaponname: 'Pavise',
+    speedpenalty: '-65',
+    requiredClass: 'Fighter, Ranger',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    weapontype: 'Shield',
+    weaponBlurb: '--'
+  };
+  const roundshielddesc = {
+    weaponname: 'Round Shield',
+    speedpenalty: '-12',
+    requiredClass: 'Cleric, Fighter',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed',
+    weapontype: 'Shield',
+    weaponBlurb: '--'
+  };
   // let weaponDesc = {
   //   requiredClass: '',
   //   slotType: '',
