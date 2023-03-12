@@ -1,15 +1,19 @@
 import { TextField, Grid, MenuItem, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { Form } from 'formik';
 
 const ItemForm = ({ formik }) => {
   console.log('form', formik.values);
   return (
-    <Grid container>
-      <Grid item sm={12}>
+    <Grid sx={{ width: '900px' }} container>
+      <Grid item sm={6}>
+        <ItemCategorySelector formik={formik} />
+      </Grid>
+      <Grid item sm={6}>
         <RaritySelector formik={formik} />
       </Grid>
       <Grid item sm={12}>
-        <ItemClassSelector formik={formik} />
+        <BonusStatSelector formik={formik} statIndex={'1'} />
       </Grid>
     </Grid>
   );
@@ -20,80 +24,110 @@ const RaritySelector = ({ formik }) => {
     formik.setFieldValue('rarity', e.target.value);
   };
   return (
-    <Box width='300px' pb={2}>
+    <Box width='150px' pb={2}>
       <TextField
-          id="formik-textfield-rarity"
-          select
-          label="Rarity"
-          value={formik.values.rarity}
-          onChange={handleChange}
-          fullWidth
-          variant="outlined"
-        >
-          {rarities.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
+        id='formik-textfield-rarity'
+        select
+        label='Rarity'
+        value={formik.values.rarity}
+        onChange={handleChange}
+        fullWidth
+        variant='outlined'
+        InputLabelProps={{ shrink: true }}
+      >
+        {rarities.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
       </TextField>
     </Box>
   );
 };
 
-const ItemClassSelector = ({ formik }) => {
-  const [itemList, setItemList] = useState(allItems);
+const ItemCategorySelector = ({ formik }) => {
+  const [itemList, setItemList] = useState(swords);
+  const [itemCategory, setItemCategory] = useState('All Items')
   const handleCategoryChange = (e) => {
-    formik.setFieldValue('category', e.target.value);
+    console.log(e.target.value);
+    //formik.setFieldValue('category', e.target.value);
+    setItemCategory(e.target.value);
     handleItemListChange(e.target.value);
   };
   const handleItemChange = (e) => {
-    formik.setFieldValue('item', e.target.value);
+    formik.setFieldValue('name', e.target.value);
+    // handle item default value changes here
   };
   const handleItemListChange = (category) => {
     switch (category) {
       // define in global statics w/ enums(potentially)
-      case 'Swords':
+      //method should be, setItemBaseStatDefaults(itemType)
+      case ('Swords'):
         setItemList(swords);
+        formik.setFieldValue('name', swords[0].value);
+        formik.setFieldValue('category', 'Swords');
         break;
       case 'Maces':
         setItemList(maces);
+        formik.setFieldValue('name', maces[0].value);
+        formik.setFieldValue('category', 'Maces');
         break;
       case 'Daggers':
         setItemList(daggers);
+        formik.setFieldValue('name', daggers[0].value);
+        formik.setFieldValue('category', 'Daggers');
         break;
       case 'Polearms':
         setItemList(polearms);
+        formik.setFieldValue('name', polearms[0].value);
+        formik.setFieldValue('category', 'Polearms');
         break;  
       case 'Axes':
         setItemList(axes);
+        formik.setFieldValue('name', axes[0].value);
+        formik.setFieldValue('category', 'Axes');
         break;
       case 'Bows':
         setItemList(bows);
+        formik.setFieldValue('name', bows[0].value);
+        formik.setFieldValue('category', 'Bows');
         break;
       case 'Magical Weapons':
         setItemList(magicalWeapons);
+        formik.setFieldValue('name', magicalWeapons[0].value);
+        formik.setFieldValue('category', 'Magical Weapons');
         break;
       case 'Shields':
         setItemList(shields);
+        formik.setFieldValue('name', shields[0].value);
+        formik.setFieldValue('category', 'Shields');
         break;
       case 'Jewelry':
         setItemList(jewelry);
+        formik.setFieldValue('name', jewelry[0].value);
+        formik.setFieldValue('category', 'Jewelry');
+        break;
+      case 'All Items':
+        setItemList(allItems);
+        formik.setFieldValue('name', allItems[0].value);
         break;
       default:
         setItemList(allItems);
+        formik.setFieldValue('name', allItems[0].value);
     }
   };
   return (
     <Box sx={{display: 'flex', flexDirection: 'horizontal'}} >
-      <Box width='300px' pb={2} pr={2}>
+      <Box width='150px' pb={2} pr={2}>
         <TextField
-            id="formik-textfield-category"
+            id='formik-textfield-category'
             select
-            label="Item Category"
-            value={formik.values.category}
+            label='Item Category'
+            value={itemCategory}
             onChange={handleCategoryChange}
             fullWidth
-            variant="outlined"
+            variant='outlined'
+            InputLabelProps={{ shrink: true }}
           >
             {itemClasses.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -102,15 +136,16 @@ const ItemClassSelector = ({ formik }) => {
             ))}
         </TextField>
       </Box>
-      <Box width='300px' pb={2}>
+      <Box width='200px' pb={2}>
       <TextField
-          id="formik-textfield-item"
+          id='formik-textfield-item'
           select
-          label="Item"
-          value={formik.values.item}
+          label='Item'
+          value={formik.values.name}
           onChange={handleItemChange}
           fullWidth
-          variant="outlined"
+          variant='outlined'
+          InputLabelProps={{ shrink: true }}
         >
           {itemList.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -123,9 +158,248 @@ const ItemClassSelector = ({ formik }) => {
   );
 };
 
+const BonusStatSelector = ({ formik }) => {
+  const [rarityInteger, setRarityInteger] = useState(0);
+  const item = formik.values;
+  const handleSetRarity = (rarityString) => {
+    switch (rarityString) {
+      case 'Common':
+        setRarityInteger(0);
+        break;
+      case 'Uncommon':
+        setRarityInteger(1);
+        break;
+      case 'Rare':
+        setRarityInteger(2);
+        break;
+      case 'Epic':
+        setRarityInteger(3);
+        break;
+      case 'Legendary':
+        setRarityInteger(4);
+        break;
+      case 'Unique':
+        setRarityInteger(5);
+        break;
+      default:
+        setRarityInteger(0);
+    }
+  };
+  useEffect(() => {
+    handleSetRarity(item.rarity);
+  }, [handleSetRarity]);
+
+  const StatLine1 = ({ isDisabled }) => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '200px', pr: '10px' }} >
+          <TextField
+              id='formik-textfield-bonus-stat-type-1'
+              select
+              label='Enchantment 1'
+              value={item.bonusStats.statNames.statName1}
+              onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName1', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '100px' }}>
+        <TextField
+          id='formik-textfield-bonus-stat-value-1'
+          label='Value'
+          value={item.bonusStats.statNames.statValue1}
+          onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue1', e.target.value)}}
+          variant='outlined'
+          type='number'
+          disabled={isDisabled}
+          InputLabelProps={{ shrink: true }}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine2 = ({ isDisabled }) => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
+        <Box sx={{ width: '200px', pr: '10px' }} >
+          <TextField
+              id='formik-textfield-bonus-stat-type-2'
+              select
+              label='Enchantment 2'
+              value={item.bonusStats.statNames.statName2}
+              onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName2', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              InputLabelProps={{ shrink: true }}
+              disabled={isDisabled}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '100px' }}>
+        <TextField
+          id='formik-textfield-bonus-stat-value-2'
+          label='Value'
+          value={item.bonusStats.statNames.statValue2}
+          onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue2', e.target.value)}}
+          variant='outlined'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+          disabled={isDisabled}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine3 = ({ isDisabled }) => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
+        <Box sx={{ width: '200px', pr: '10px' }} >
+          <TextField
+              id='formik-textfield-bonus-stat-type-3'
+              select
+              label='Enchantment 3'
+              value={item.bonusStats.statNames.statName3}
+              onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName3', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              InputLabelProps={{ shrink: true }}
+              disabled={isDisabled}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '100px' }}>
+        <TextField
+          id='formik-textfield-bonus-stat-value-3'
+          label='Value'
+          value={item.bonusStats.statNames.statValue3}
+          onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue3', e.target.value)}}
+          variant='outlined'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+          disabled={isDisabled}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine4 = ({ isDisabled }) => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
+        <Box sx={{ width: '200px', pr: '10px' }} >
+          <TextField
+              id='formik-textfield-bonus-stat-type-4'
+              select
+              label='Enchantment 3'
+              value={item.bonusStats.statNames.statName4}
+              onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName4', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              InputLabelProps={{ shrink: true }}
+              disabled={isDisabled}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '100px' }}>
+        <TextField
+          id='formik-textfield-bonus-stat-value-4'
+          label='Value'
+          value={item.bonusStats.statNames.statValue4}
+          onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue4', e.target.value)}}
+          variant='outlined'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+          disabled={isDisabled}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine5 = ({ isDisabled }) => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
+        <Box sx={{ width: '200px', pr: '10px' }} >
+          <TextField
+              id='formik-textfield-bonus-stat-type-5'
+              select
+              label='Enchantment 5'
+              value={item.bonusStats.statNames.statName5}
+              onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName5', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              InputLabelProps={{ shrink: true }}
+              disabled={isDisabled}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '100px' }}>
+        <TextField
+          id='formik-textfield-bonus-stat-value-5'
+          label='Value'
+          value={item.bonusStats.statNames.statValue5}
+          onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue5', e.target.value)}}
+          variant='outlined'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+          disabled={isDisabled}
+        />
+      </Box>
+    </Box>
+    );
+  };
+
+  return (
+    <Box pt={2}>
+      <StatLine1 isDisabled={!(rarityInteger > 0)}/> 
+      <StatLine2 isDisabled={!(rarityInteger > 1)}/> 
+      <StatLine3 isDisabled={!(rarityInteger > 2)}/>
+      <StatLine4 isDisabled={!(rarityInteger > 3)}/> 
+      <StatLine5 isDisabled={!(rarityInteger > 4)}/> 
+    </Box>
+  );
+  
+};
+
+// const BaseStatSelector = ({ formik }) => {
+// };
 
 ///////////////// ------- UTITILIES ------- /////////////////
 const itemClasses = [
+  {
+    value: '',
+    label: ''
+  },
+  {
+    value: 'All Items',
+    label: 'All Items',
+  },
   {
     value: 'Swords',
     label: 'Swords',
@@ -166,28 +440,55 @@ const itemClasses = [
 
 const rarities = [
   {
+    value: 'Common',
+    label: 'Common'
+  },
+  {
     value: 'Uncommon',
-    label: 'Uncommon',
+    label: 'Uncommon'
   },
   {
     value: 'Rare',
-    label: 'Rare',
+    label: 'Rare'
   },
   {
     value: 'Epic',
-    label: 'Epic',
+    label: 'Epic'
   },
   {
     value: 'Legendary',
-    label: 'Legendary',
+    label: 'Legendary'
   },
   {
     value: 'Unique',
-    label: 'Unique',
+    label: 'Unique'
   }
 ];
 
-const statBonusTypes = [
+const bonusStatTypes = [
+  {
+    value: '',
+    label: ''
+  },
+  {
+    value: 'Attack Damage',
+    label: 'Attack Damage'
+  },
+  {
+    value: 'Armor',
+    label: 'Armor'
+  },
+  {
+    value: 'All Attributes',
+    label: 'All Attributes'
+  },
+  {
+    value: 'Movement Speed',
+    label: 'Movement Speed'
+  }
+];
+
+const baseStatTypes = [
   {
     value: 'Attack Damage',
     label: 'Attack Damage'
@@ -323,6 +624,7 @@ const bows = [
     label: 'Windlass Crossbow'
   }
 ];
+
 const magicalWeapons = [
   {
     value: 'Crystal Ball',
