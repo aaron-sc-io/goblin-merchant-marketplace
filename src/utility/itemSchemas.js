@@ -51,13 +51,52 @@ export const equipmentSchema =
 };
 
 export const itemSchemas = [
+  // {
+  //   category: '',
+  //   name: '',
+  //   rarity: 'Common',
+  //   slotType: 'Primary Weapon Secondary Weapon',
+  //   handType: 'One-Handed  Two-Handed', 
+  //   description: '',
+  //   requiredClass: [],
+  //   baseStats: {
+  //     statNames: {
+  //       statName1: 'Weapon Damage',
+  //       statName2: 'Movement Speed',
+  //       statName3: '',
+  //       statName4: ''
+  //     },
+  //     statValues: {
+  //       statValue1: 0,
+  //       statValue2: 0,  
+  //       statValue3: 0,
+  //       statValue4: 0
+  //     }
+  //   },
+  //   bonusStats: {
+  //     statNames: {
+  //       statName1: '',
+  //       statName2: '',
+  //       statName3: '',
+  //       statName4: '',
+  //       statName5: ''
+  //     },
+  //     statValues: {
+  //       statValue1: 0,
+  //       statValue2: 0,
+  //       statValue3: 0,
+  //       statValue4: 0,
+  //       statValue5: 0
+  //     }
+  //   }
+  // },
   {
     category: 'Sword',
     name: 'Arming Sword',
     rarity: 'Common',
     slotType: 'Primary Weapon',
     handType: 'Two-Handed',
-    description: '',
+    description: 'A thin blade with leather bindings, supporting a firm grip for hasty attacks that feel light to the hand.',
     requiredClass: ['Fighter'],
     baseStats: {
       statNames: {
@@ -91,13 +130,169 @@ export const itemSchemas = [
     }
   },
   {
-    category: '',
-    name: '',
+    category: 'Shield',
+    name: 'Round Shield',
     rarity: 'Common',
-    slotType: 'Primary Weapon Secondary Weapon',
-    handType: 'One-Handed  Two-Handed', 
-    description: '',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed', 
+    description: '--',
+    requiredClass: ['Cleric','Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',    //change to 'Armor Rating'?
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 26,
+        statValue2: -12,  //
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Shield',
+    name: 'Pavise',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Fighter','Ranger'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',     //change to 'Armor Rating'?
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 48,
+        statValue2: -65, 
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Shield',
+    name: 'Heater Shield',
+    rarity: 'Common',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed', 
+    description: '--',
     requiredClass: [],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',    //change to 'Armor Rating'?
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 30,
+        statValue2: -15,  
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Shield',
+    name: 'Buckler',
+    rarity: 'Common',
+    slotType: 'Secondary Weapon',
+    handType: 'One-Handed', 
+    description: '--',
+    requiredClass: ['Cleric','Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',      //change to 'Armor Rating'?
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 12,
+        statValue2: -7,  //
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Magical Weapon',
+    name: 'Wizard Staff',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Cleric','Wizard'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -106,8 +301,164 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
+        statValue1: 24,
+        statValue2: -20,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
         statValue1: 0,
-        statValue2: 0,  //
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Magical Weapon',
+    name: 'Spellbook',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Cleric','Wizard'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',     //no weapon damage
+        statName2: 'Movement Speed',
+        statName3: '',                   //magical damage?
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: -10, 
+        statValue3: 0,                   //magical damage for common = 3
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Magical Weapon',
+    name: 'Crystal Sword',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Wizard'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',
+        statName2: 'Movement Speed',
+        statName3: '',                  //magical weapon damage as a separate stat?
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 11,
+        statValue2: -30,  
+        statValue3: 0,                      //commone magical weapon damage would be 9
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Magical Weapon',
+    name: 'Crystal Ball',
+    rarity: 'Common',
+    slotType: 'Secondary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Wizard'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',           //no weapon damage
+        statName2: 'Movement Speed',
+        statName3: '',                        //add 'Magical Damage'? would = 3 for common
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: -25, 
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Bow',
+    name: 'Windlass Crossbow',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
+    description: '--',
+    requiredClass: ['Ranger'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 52,
+        statValue2: -40, 
         statValue3: 0,
         statValue4: 0
       }
@@ -145,8 +496,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -40,  //
+        statValue1: 46,
+        statValue2: -40, 
         statValue3: 0,
         statValue4: 0
       }
@@ -184,8 +535,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -30,  //
+        statValue1: 16,
+        statValue2: -30, 
         statValue3: 0,
         statValue4: 0
       }
@@ -211,8 +562,8 @@ export const itemSchemas = [
     category: 'Bow',
     name: 'Recurve Bow',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon', 
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Ranger'],
     baseStats: {
@@ -223,8 +574,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -40,  //
+        statValue1: 30,
+        statValue2: -40, 
         statValue3: 0,
         statValue4: 0
       }
@@ -250,8 +601,8 @@ export const itemSchemas = [
     category: 'Bow',
     name: 'Longbow',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon', 
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Ranger'],
     baseStats: {
@@ -262,8 +613,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -50,  //
+        statValue1: 37,
+        statValue2: -50,  
         statValue3: 0,
         statValue4: 0
       }
@@ -289,8 +640,8 @@ export const itemSchemas = [
     category: 'Axe',
     name: 'Horsemans Axe',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'One-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon', 
+    handType: 'One-Handed', 
     description: '--',
     requiredClass: ['Barbarian','Fighter'],
     baseStats: {
@@ -301,8 +652,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -30,  //
+        statValue1: 24,
+        statValue2: -30, 
         statValue3: 0,
         statValue4: 0
       }
@@ -328,8 +679,8 @@ export const itemSchemas = [
     category: 'Axe',
     name: 'Hatchet',
     rarity: 'Common',
-    slotType: 'Secondary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'One-Handed', //One-Handed  Two-Handed
+    slotType: 'Secondary Weapon', 
+    handType: 'One-Handed',
     description: '--',
     requiredClass: ['Barbarian','Fighter'],
     baseStats: {
@@ -340,8 +691,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -25,  //
+        statValue1: 20,
+        statValue2: -25,  
         statValue3: 0,
         statValue4: 0
       }
@@ -367,8 +718,8 @@ export const itemSchemas = [
     category: 'Axe',
     name: 'Felling Axe',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon', 
+    handType: 'Two-Handed', 
     description: '',
     requiredClass: ['Barbarian'],
     baseStats: {
@@ -379,8 +730,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -4,  //
+        statValue1: 40,
+        statValue2: -40,
         statValue3: 0,
         statValue4: 0
       }
@@ -406,8 +757,8 @@ export const itemSchemas = [
     category: 'Axe',
     name: 'Double Axe',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Barbarian'],
     baseStats: {
@@ -418,8 +769,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -45,  //
+        statValue1: 48,
+        statValue2: -45,  
         statValue3: 0,
         statValue4: 0
       }
@@ -445,8 +796,8 @@ export const itemSchemas = [
     category: 'Axe',
     name: 'Battle Axe',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Barbarian','Fighter'],
     baseStats: {
@@ -457,7 +808,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 42,
         statValue2: -45,  //
         statValue3: 0,
         statValue4: 0
@@ -484,8 +835,8 @@ export const itemSchemas = [
     category: 'Polearm',
     name: 'Spear',
     rarity: 'Common',
-    slotType: 'Primary Weapon', //Primary Weapon Secondary Weapon
-    handType: 'Two-Handed', //One-Handed  Two-Handed
+    slotType: 'Primary Weapon', 
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Fighter'],
     baseStats: {
@@ -496,8 +847,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -40,  //
+        statValue1: 35,
+        statValue2: -40,  
         statValue3: 0,
         statValue4: 0
       }
@@ -535,7 +886,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 44,
         statValue2: -50,
         statValue3: 0,
         statValue4: 0
@@ -574,8 +925,8 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
-        statValue2: -50,  //
+        statValue1: 46,
+        statValue2: -50,  
         statValue3: 0,
         statValue4: 0
       }
@@ -613,7 +964,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 20,
         statValue2: -10,
         statValue3: 0,
         statValue4: 0
@@ -652,7 +1003,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 19,
         statValue2: -10,
         statValue3: 0,
         statValue4: 0
@@ -691,7 +1042,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 19,
         statValue2: -10,
         statValue3: 0,
         statValue4: 0
@@ -730,8 +1081,47 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 21,
         statValue2: -10,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: 'Mace',
+    name: 'War Maul',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    description: '--',
+    requiredClass: ['Cleric','Barbarian'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 53,
+        statValue2: -25,
         statValue3: 0,
         statValue4: 0
       }
@@ -769,7 +1159,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 34,
         statValue2: -25,
         statValue3: 0,
         statValue4: 0
@@ -808,7 +1198,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 30,
         statValue2: -10,
         statValue3: 0,
         statValue4: 0
@@ -847,7 +1237,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 32,
         statValue2: -25,
         statValue3: 0,
         statValue4: 0
@@ -886,7 +1276,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 40,
         statValue2: -50,
         statValue3: 0,
         statValue4: 0
@@ -925,7 +1315,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 20,
         statValue2: -10,
         statValue3: 0,
         statValue4: 0
@@ -964,7 +1354,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 18,
         statValue2: -17,
         statValue3: 0,
         statValue4: 0
@@ -1042,7 +1432,7 @@ export const itemSchemas = [
         statName4: ''
       },
       statValues: {
-        statValue1: 34,
+        statValue1: 36,
         statValue2: -25,
         statValue3: 0,
         statValue4: 0
