@@ -1,76 +1,93 @@
-export const weaponSchema = {
-  weapon: null,
-  weaponType: null,
-  weaponMoveSpeedMod: null,
-  weaponBaseDmg: null,
-  rarity: null,
-  weaponSlot: null,
-  weaponBonusStats: {
-    statTypes: {
-      statType1: null,
-      statType2: null,
-      statType3: null,
-      statType4: null,
-      statType5: null
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 0003-item-schemas                                                                                                                         //
+//                                                                                                                                           //
+// Using the following 'equipmentSchema', create default objects with information for every item in Dark and Darker                          //
+// Below equipmentSchema is an example 'armingSwordSchema', with values filled out for the minimum viable Common (White) tier Arming Sword   //
+// armingSwordSchema isn't actually named, but will be referenced by the property 'name', so just copy the format of the object              //
+// also, you can leave description empty for now, but will need to be filled later                                                            //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    },
-    bonuses: {
-      statBonus1: null,
-      statBonus2: null,
-      statBonus3: null,
-      statBonus4: null,
-      statBonus5: null
-    }
-  }
-};
+// https://rankedboost.com/dark-and-darker/weapons-list/
 
 export const equipmentSchema = {
-  equipmentName: null,
-  equipmentType: null,
-  weaponMoveSpeedMod: null,
-  equipmentBaseDamage: null,
-  rarity: null,
-  weaponBonusStats: {
-    statTypes: {
-      statType1: null,
-      statType2: null,
-      statType3: null,
-      statType4: null,
-      statType5: null
-
+  category: '',
+  name: '',
+  rarity: '',
+  slotType: '',
+  handType: '',
+  description: '',
+  requiredClass: [],
+  baseStats: {
+    statNames: {
+      statName1: '',
+      statName2: '',
+      statName3: '',
+      statName4: ''
     },
-    bonuses: {
-      statBonus1: null,
-      statBonus2: null,
-      statBonus3: null,
-      statBonus4: null,
-      statBonus5: null
+    statValues: {
+      statValue1: 0,
+      statValue2: 0,
+      statValue3: 0,
+      statValue4: 0
+    }
+  },
+  bonusStats: {
+    statNames: {
+      statName1: '',
+      statName2: '',
+      statName3: '',
+      statName4: '',
+      statName5: ''
+    },
+    statValues: {
+      statValue1: 0,
+      statValue2: 0,
+      statValue3: 0,
+      statValue4: 0,
+      statValue5: 0
     }
   }
+  
 };
 
-export const jewelrySchema = {
-  jewelry: null,
-  jewelryType: null,
-  jewelryRarity: null,
-  jewelryBonusStats: {
-    statTypes: {
-      statType1: null,
-      statType2: null,
-      statType3: null,
-      statType4: null,
-      statType5: null
-
+export const itemSchemas = [
+  {
+    category: 'Sword',
+    name: 'Arming Sword',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    description: '',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 25,
+        statValue2: -10,
+        statValue3: 0,
+        statValue4: 0
+      }
     },
-    bonuses: {
-      statBonus1: null,
-      statBonus2: null,
-      statBonus3: null,
-      statBonus4: null,
-      statBonus5: null
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
     }
   }
-};
-
-// TODO const 
-// helmetSchema, gloveSchema, bootSchema, chestSchema, 
+];
