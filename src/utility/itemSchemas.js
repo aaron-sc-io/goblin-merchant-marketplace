@@ -8,8 +8,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // https://rankedboost.com/dark-and-darker/weapons-list/
-
-export const equipmentSchema = {
+//dalskfad;fl
+//fffffff
+export const equipmentSchema = 
+{
   category: '',
   name: '',
   rarity: '',
@@ -69,6 +71,45 @@ export const itemSchemas = [
       statValues: {
         statValue1: 25,
         statValue2: -10,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  {
+    category: '',
+    name: '',
+    rarity: '',
+    slotType: '',
+    handType: '',
+    description: '',
+    requiredClass: [],
+    baseStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
         statValue3: 0,
         statValue4: 0
       }
