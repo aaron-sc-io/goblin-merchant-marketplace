@@ -125,6 +125,7 @@ const ItemClassSelector = ({ formik }) => {
 
 
 ///////////////// ------- UTITILIES ------- /////////////////
+
 const itemClasses = [
   {
     value: 'Swords',
