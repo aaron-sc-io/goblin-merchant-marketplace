@@ -507,8 +507,8 @@ const bonusStatTypes = [
 
 const baseStatTypes = [
   {
-    value: 'Attack Damage',
-    label: 'Attack Damage'
+    value: 'Weapon Damage',
+    label: 'Weapon Damage'
   },
   {
     value: 'Armor',
