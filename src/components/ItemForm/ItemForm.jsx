@@ -1,21 +1,35 @@
-import { TextField, Grid, MenuItem, Box } from '@mui/material';
+import { TextField, Grid, MenuItem, Box, Button } from '@mui/material';
 import { useState, useEffect } from 'react';
-import { Form } from 'formik';
 
 const ItemForm = ({ formik }) => {
   console.log('form', formik.values);
+  const handleSubmitClick = () => {
+    alert('Submit confirm Modal');
+  };
   return (
-    <Grid sx={{ width: '900px' }} container>
-      <Grid item sm={6}>
-        <ItemCategorySelector formik={formik} />
+    <>
+      <Grid container>
+
+        <Grid item sm={6}>
+          <ItemCategorySelector formik={formik} />
+          {/* <BaseStatSelector formik={formik} /> */}
+        </Grid>
+        <Grid item sm={6}>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <RaritySelector formik={formik} />
+            <BonusStatSelector formik={formik} />
+          </Box>
+          
+        </Grid>
+        
+        <Grid item sm={12}>
+          <Button onClick={handleSubmitClick}>
+            Submit
+          </Button>
+        </Grid>
+
       </Grid>
-      <Grid item sm={6}>
-        <RaritySelector formik={formik} />
-      </Grid>
-      <Grid item sm={12}>
-        <BonusStatSelector formik={formik} statIndex={'1'} />
-      </Grid>
-    </Grid>
+    </>
   );
 };
 
@@ -46,11 +60,11 @@ const RaritySelector = ({ formik }) => {
 };
 
 const ItemCategorySelector = ({ formik }) => {
+
   const [itemList, setItemList] = useState(swords);
-  const [itemCategory, setItemCategory] = useState('All Items')
+  const [itemCategory, setItemCategory] = useState('All Items');
+
   const handleCategoryChange = (e) => {
-    console.log(e.target.value);
-    //formik.setFieldValue('category', e.target.value);
     setItemCategory(e.target.value);
     handleItemListChange(e.target.value);
   };
@@ -116,9 +130,10 @@ const ItemCategorySelector = ({ formik }) => {
         formik.setFieldValue('name', allItems[0].value);
     }
   };
+
   return (
     <Box sx={{display: 'flex', flexDirection: 'horizontal'}} >
-      <Box width='150px' pb={2} pr={2}>
+      <Box width='150px' pb={2} pr={1}>
         <TextField
             id='formik-textfield-category'
             select
@@ -136,7 +151,7 @@ const ItemCategorySelector = ({ formik }) => {
             ))}
         </TextField>
       </Box>
-      <Box width='200px' pb={2}>
+      <Box width='175px' pb={2}>
       <TextField
           id='formik-textfield-item'
           select
@@ -159,8 +174,10 @@ const ItemCategorySelector = ({ formik }) => {
 };
 
 const BonusStatSelector = ({ formik }) => {
+
   const [rarityInteger, setRarityInteger] = useState(0);
   const item = formik.values;
+
   const handleSetRarity = (rarityString) => {
     switch (rarityString) {
       case 'Common':
@@ -185,6 +202,7 @@ const BonusStatSelector = ({ formik }) => {
         setRarityInteger(0);
     }
   };
+
   useEffect(() => {
     handleSetRarity(item.rarity);
   }, [handleSetRarity]);
@@ -192,7 +210,7 @@ const BonusStatSelector = ({ formik }) => {
   const StatLine1 = ({ isDisabled }) => {
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
-        <Box sx={{ width: '200px', pr: '10px' }} >
+        <Box sx={{ width: '200px' }} pr={1}>
           <TextField
               id='formik-textfield-bonus-stat-type-1'
               select
@@ -215,7 +233,7 @@ const BonusStatSelector = ({ formik }) => {
         <TextField
           id='formik-textfield-bonus-stat-value-1'
           label='Value'
-          value={item.bonusStats.statNames.statValue1}
+          value={item.bonusStats.statValues.statValue1}
           onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue1', e.target.value)}}
           variant='outlined'
           type='number'
@@ -229,7 +247,7 @@ const BonusStatSelector = ({ formik }) => {
   const StatLine2 = ({ isDisabled }) => {
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
-        <Box sx={{ width: '200px', pr: '10px' }} >
+        <Box sx={{ width: '200px' }} pr={1} >
           <TextField
               id='formik-textfield-bonus-stat-type-2'
               select
@@ -252,7 +270,7 @@ const BonusStatSelector = ({ formik }) => {
         <TextField
           id='formik-textfield-bonus-stat-value-2'
           label='Value'
-          value={item.bonusStats.statNames.statValue2}
+          value={item.bonusStats.statValues.statValue2}
           onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue2', e.target.value)}}
           variant='outlined'
           type='number'
@@ -266,12 +284,12 @@ const BonusStatSelector = ({ formik }) => {
   const StatLine3 = ({ isDisabled }) => {
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
-        <Box sx={{ width: '200px', pr: '10px' }} >
+        <Box sx={{ width: '200px'}} pr={1} >
           <TextField
               id='formik-textfield-bonus-stat-type-3'
               select
               label='Enchantment 3'
-              value={item.bonusStats.statNames.statName3}
+              value={item.bonusStats.statValues.statName3}
               onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName3', e.target.value)}}
               fullWidth
               variant='outlined'
@@ -289,7 +307,7 @@ const BonusStatSelector = ({ formik }) => {
         <TextField
           id='formik-textfield-bonus-stat-value-3'
           label='Value'
-          value={item.bonusStats.statNames.statValue3}
+          value={item.bonusStats.statValues.statValue3}
           onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue3', e.target.value)}}
           variant='outlined'
           type='number'
@@ -303,7 +321,7 @@ const BonusStatSelector = ({ formik }) => {
   const StatLine4 = ({ isDisabled }) => {
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
-        <Box sx={{ width: '200px', pr: '10px' }} >
+        <Box sx={{ width: '200px'}} pr={1} >
           <TextField
               id='formik-textfield-bonus-stat-type-4'
               select
@@ -326,7 +344,7 @@ const BonusStatSelector = ({ formik }) => {
         <TextField
           id='formik-textfield-bonus-stat-value-4'
           label='Value'
-          value={item.bonusStats.statNames.statValue4}
+          value={item.bonusStats.statValues.statValue4}
           onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue4', e.target.value)}}
           variant='outlined'
           type='number'
@@ -340,7 +358,7 @@ const BonusStatSelector = ({ formik }) => {
   const StatLine5 = ({ isDisabled }) => {
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
-        <Box sx={{ width: '200px', pr: '10px' }} >
+        <Box sx={{ width: '200px' }} pr={1}>
           <TextField
               id='formik-textfield-bonus-stat-type-5'
               select
@@ -363,7 +381,7 @@ const BonusStatSelector = ({ formik }) => {
         <TextField
           id='formik-textfield-bonus-stat-value-5'
           label='Value'
-          value={item.bonusStats.statNames.statValue5}
+          value={item.bonusStats.statValues.statValue5}
           onChange={(e) => {formik.setFieldValue('bonusStats.statValues.statValue5', e.target.value)}}
           variant='outlined'
           type='number'
