@@ -1,7 +1,7 @@
 // HOOKS
 import { useState, useEffect } from 'react';
 // UTILITIES
-import ReactCardFlip from 'react-card-flip';
+// import ReactCardFlip from 'react-card-flip';
 
 // MUI CORE
 import { Button, Box, Typography, Divider } from '@mui/material';
