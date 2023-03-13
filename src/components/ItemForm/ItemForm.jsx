@@ -399,11 +399,163 @@ const BaseStatSelector = ({ formik }) => {
   useEffect(() => {
     console.log(item.name);
     //handleSetDefaults(item.name);
-  }, [item.name])
+  }, [item.name]);
+
+  const StatLine1 = () => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-1'
+              select
+              label='Base Stat 1'
+              value={item.baseStats.statNames.statName1}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName1', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              // disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+        <TextField
+          id='formik-textfield-base-stat-value-1'
+          label='Value'
+          value={item.baseStats.statValues.statValue1}
+          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue1', e.target.value)}}
+          variant='outlined'
+          type='number'
+          // disabled={isDisabled}
+          InputLabelProps={{ shrink: true }}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine2 = () => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-2'
+              select
+              label='Base Stat 2'
+              value={item.baseStats.statNames.statName2}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName2', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              // disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+        <TextField
+          id='formik-textfield-base-stat-value-2'
+          label='Value'
+          value={item.baseStats.statValues.statValue2}
+          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue2', e.target.value)}}
+          variant='outlined'
+          type='number'
+          // disabled={isDisabled}
+          InputLabelProps={{ shrink: true }}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine3 = () => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-3'
+              select
+              label='Base Stat 3'
+              value={item.baseStats.statNames.statName3}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName3', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              // disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+        <TextField
+          id='formik-textfield-base-stat-value-3'
+          label='Value'
+          value={item.baseStats.statValues.statValue3}
+          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue3', e.target.value)}}
+          variant='outlined'
+          type='number'
+          // disabled={isDisabled}
+          InputLabelProps={{ shrink: true }}
+        />
+      </Box>
+    </Box>
+    );
+  };
+  const StatLine4 = () => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-3'
+              select
+              label='Base Stat 4'
+              value={item.baseStats.statNames.statName3}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName4', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              // disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {bonusStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+        <TextField
+          id='formik-textfield-base-stat-value-4'
+          label='Value'
+          value={item.baseStats.statValues.statValue4}
+          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue4', e.target.value)}}
+          variant='outlined'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+        />
+      </Box>
+    </Box>
+    );
+  };
+
   return (
-    <>
-      ${item.name}
-    </>
+    <Box pt={2}>
+      <StatLine1 />
+      <StatLine2 />
+      <StatLine3 />
+      <StatLine4 />
+    </Box>
   )
 };
 
@@ -502,6 +654,10 @@ const bonusStatTypes = [
   {
     value: 'Movement Speed',
     label: 'Movement Speed'
+  },
+  {
+    value: 'Weapon Damage',
+    label: 'Weapon Damage'
   }
 ];
 
