@@ -217,7 +217,7 @@ const EquipmentHeader = ({ formik, headerColors }) => {
       <Box>
         <Typography component={'span'}>
           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
-            {weaponInfo.weaponName}
+            {weaponInfo.name}
           </Box>
         </Typography>
       </Box>
@@ -334,22 +334,22 @@ const EquipmentDescription = ({ formik }) => {
       </Typography>
       <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.red }}>
-          {weaponInfo.weaponType}
+          {weaponInfo.category}
         </Box>
       </Typography>
       <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Slot Type: {weaponInfo.weaponSlotType}
+          Slot Type: {weaponInfo.slotType}
         </Box>
       </Typography>
       <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Hand Type: {weaponInfo.weaponHandType}
+          Hand Type: {weaponInfo.handType}
         </Box>
       </Typography>
       <Typography component={'span'}>
         <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Weapon Type: {weaponInfo.weaponType}
+          Weapon Type: {weaponInfo.category}
         </Box>
       </Typography>
     </Box>
