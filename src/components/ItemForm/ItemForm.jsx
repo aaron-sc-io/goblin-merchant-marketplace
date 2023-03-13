@@ -1,9 +1,10 @@
 import { TextField, Grid, MenuItem, Box,  } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { itemSchemas } from '../../utility/itemSchemas';
+
+const defaultSchemas = itemSchemas;
 
 const ItemForm = ({ formik }) => {
-  console.log('form', formik.values);
- 
   return (
     <>
       <Grid container>
@@ -59,8 +60,8 @@ const ItemCategorySelector = ({ formik }) => {
   };
   const handleItemChange = (e) => {
     formik.setFieldValue('name', e.target.value);
-    // handle item default value changes here
   };
+
   const handleItemListChange = (category) => {
     switch (category) {
       // define in global statics w/ enums(potentially)
@@ -119,6 +120,18 @@ const ItemCategorySelector = ({ formik }) => {
         formik.setFieldValue('name', allItems[0].value);
     }
   };
+
+  useEffect(() => {
+    const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
+    formik.setFieldValue('baseStats.statNames.statName1', itemDefaultObject.baseStats.statNames.statName1);
+    formik.setFieldValue('baseStats.statValues.statValue1', itemDefaultObject.baseStats.statValues.statValue1);
+    formik.setFieldValue('baseStats.statNames.statName2', itemDefaultObject.baseStats.statNames.statName2);
+    formik.setFieldValue('baseStats.statValues.statValue2', itemDefaultObject.baseStats.statValues.statValue2);
+    formik.setFieldValue('baseStats.statNames.statName3', itemDefaultObject.baseStats.statNames.statName3);
+    formik.setFieldValue('baseStats.statValues.statValue3', itemDefaultObject.baseStats.statValues.statValue3);
+    formik.setFieldValue('baseStats.statNames.statName4', itemDefaultObject.baseStats.statNames.statName4);
+    formik.setFieldValue('baseStats.statValues.statValue4', itemDefaultObject.baseStats.statValues.statValue4);
+  }, [formik.values.name]);
 
   return (
     <Box sx={{display: 'flex', flexDirection: 'horizontal'}} >
@@ -397,7 +410,7 @@ const BonusStatSelector = ({ formik }) => {
 const BaseStatSelector = ({ formik }) => {
   const item = formik.values;
   useEffect(() => {
-    console.log(item.name);
+    // console.log(item.name);
     //handleSetDefaults(item.name);
   }, [item.name]);
 
@@ -637,7 +650,7 @@ const rarities = [
 const bonusStatTypes = [
   {
     value: '',
-    label: ''
+    label: 'No Stat'
   },
   {
     value: 'Attack Damage',
