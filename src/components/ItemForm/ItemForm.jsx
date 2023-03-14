@@ -190,7 +190,7 @@ const BaseStatSelector = ({ formik }) => {
   }, [item.name]);
 
   const StatLine1 = () => {
-    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -228,7 +228,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine2 = () => {
-    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
     console.log(isDisabled);
     console.log(item);
     return (
@@ -269,7 +269,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine3 = () => {
-    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -307,7 +307,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine4 = () => {
-    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -471,7 +471,7 @@ const BonusStatSelector = ({ formik }) => {
               id='formik-textfield-bonus-stat-type-3'
               select
               label='Enchantment 3'
-              value={item.bonusStats.statValues.statName3}
+              value={item.bonusStats.statNames.statName3}
               onChange={(e) => {formik.setFieldValue('bonusStats.statNames.statName3', e.target.value)}}
               fullWidth
               variant='outlined'
@@ -742,8 +742,8 @@ const daggers = [
     label: 'Kris Dagger'
   },
   {
-    value: 'Castillion Dagger',
-    label: 'Castillion Dagger'
+    value: 'Castillon Dagger',
+    label: 'Castillon Dagger'
   }
 ];
 
