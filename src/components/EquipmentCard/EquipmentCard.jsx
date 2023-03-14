@@ -113,6 +113,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
         > 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
+            <Typography sx={{ color: 'white', py: 3 }}> ITEM_IMAGE_PLACEHOLDER </Typography>
             <EquipmentStats formik={weaponInfo} />
             <Divider variant='middle' />
             <Divider variant='middle' /> 
@@ -160,27 +161,27 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
 //   );
 // };
 
-const ContactHeader = ({ formik }) => {
-  const weaponInfo = formik;
-  return (
-    <Box
-      bgcolor={colorLibrary.darkPurple}
-      color={colorLibrary.lightPurple}
-      borderBottom={1}
-      borderColor={colorLibrary.lightPurple}
-      width='100%'
-      pt={1}
-    >
-      <Box>
-        <Typography component={'span'}>
-          <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
-            {'Discord: {}'}
-          </Box>
-        </Typography>
-      </Box>
-    </Box>
-  )
-};
+// const ContactHeader = ({ formik }) => {
+//   const weaponInfo = formik;
+//   return (
+//     <Box
+//       bgcolor={colorLibrary.darkPurple}
+//       color={colorLibrary.lightPurple}
+//       borderBottom={1}
+//       borderColor={colorLibrary.lightPurple}
+//       width='100%'
+//       pt={1}
+//     >
+//       <Box>
+//         <Typography component={'span'}>
+//           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
+//             {'Discord: {}'}
+//           </Box>
+//         </Typography>
+//       </Box>
+//     </Box>
+//   )
+// };
 
 const EquipmentHeader = ({ formik, headerColors }) => {
   const weaponInfo = formik;
@@ -284,52 +285,42 @@ const EquipmentStats = ({ formik }) => {
 };
 
 const EquipmentDescription = ({ formik }) => {
-  const [weaponInfo, setWeaponInfo] = useState(formik);
-  // const daggerDesc = {
-  //   requiredClass: 'Rogue, Fighter',
-  //   slotType: 'Secondary Weapon',
-  //   handType: 'One-Handed',
-  //   weaponBlurb: 'Crafted with a fine blade narrowing to a sharp point. The hilts riveted design ensuring a firm grip.'
-  // };
-
-  // let weaponDesc = {
-  //   requiredClass: '',
-  //   slotType: '',
-  //   handType: '',
-  //   weaponBlurb: ''
-  // };
-
-  const handleSetDescription = (weaponInfo) => {
-    
-  };
+  const weaponInfo = formik;
 
   return (
     <Box sx={{ py: 0.7 }}>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.red }}>
-          Required Class: 
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.red }}>
+      <Box sx={{ textAlign: 'center' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          Required Class:&nbsp;
+        </Typography>
+        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          {weaponInfo.requiredClass}
+        </Typography>
+      </Box>
+      <Box sx={{ textAlign: 'center' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          Slot Type:&nbsp;
+        </Typography>
+        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          {weaponInfo.slotType}
+        </Typography>
+      </Box>
+      <Box sx={{ textAlign: 'center' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          Hand Type:&nbsp;
+        </Typography>
+        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          {weaponInfo.handType}
+        </Typography>
+      </Box>
+      <Box sx={{ textAlign: 'center' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          Weapon Type:&nbsp;
+        </Typography>
+        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.category}
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Slot Type: {weaponInfo.slotType}
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Hand Type: {weaponInfo.handType}
-        </Box>
-      </Typography>
-      <Typography component={'span'}>
-        <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '17px', color: colorLibrary.textGrey }}>
-          Weapon Type: {weaponInfo.category}
-        </Box>
-      </Typography>
+        </Typography>
+      </Box>
     </Box>
   );
 };
