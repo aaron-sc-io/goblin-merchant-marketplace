@@ -66,40 +66,7 @@ export const Template = (props) => {
         }
       }
   }});
-  const RaritySelector = ({ formik }) => {
-  const handleChange = (e) => {
-    formik.setFieldValue('rarity', e.target.value);
-  };
-  return (
-    <Box width='300px' pb={2}>
-      <TextField
-          id="formik-textfield-rarity"
-          select
-          label="Rarity"
-          value={formik.values.rarity}
-          onChange={handleChange}
-          fullWidth
-          variant="outlined"
-        >
-          {rarities.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-      </TextField>
-    </Box>
-  );
-};
-  return (
-    <Grid container>
-      <Grid item>
-        <EquipmentCard
-          formik={formik}
-        />
-      </Grid>
-      <RaritySelector formik={formik} />
-    </Grid>
-  )
+  return (<EquipmentCard formik={formik}/>);
 };
 
 <Meta
