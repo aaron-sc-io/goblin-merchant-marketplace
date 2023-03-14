@@ -1,4 +1,4 @@
-import { TextField, Grid, MenuItem, Box, Typography,  } from '@mui/material';
+import { TextField, Grid, MenuItem, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { itemSchemas } from '../../utility/itemSchemas';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
@@ -190,6 +190,7 @@ const BaseStatSelector = ({ formik }) => {
   }, [item.name]);
 
   const StatLine1 = () => {
+    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -201,7 +202,7 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName1', e.target.value)}}
               fullWidth
               variant='outlined'
-              // disabled={isDisabled}
+              disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
             >
               {baseStatTypes.map((option) => (
@@ -253,21 +254,22 @@ const BaseStatSelector = ({ formik }) => {
           </TextField>
         </Box>
         <Box sx={{ width: '75px' }}>
-        <TextField
-          id='formik-textfield-base-stat-value-2'
-          label='Value'
-          value={item.baseStats.statValues.statValue2}
-          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue2', e.target.value)}}
-          variant='outlined'
-          type='number'
-          disabled={isDisabled}
-          InputLabelProps={{ shrink: true }}
-        />
+          <TextField
+            id='formik-textfield-base-stat-value-2'
+            label='Value'
+            value={item.baseStats.statValues.statValue2}
+            onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue2', e.target.value)}}
+            variant='outlined'
+            type='number'
+            disabled={isDisabled}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Box>
       </Box>
-    </Box>
     );
   };
   const StatLine3 = () => {
+    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -279,7 +281,7 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName3', e.target.value)}}
               fullWidth
               variant='outlined'
-              // disabled={isDisabled}
+              disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
             >
               {baseStatTypes.map((option) => (
@@ -290,21 +292,22 @@ const BaseStatSelector = ({ formik }) => {
           </TextField>
         </Box>
         <Box sx={{ width: '75px' }}>
-        <TextField
-          id='formik-textfield-base-stat-value-3'
-          label='Value'
-          value={item.baseStats.statValues.statValue3}
-          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue3', e.target.value)}}
-          variant='outlined'
-          type='number'
-          // disabled={isDisabled}
-          InputLabelProps={{ shrink: true }}
-        />
+          <TextField
+            id='formik-textfield-base-stat-value-3'
+            label='Value'
+            value={item.baseStats.statValues.statValue3}
+            onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue3', e.target.value)}}
+            variant='outlined'
+            type='number'
+            disabled={isDisabled}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Box>
       </Box>
-    </Box>
     );
   };
   const StatLine4 = () => {
+    const isDisabled = item.slotType === ('Primary Weapon' || 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -316,7 +319,7 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName4', e.target.value)}}
               fullWidth
               variant='outlined'
-              // disabled={isDisabled}
+              disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
             >
               {baseStatTypes.map((option) => (
@@ -327,17 +330,18 @@ const BaseStatSelector = ({ formik }) => {
           </TextField>
         </Box>
         <Box sx={{ width: '75px' }}>
-        <TextField
-          id='formik-textfield-base-stat-value-4'
-          label='Value'
-          value={item.baseStats.statValues.statValue4}
-          onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue4', e.target.value)}}
-          variant='outlined'
-          type='number'
-          InputLabelProps={{ shrink: true }}
-        />
+          <TextField
+            id='formik-textfield-base-stat-value-4'
+            label='Value'
+            value={item.baseStats.statValues.statValue4}
+            onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue4', e.target.value)}}
+            variant='outlined'
+            type='number'
+            disabled={isDisabled}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Box>
       </Box>
-    </Box>
     );
   };
 
@@ -659,7 +663,7 @@ const rarities = [
     value: 'Epic',
     label:  <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <CropSquareIcon sx={{ color: colorLibrary.lightPurple }}/> 
-              &nbsp;Rare
+              &nbsp;Epic
             </Box>
   },
   {
