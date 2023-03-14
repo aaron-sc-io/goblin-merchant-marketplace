@@ -6,34 +6,7 @@ import { useState, useEffect } from 'react';
 // MUI CORE
 import { Button, Box, Typography, Divider } from '@mui/material';
 // MUI COLORS
-import { red, blue, purple, grey } from '@mui/material/colors';
-
-////////////////////////////////////////////////////////////////////////////
-
-const colorLibrary = {
-  blu: blue[500],
-  darkBlu: blue[900],
-  neonBlu: '#00e5ff',
-  red: red[500],
-  lightPurple: purple[300],
-  darkPurple: purple[900],
-  white: grey[50],
-  lightGrey: grey[200],
-  textGrey: grey[400],
-  grey: grey[500],
-  grey2: grey[600],
-  darkGrey: grey[800],
-  neonGreen: '#76ff03',
-  green: '#2e7d32',
-  amber: '#ffc107',
-  amberBrown: '#994d00'
-};
-
-const equipmentCardStyles = {
-  width: '300px',
-  minHeight: '100px',
-  border: 4
-};
+import { colorLibrary } from '../../utility/colors';
 
 const headerColorStyles = {
   common: {
@@ -110,7 +83,13 @@ const EquipmentCard = ({ formik }) => {
 
 const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
   const weaponInfo = formik.values;
-  console.log(weaponInfo);
+
+  const equipmentCardStyles = {
+    width: '300px',
+    minHeight: '100px',
+    border: 4
+  };
+
   return (
     <Button onClick={handleClick}>
       {/* Container */}
@@ -149,37 +128,37 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
   );
 };
 
-const EquipmentCardBack = ({ formik, headerColors, handleClick }) => {
-  const weaponInfo = formik.values;
-  return (
-    <Button onClick={handleClick}>
-      {/* Container */}
-      <Box
-        align='center'
-        sx={{
-          borderColor: colorLibrary.darkGrey,
-          bgcolor: colorLibrary.darkGrey,
-          width: equipmentCardStyles.width,
-          minHeight: equipmentCardStyles.minHeight,
-          maxHeight: (equipmentCardStyles.maxHeight+1)
-        }}
-        border={equipmentCardStyles.border}
-      >
-        {/* Styling Box for secondary border*/}
-        <Box
-          border={2}
-          borderColor={headerColors.borderAndTextColor}
-          minHeight={equipmentCardStyles.minHeight}
-          maxHeight={equipmentCardStyles.maxHeight}
-        > 
-          <Box>
-            <ContactHeader formik={weaponInfo} />
-          </Box>
-        </Box>
-      </Box>
-    </Button>
-  );
-};
+// const EquipmentCardBack = ({ formik, headerColors, handleClick }) => {
+//   const weaponInfo = formik.values;
+//   return (
+//     <Button onClick={handleClick}>
+//       {/* Container */}
+//       <Box
+//         align='center'
+//         sx={{
+//           borderColor: colorLibrary.darkGrey,
+//           bgcolor: colorLibrary.darkGrey,
+//           width: equipmentCardStyles.width,
+//           minHeight: equipmentCardStyles.minHeight,
+//           maxHeight: (equipmentCardStyles.maxHeight+1)
+//         }}
+//         border={equipmentCardStyles.border}
+//       >
+//         {/* Styling Box for secondary border*/}
+//         <Box
+//           border={2}
+//           borderColor={headerColors.borderAndTextColor}
+//           minHeight={equipmentCardStyles.minHeight}
+//           maxHeight={equipmentCardStyles.maxHeight}
+//         > 
+//           <Box>
+//             <ContactHeader formik={weaponInfo} />
+//           </Box>
+//         </Box>
+//       </Box>
+//     </Button>
+//   );
+// };
 
 const ContactHeader = ({ formik }) => {
   const weaponInfo = formik;
@@ -228,8 +207,7 @@ const EquipmentHeader = ({ formik, headerColors }) => {
 const EquipmentStats = ({ formik }) => {
   const equipmentStats = formik;
   const [rarityInteger, setRarityInteger] = useState(0);
-  const weaponBaseStats = formik.weaponBaseStats;
-  const weaponBonusStats = formik.weaponBonusStats;
+  
   const handleSetRarity = (rarityString) => {
     switch (rarityString) {
       case 'Uncommon':
