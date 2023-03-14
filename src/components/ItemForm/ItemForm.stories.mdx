@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { useFormik } from 'formik';
 import ItemForm from './ItemForm';
-import { Button, Box } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
 
 export const Template = (props) => {
@@ -52,7 +52,8 @@ export const Template = (props) => {
     <>
       <Box sx={{ display: 'flex', flexDirection: 'row', width: '1000px' }}>
         <ItemForm formik={formik}/>
-        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <Typography>ITEM PREVIEW</Typography>
           <EquipmentCard formik={formik} />
           <Button onClick={handleSubmitClick}>
             Submit
