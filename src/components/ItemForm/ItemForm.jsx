@@ -4,8 +4,6 @@ import { itemSchemas } from '../../utility/itemSchemas';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import { colorLibrary } from '../../utility/colors';
 
-const defaultSchemas = itemSchemas;
-
 const ItemForm = ({ formik }) => {
   return (
     <>
@@ -123,6 +121,10 @@ const ItemCategorySelector = ({ formik }) => {
     }
   };
 
+  const handleSetItemDefaults = (item) => {
+
+  };
+
   // handleSetDefaults
   useEffect(() => {
     const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
@@ -190,7 +192,7 @@ const BaseStatSelector = ({ formik }) => {
   }, [item.name]);
 
   const StatLine1 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -228,9 +230,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine2 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
-    console.log(isDisabled);
-    console.log(item);
+    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
         <Box sx={{ width: '250px' }} pr={1}>
@@ -269,7 +269,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine3 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -307,7 +307,7 @@ const BaseStatSelector = ({ formik }) => {
     );
   };
   const StatLine4 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon'||'Secondary Weapon');
+    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -387,7 +387,7 @@ const BonusStatSelector = ({ formik }) => {
 
   useEffect(() => {
     handleSetRarity(item.rarity);
-  }, [handleSetRarity]);
+  }, [item.rarity]);
 
   const StatLine1 = ({ isDisabled }) => {
     return (
