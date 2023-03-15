@@ -16,5 +16,6 @@ export const colorLibrary = {
   neonGreen: '#76ff03',
   green: '#2e7d32',
   amber: '#ffc107',
-  amberBrown: '#994d00'
+  amberBrown: '#994d00',
+  textBrown: '#AA9C8C'
 };
