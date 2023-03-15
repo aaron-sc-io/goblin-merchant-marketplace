@@ -1,18 +1,65 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { useFormik } from 'formik';
 import ItemForm from './ItemForm';
+import { Button, Box, Typography } from '@mui/material';
+import EquipmentCard from '../EquipmentCard/EquipmentCard';
 
 export const Template = (props) => {
   const formik = useFormik({
     initialValues: {
-      rarity: 'Uncommon',
       category: 'Swords',
-      item: ''
-    }
-  });
+      name: 'Arming Sword',
+      rarity: 'Common',
+      slotType: 'Secondary Weapon',
+      handType: 'One-Handed',
+      description: '',
+      requiredClass: ['Fighter'],
+      baseStats: {
+        statNames: {
+          statName1: 'Weapon Damage',
+          statName2: 'Movement Speed',
+          statName3: '',
+          statName4: ''
+        },
+        statValues: {
+          statValue1: 25,
+          statValue2: -10,
+          statValue3: 0,
+          statValue4: 0
+        }
+      },
+      bonusStats: {
+        statNames: {
+          statName1: '',
+          statName2: '',
+          statName3: '',
+          statName4: '',
+          statName5: ''
+        },
+        statValues: {
+          statValue1: 0,
+          statValue2: 0,
+          statValue3: 0,
+          statValue4: 0,
+          statValue5: 0
+        }
+      }
+  }});
+  const handleSubmitClick = () => {
+    alert('Submit confirm Modal');
+  };
   return (
     <>
-      <ItemForm formik={formik}/>
+      <Box sx={{ display: 'flex', flexDirection: 'row', width: '1000px' }}>
+        <ItemForm formik={formik}/>
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <Typography>ITEM PREVIEW</Typography>
+          <EquipmentCard formik={formik} />
+          <Button onClick={handleSubmitClick}>
+            Submit
+          </Button>
+        </Box>
+      </Box>
     </>
   )
 };
