@@ -206,6 +206,7 @@ const BaseStatSelector = ({ formik }) => {
               variant='outlined'
               disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -224,6 +225,7 @@ const BaseStatSelector = ({ formik }) => {
           type='number'
           // disabled={isDisabled}
           InputLabelProps={{ shrink: true }}
+          component={'span'}
         />
       </Box>
     </Box>
@@ -245,6 +247,7 @@ const BaseStatSelector = ({ formik }) => {
               disabled={isDisabled}
               helperText={isDisabled ? '' : <Box pb={2}/> }
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -263,6 +266,7 @@ const BaseStatSelector = ({ formik }) => {
             type='number'
             disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
+            component={'span'}
           />
         </Box>
       </Box>
@@ -283,6 +287,7 @@ const BaseStatSelector = ({ formik }) => {
               variant='outlined'
               disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -301,6 +306,7 @@ const BaseStatSelector = ({ formik }) => {
             type='number'
             disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
+            component={'span'}
           />
         </Box>
       </Box>
@@ -321,6 +327,7 @@ const BaseStatSelector = ({ formik }) => {
               variant='outlined'
               disabled={isDisabled}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -339,6 +346,7 @@ const BaseStatSelector = ({ formik }) => {
             type='number'
             disabled={isDisabled}
             InputLabelProps={{ shrink: true }}
+            component={'span'}
           />
         </Box>
       </Box>
