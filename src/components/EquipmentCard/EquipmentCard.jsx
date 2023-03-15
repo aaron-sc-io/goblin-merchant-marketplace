@@ -64,7 +64,7 @@ const EquipmentCard = ({ formik }) => {
 
   useEffect(() => {
     handleEquipmentCardHeaderStyle(formik.values.rarity);
-  }, [handleEquipmentCardHeaderStyle, formik.values.rarity]);
+  }, [formik.values.rarity]);
   
   return (
       <EquipmentCardFront
@@ -232,7 +232,7 @@ const EquipmentStats = ({ formik }) => {
   };
   useEffect(() => {
     handleSetRarity(formik.rarity);
-  }, [handleSetRarity]);
+  }, [formik.rarity]);
   return (
     <Box sx={{ py: 0.7 }} color={colorLibrary.textGrey}> 
       {/* BASE STATS */}
@@ -293,7 +293,7 @@ const EquipmentDescription = ({ formik }) => {
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           Required Class:&nbsp;
         </Typography>
-        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.requiredClass}
         </Typography>
       </Box>
@@ -301,7 +301,7 @@ const EquipmentDescription = ({ formik }) => {
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           Slot Type:&nbsp;
         </Typography>
-        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.slotType}
         </Typography>
       </Box>
@@ -309,7 +309,7 @@ const EquipmentDescription = ({ formik }) => {
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           Hand Type:&nbsp;
         </Typography>
-        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.handType}
         </Typography>
       </Box>
@@ -317,7 +317,7 @@ const EquipmentDescription = ({ formik }) => {
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           Weapon Type:&nbsp;
         </Typography>
-        <Typography component={'span'} sx={{ color: colorLibrary.red, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.category}
         </Typography>
       </Box>
@@ -327,7 +327,7 @@ const EquipmentDescription = ({ formik }) => {
 
 const BonusStatTextLine = ({ bonusStatValue, bonusStatType }) => {
   return (
-    <>
+    <Box>
       {(bonusStatValue || bonusStatType) ? 
         <Typography component={'span'}>
         <Box sx={{ display: 'flex', justifyContent: 'center', color: colorLibrary.blu }}>
@@ -343,7 +343,7 @@ const BonusStatTextLine = ({ bonusStatValue, bonusStatType }) => {
         </Box>
       </Typography>
       : null}
-    </>
+    </Box>
   );
 };
 
