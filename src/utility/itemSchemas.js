@@ -1483,5 +1483,46 @@ export const itemSchemas = [
       }
     }
   },
+
+  ////////////// JEWELRY
+  { // Ox Pendant
+    category: 'Jewelry',
+    name: 'Ox Pendant',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '',
+    requiredClass: ['All Class'],
+    baseStats: {
+      statNames: {
+        statName1: 'Strength',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
   
 ];
