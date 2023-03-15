@@ -91,7 +91,6 @@ export const equipmentSchema =
   // },
 
 export const itemSchemas = [
-
   // SWORDS
   { // Arming Sword
     category: 'Sword',

@@ -28,11 +28,13 @@ const rarities = [
 export const Template = (props) => {
   const formik = useFormik({
     initialValues: {
-      weaponType: 'Dagger',
-      weaponName: 'Example Dagger',
+      category: 'Dagger',
+      name: 'Example Dagger',
       rarity: 'Rare',
-      weaponSlotType: 'Secondary Weapon',
-      weaponHandType: 'One-Handed',
+      slotType: 'Secondary Weapon',
+      handType: 'One-Handed',
+      description: '',
+      requiredClass: [],
       baseStats: {
         statNames: {
           statName1: 'Weapon Damage',
@@ -62,47 +64,9 @@ export const Template = (props) => {
           statValue4: null,
           statValue5: null
         }
-      },
-    equipmentDescription: {
-      weaponSlotType: 'Secondary Weapon',
-      weaponHandType: 'One-Handed',
-      weaponDesc: 'Info'
-    }
+      }
   }});
-  const RaritySelector = ({ formik }) => {
-  const handleChange = (e) => {
-    formik.setFieldValue('rarity', e.target.value);
-  };
-  return (
-    <Box width='300px' pb={2}>
-      <TextField
-          id="formik-textfield-rarity"
-          select
-          label="Rarity"
-          value={formik.values.rarity}
-          onChange={handleChange}
-          fullWidth
-          variant="outlined"
-        >
-          {rarities.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-      </TextField>
-    </Box>
-  );
-};
-  return (
-    <Grid container>
-      <Grid item>
-        <EquipmentCard
-          formik={formik}
-        />
-      </Grid>
-      <RaritySelector formik={formik} />
-    </Grid>
-  )
+  return (<EquipmentCard formik={formik}/>);
 };
 
 <Meta
