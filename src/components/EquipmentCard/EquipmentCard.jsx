@@ -113,7 +113,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
         > 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
-            <Typography sx={{ color: 'white', py: 3 }}> ITEM_IMAGE_PLACEHOLDER </Typography>
+            <Typography sx={{ color: 'white', py: 3 }}> {weaponInfo.name}_IMG_TEMP </Typography>
             <EquipmentStats formik={weaponInfo} />
             <Divider variant='middle' />
             <Divider variant='middle' /> 
