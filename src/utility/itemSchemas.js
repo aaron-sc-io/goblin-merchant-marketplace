@@ -2019,7 +2019,7 @@ export const itemSchemas = [
       statValues: {
         statValue1: 20,
         statValue2: -8,
-        statValue3: 12',
+        statValue3: 12,
         statValue4: 4,
         statValue5: 15
       }
