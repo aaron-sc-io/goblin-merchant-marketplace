@@ -35,10 +35,8 @@ const headerColorStyles = {
   },
 };
 
-const EquipmentCard = ({ formik }) => {
-  const [isFlipped, setIsFlipped]= useState(false);
+const EquipmentCard = ({ formik, isDisabled, handleClick }) => {
   const [headerColors, setHeaderColors] = useState(headerColorStyles.common);
-  const handleClick = () => setIsFlipped(!isFlipped);
   const handleEquipmentCardHeaderStyle = (rarity) => {
     switch (rarity) {
       case 'Common':
@@ -69,9 +67,10 @@ const EquipmentCard = ({ formik }) => {
   return (
       <EquipmentCardFront
           formik={formik}
-          headerColorStyles={headerColorStyles}
+          //headerColorStyles={headerColorStyles}
           handleClick={handleClick}
           headerColors={headerColors}
+          isDisabled={isDisabled}
       />
       // <EquipmentCardBack
       //   formik={formik}
@@ -81,7 +80,7 @@ const EquipmentCard = ({ formik }) => {
   );
 };
 
-const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
+const EquipmentCardFront = ({ formik, headerColors, handleClick, isDisabled }) => {
   const weaponInfo = formik.values;
 
   const equipmentCardStyles = {
@@ -91,7 +90,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick }) => {
   };
 
   return (
-    <Button onClick={handleClick}>
+    <Button onClick={handleClick} disabled={isDisabled}>
       {/* Container */}
       <Box
         align='center'
@@ -286,7 +285,6 @@ const EquipmentStats = ({ formik }) => {
 
 const EquipmentDescription = ({ formik }) => {
   const weaponInfo = formik;
-
   return (
     <Box sx={{ py: 0.7 }}>
       <Box sx={{ textAlign: 'center' }}>
@@ -294,7 +292,7 @@ const EquipmentDescription = ({ formik }) => {
           Required Class:&nbsp;
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.requiredClass}
+          {weaponInfo.requiredClass.join(', ')}
         </Typography>
       </Box>
       <Box sx={{ textAlign: 'center' }}>

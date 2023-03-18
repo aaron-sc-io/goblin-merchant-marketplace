@@ -26,6 +26,7 @@ const rarities = [
 ];
 
 export const Template = (props) => {
+  const handleClick = () => alert('Directory');
   const formik = useFormik({
     initialValues: {
       category: 'Dagger',
@@ -66,7 +67,7 @@ export const Template = (props) => {
         }
       }
   }});
-  return (<EquipmentCard formik={formik}/>);
+  return (<EquipmentCard formik={formik} isDisabled={false} handleClick={handleClick}/>);
 };
 
 <Meta
