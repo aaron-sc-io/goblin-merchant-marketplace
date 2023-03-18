@@ -91,7 +91,6 @@ export const equipmentSchema =
   // },
 
 export const itemSchemas = [
-
   // SWORDS
   { // Arming Sword
     category: 'Sword',
@@ -498,14 +497,14 @@ export const itemSchemas = [
     requiredClass: ['Cleric','Fighter'],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',    //change to 'Armor Rating'?
+        statName1: 'Armor Rating',
         statName2: 'Movement Speed',
         statName3: '',
         statName4: ''
       },
       statValues: {
         statValue1: 26,
-        statValue2: -12,  //
+        statValue2: -12,  
         statValue3: 0,
         statValue4: 0
       }
@@ -537,7 +536,7 @@ export const itemSchemas = [
     requiredClass: ['Fighter','Ranger'],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',     //change to 'Armor Rating'?
+        statName1: 'Armor Rating',   
         statName2: 'Movement Speed',
         statName3: '',
         statName4: ''
@@ -576,7 +575,7 @@ export const itemSchemas = [
     requiredClass: [],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',    //change to 'Armor Rating'?
+        statName1: 'Armor Rating',   
         statName2: 'Movement Speed',
         statName3: '',
         statName4: ''
@@ -615,14 +614,14 @@ export const itemSchemas = [
     requiredClass: ['Cleric','Fighter'],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',      //change to 'Armor Rating'?
+        statName1: 'Armor Rating',
         statName2: 'Movement Speed',
         statName3: '',
         statName4: ''
       },
       statValues: {
         statValue1: 12,
-        statValue2: -7,  //
+        statValue2: -7,  
         statValue3: 0,
         statValue4: 0
       }
@@ -697,15 +696,15 @@ export const itemSchemas = [
     requiredClass: ['Cleric','Wizard'],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',     //no weapon damage
+        statName1: 'Magical Damage',    
         statName2: 'Movement Speed',
-        statName3: '',                   //magical damage?
+        statName3: '',             
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 3,
         statValue2: -10, 
-        statValue3: 0,                   //magical damage for common = 3
+        statValue3: 0,                
         statValue4: 0
       }
     },
@@ -738,13 +737,13 @@ export const itemSchemas = [
       statNames: {
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
-        statName3: '',                  //magical weapon damage as a separate stat?
+        statName3: 'Magical Weapon Damage',     
         statName4: ''
       },
       statValues: {
         statValue1: 11,
         statValue2: -30,  
-        statValue3: 0,                      //commone magical weapon damage would be 9
+        statValue3: 9,              
         statValue4: 0
       }
     },
@@ -775,13 +774,13 @@ export const itemSchemas = [
     requiredClass: ['Wizard'],
     baseStats: {
       statNames: {
-        statName1: 'Weapon Damage',           //no weapon damage
+        statName1: 'Magical Damage',  
         statName2: 'Movement Speed',
-        statName3: '',                        //add 'Magical Damage'? would = 3 for common
+        statName3: '',                     
         statName4: ''
       },
       statValues: {
-        statValue1: 0,
+        statValue1: 3,
         statValue2: -25, 
         statValue3: 0,
         statValue4: 0
@@ -890,8 +889,8 @@ export const itemSchemas = [
     category: 'Bow',
     name: 'Survival Bow',
     rarity: 'Common',
-    slotType: 'Primary Weapon Secondary Weapon',
-    handType: 'One-Handed  Two-Handed', 
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed', 
     description: '--',
     requiredClass: ['Ranger'],
     baseStats: {
@@ -1483,5 +1482,2125 @@ export const itemSchemas = [
       }
     }
   },
-  
+  //Jewelry
+  { // Rat Pendant
+    category: 'Jewelry',
+    name: 'Rat Pendant',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Resourcefulness',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Necklace of peace
+    category: 'Jewelry',
+    name: 'Necklace of Peace',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Knowledge',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Ox Pendant
+    category: 'Jewelry',
+    name: 'Ox Pendant',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Strength',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Badger Pendant
+    category: 'Jewelry',
+    name: 'Badger Pendant',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Will',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Fox Pendant
+    category: 'Jewelry',
+    name: 'Fox Pendant',
+    rarity: 'Uncommon',
+    slotType: 'Necklace',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Agility',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Ring of Survival
+    category: 'Jewelry',
+    name: 'Ring of Survival',
+    rarity: 'Uncommon',
+    slotType: 'Ring',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Resourcefulness',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Ring of Courage
+    category: 'Jewelry',
+    name: 'Ring of Courage',
+    rarity: 'Uncommon',
+    slotType: 'Ring',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Strength',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Ring of Resolve
+    category: 'Jewelry',
+    name: 'Ring of Resolve',
+    rarity: 'Uncommon',
+    slotType: 'Ring',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Will',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { // Ring of Quickness
+    category: 'Jewelry',
+    name: 'Ring of Quickness',
+    rarity: 'Uncommon',
+    slotType: 'Ring',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Agility',
+        statName2: '',
+        statName3: '',
+        statName4: ''
+      },
+      statValues: {
+        statValue1: 1,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  //Armor
+  //Helmets
+  { //Armet
+    category: 'Head',
+    name: 'Armet',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: 'Magic Resistance'
+      },
+      statValues: {
+        statValue1: 28,
+        statValue2: -12,
+        statValue3: 18,
+        statValue4: 7,
+        statValue5: -5
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Barbuta Helmet
+    category: 'Head',
+    name: 'Barbuta Helmet',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Barbarian'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 22,
+        statValue2: -10,
+        statValue3: 12,
+        statValue4: 4,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Chapel De Fer
+    category: 'Head',
+    name: 'Chapel De Fer',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 18,
+        statValue2: -8,
+        statValue3: 10,
+        statValue4: 10,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Chaperon
+    category: 'Head',
+    name: 'Chaperon',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Chaperon'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 6,
+        statValue2: -5,
+        statValue3: 5,
+        statValue4: 10,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Gjermundbu
+    category: 'Head',
+    name: 'Gjermundbu',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Barbarian'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: 'Magic Resistance'
+      },
+      statValues: {
+        statValue1: 20,
+        statValue2: -8,
+        statValue3: 12,
+        statValue4: 4,
+        statValue5: 15
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Kettle Hat
+    category: 'Head',
+    name: 'Kettle Hat',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: 'Magic Resistance'
+      },
+      statValues: {
+        statValue1: 18,
+        statValue2: -8,
+        statValue3: 10,
+        statValue4: 2,
+        statValue5: 10
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Leather Cap
+    category: 'Head',
+    name: 'Leather Cap',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 14,
+        statValue2: -5,
+        statValue3: 7,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Ranger Hood
+    category: 'Head',
+    name: 'Ranger Hood',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Ranger'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 12,
+        statValue2: -5,
+        statValue3: 4,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Rogue Cowl
+    category: 'Head',
+    name: 'Rogue Cowl',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Rogue'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 10,
+        statValue2: -5,
+        statValue3: 4,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Viking Helmet
+    category: 'Head',
+    name: 'Viking Helmet',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Barbarian'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: 'Magic Resistance'
+      },
+      statValues: {
+        statValue1: 22,
+        statValue2: -10,
+        statValue3: 12,
+        statValue4: 4,
+        statValue5: 10
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Visored Barbuta Helmet
+    category: 'Head',
+    name: 'Visored Barbuta Helmet',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Projectile Reduction',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 22,
+        statValue2: -10,
+        statValue3: 13,
+        statValue4: 6,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Wizard Hat
+    category: 'Head',
+    name: 'Wizard Hat',
+    rarity: 'Common',
+    slotType: 'Head',
+    handType: '',
+    description: '--',
+    requiredClass: ['Wizard'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 7,
+        statValue2: -5,
+        statValue3: 2.5,
+        statValue4: 5,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+//Chest
+  { //Dark Plate Armor
+    category: 'Chest',
+    name: 'Dark Plate Armor',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 52,
+        statValue2: -30,
+        statValue3: 12,
+        statValue4: 40,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Doublet
+    category: 'Chest',
+    name: 'Doublet',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Rogue','Ranger','Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 20,
+        statValue2: -8,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Fine Cuirass
+    category: 'Chest',
+    name: 'Fine Cuirass',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Headshot Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 65,
+        statValue2: -35,
+        statValue3: 12,
+        statValue4: -10,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Frock
+    category: 'Chest',
+    name: 'Frock',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Wizard','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 18,
+        statValue2: -5,
+        statValue3: 20,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Marauder Outfit
+    category: 'Chest',
+    name: 'Marauder Outfit',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Agility',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 32,
+        statValue2: -10,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Mystic Vestments
+    category: 'Chest',
+    name: 'Mystic Vestments',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Wizard','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Will',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 28,
+        statValue2: -5,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Northern Full Tunic
+    category: 'Chest',
+    name: 'Northern Full Tunic',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Barbarian'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 48,
+        statValue2: -15,
+        statValue3: 20,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Oracle Robe
+    category: 'Chest',
+    name: 'Oracle Robe',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Wizard','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Knowledge',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 24,
+        statValue2: -5,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Padded Tunic
+    category: 'Chest',
+    name: 'Padded Tunic',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 12,
+        statValue2: -5,
+        statValue3: 10,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Regal Gambeson
+    category: 'Chest',
+    name: 'Regal Gambeson',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 40,
+        statValue2: -15,
+        statValue3: 10,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Templar Armor
+    category: 'Chest',
+    name: 'Templar Armor',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 150,
+        statValue2: -20,
+        statValue3: 20,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Warden Outfit
+    category: 'Chest',
+    name: 'Warden Outfit',
+    rarity: 'Common',
+    slotType: 'Chest',
+    handType: '',
+    description: '--',
+    requiredClass: ['Chest'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Agility',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 35,
+        statValue2: -10,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  //Legs
+  { //Cloth Pants
+    category: 'Legs',
+    name: 'Cloth Pants',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 10,
+        statValue2: -5,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Heavy Leather Leggings
+    category: 'Legs',
+    name: 'Heavy Leather Leggings',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Strenth',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 22,
+        statValue2: -8,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Leather Leggings
+    category: 'Legs',
+    name: 'Leather Leggings',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 18,
+        statValue2: -5,
+        statValue3: 10,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Loose Trousers
+    category: 'Legs',
+    name: 'Cloth Pants',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 12,
+        statValue2: -5,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Padded Leggings
+    category: 'Legs',
+    name: 'Padded Leggings',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Will',
+        statName4: 'Knowledge',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 14,
+        statValue2: -5,
+        statValue3: 1,
+        statValue4: 1,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Plate Pants
+    category: 'Legs',
+    name: 'Plate Pants',
+    rarity: 'Common',
+    slotType: 'Legs',
+    handType: '',
+    description: '--',
+    requiredClass: ['FIghter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Projectile Reduction',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 30,
+        statValue2: -18,
+        statValue3: 9,
+        statValue4: -5,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  //Hands
+  { //Heavy Gauntlet
+    category: 'Hands',
+    name: 'Heavy Gauntlet',
+    rarity: 'Common',
+    slotType: 'Hands',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Projectile Reduciton',
+        statName4: 'Magic Resistance',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 15,
+        statValue2: -3,
+        statValue3: 4,
+        statValue4: -5,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Leather Gloves
+    category: 'Hands',
+    name: 'Leather Gloves',
+    rarity: 'Common',
+    slotType: 'Hands',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Agility',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 5,
+        statValue2: 1,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Rawhide Gloves
+    category: 'Hands',
+    name: 'Rawhide Gloves',
+    rarity: 'Common',
+    slotType: 'Hands',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Will',
+        statName3: 'Knowledge',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 5,
+        statValue2: 1,
+        statValue3: 1,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Reinforced Gloves
+    category: 'Hands',
+    name: 'Reinforced Gloves',
+    rarity: 'Common',
+    slotType: 'Hands',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Magic Resistance',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 8,
+        statValue2: 10,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Riveted Gloves
+    category: 'Hands',
+    name: 'Riveted Gloves',
+    rarity: 'Common',
+    slotType: 'Hands',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Strength',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 8,
+        statValue2: 1,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  //foot
+  { //Adventurer Boots
+    category: 'Foot',
+    name: 'Adventurer Boots',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 8,
+        statValue2: 5,
+        statValue3: 5,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Heavy Boots
+    category: 'Foot',
+    name: 'Heavy Boots',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 12,
+        statValue2: 5,
+        statValue3: 5,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Laced Turnshoe
+    category: 'Foot',
+    name: 'Laced Turnshoe',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 7,
+        statValue2: 3,
+        statValue3: 5,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Lightfoot Boots
+    category: 'Foot',
+    name: 'Lightfoot Boots',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 5,
+        statValue2: 8,   //lightfoot boots movement speed will depend on rarity
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Old Shoes
+    category: 'Foot',
+    name: 'Old Shoes',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 4,
+        statValue2: 3,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Plate Boots
+    category: 'Foot',
+    name: 'Plate Boots',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['Fighter','Cleric'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Projectile Reduction',
+        statName4: 'Magic Resistance',
+        statName5: 'Strength'
+      },
+      statValues: {
+        statValue1: 20,
+        statValue2: 2,
+        statValue3: 5,
+        statValue4: -5,
+        statValue5: 1
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Rugged Boots
+    category: 'Foot',
+    name: 'Rugged Boots',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['All Classes'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 8,
+        statValue2: 5,
+        statValue3: 10,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
+  { //Wizard Shoes
+    category: 'Foot',
+    name: 'Wizard Shoes',
+    rarity: 'Common',
+    slotType: 'Foot',
+    handType: '',
+    description: '--',
+    requiredClass: ['Wizard'],
+    baseStats: {
+      statNames: {
+        statName1: 'Armor Rating',
+        statName2: 'Movement Speed',
+        statName3: 'Magic Resistance',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 3,
+        statValue2: 5,
+        statValue3: 10,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  },
 ];
