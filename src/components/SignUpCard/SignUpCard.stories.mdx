@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import SignUpCard from './SignUpCard'
+
+export const Template = (props) => {
+  const handleClick = () => alert('Directory');
+  return (<SignUpCard />);
+};
+
+<Meta
+  title='Components/SignUpCard'
+  component={SignUpCard}
+/>
+
+# SignUpCard
+<Description of={SignUpCard}/>
+
+
+## Example
+<Canvas>
+  <Story name='SignUpCard'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'SignUpCard'} />
