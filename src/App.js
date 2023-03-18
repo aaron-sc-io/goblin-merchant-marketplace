@@ -1,9 +1,12 @@
-function App() {
+import { AuthProvider } from "./contexts/AuthContext";
+import LoginDemo from "./LoginDemo";
+
+const App = () => {
   return (
-    <>
-    Market and Marketer v1.1
-    </>
-  );
-}
+    <AuthProvider>
+      {/* <LoginDemo /> */}
+    </AuthProvider>
+  )
+};
 
 export default App;
