@@ -136,6 +136,8 @@ const ItemCategorySelector = ({ formik }) => {
     formik.setFieldValue('baseStats.statValues.statValue3', itemDefaultObject.baseStats.statValues.statValue3);
     formik.setFieldValue('baseStats.statNames.statName4', itemDefaultObject.baseStats.statNames.statName4);
     formik.setFieldValue('baseStats.statValues.statValue4', itemDefaultObject.baseStats.statValues.statValue4);
+    formik.setFieldValue('baseStats.statNames.statName5', itemDefaultObject.baseStats.statNames.statName5);
+    formik.setFieldValue('baseStats.statValues.statValue5', itemDefaultObject.baseStats.statValues.statValue5);
     formik.setFieldValue('description', itemDefaultObject.description);
     formik.setFieldValue('handType', itemDefaultObject.handType);
     formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass);
@@ -313,10 +315,10 @@ const BaseStatSelector = ({ formik }) => {
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
           <TextField
-              id='formik-textfield-base-stat-type-3'
+              id='formik-textfield-base-stat-type-4'
               select
               label='Base Stat 4'
-              value={item.baseStats.statNames.statName3}
+              value={item.baseStats.statNames.statName4}
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName4', e.target.value)}}
               fullWidth
               variant='outlined'
@@ -344,6 +346,44 @@ const BaseStatSelector = ({ formik }) => {
         </Box>
       </Box>
     );
+  }
+  const StatLine5 = () => {
+    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-5'
+              select
+              label='Base Stat 5'
+              value={item.baseStats.statNames.statName5}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName5', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              disabled={isDisabled}
+              InputLabelProps={{ shrink: true }}
+            >
+              {baseStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+          <TextField
+            id='formik-textfield-base-stat-value-5'
+            label='Value'
+            value={item.baseStats.statValues.statValue5}
+            onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue5', e.target.value)}}
+            variant='outlined'
+            type='number'
+            disabled={isDisabled}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Box>
+      </Box>
+    );
   };
 
   return (
@@ -352,6 +392,7 @@ const BaseStatSelector = ({ formik }) => {
       <StatLine2 />
       <StatLine3 />
       <StatLine4 />
+      <StatLine5 />
     </Box>
   )
 };
