@@ -140,6 +140,7 @@ const ItemCategorySelector = ({ formik }) => {
     formik.setFieldValue('handType', itemDefaultObject.handType);
     formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass);
     formik.setFieldValue('slotType', itemDefaultObject.slotType);
+    // setBaseStatsDisabled depending on switch
   }, [formik.values.name]);
 
   return (
@@ -894,24 +895,24 @@ const shields = [
 
 const jewelry = [
   {
+    value: 'Ox Pendant',
+    label: 'Ox Pendant'
+  },
+  {
     value: 'Rat Pendant',
     label: 'Rat Pendant'
   },
   {
-    value: 'Necklace of Peace',
-    label: 'Necklace of Peace'
-  },
-  {
-    value: 'Ox Pendant',
-    label: 'Ox Pendant'
+    value: 'Fox Pendant',
+    label: 'Fox Pendant'
   },
   {
     value: 'Badger Pendant',
     label: 'Badger Pendant'
   },
   {
-    value: 'Fox Pendant',
-    label: 'Fox Pendant'
+    value: 'Necklace of Peace',
+    label: 'Necklace of Peace'
   },
   {
     value: 'Ring of Survival',
