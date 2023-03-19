@@ -355,7 +355,7 @@ const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
             &#9900;
           </Typography>  
           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
-            {baseStatType} {baseStatValue}
+            {baseStatType}: {baseStatValue}
           </Box>
           <Typography align='right' fontSize='12px'>
             &#9900;
