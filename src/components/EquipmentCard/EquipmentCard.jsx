@@ -297,7 +297,7 @@ const EquipmentDescription = ({ formik }) => {
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          Slot Type:&nbsp;
+        {weaponInfo.slotType !== '' ? 'Slot Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.slotType}
@@ -305,7 +305,7 @@ const EquipmentDescription = ({ formik }) => {
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          Hand Type:&nbsp;
+          {weaponInfo.handType !== '' ? 'Hand Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.handType}
