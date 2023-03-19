@@ -413,7 +413,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'One-Handed',
     description: 'Heavy to the hand, the sharpened spikes of this morningstar are perfect for bludgeoning attacks.',
-    requiredClass: ['Cleric','FIghter'],
+    requiredClass: ['Cleric','Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -449,7 +449,7 @@ export const itemSchemas = [
     category: 'Mace',
     name: 'Quarterstaff',
     rarity: 'Common',
-    slotType: 'Primary Weapoin',
+    slotType: 'Primary Weapon',
     handType: 'Two-Handed',
     description: '--',
     requiredClass: ['Fighter', 'Cleric'],
@@ -1834,7 +1834,7 @@ export const itemSchemas = [
       }
     }
   },
-  //Armor
+  
   //Helmets
   { //Armet
     category: 'Head',
