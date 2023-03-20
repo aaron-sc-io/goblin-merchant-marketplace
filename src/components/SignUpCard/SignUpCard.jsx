@@ -1,10 +1,9 @@
-import { TextField, Box, Button, Card, Typography } from '@mui/material';
+import { TextField, Box, Button, Card, Typography, Divider } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useRef, useState } from 'react';
 
 
-
-
+// TODO Also add username/email login func
 const SignUpCard = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -36,7 +35,7 @@ const SignUpCard = () => {
 
 
   return(
-    <Card sx={{ width: '300px', height: '375px' }}>
+    <Card sx={{ width: '300px', minHeight: '450px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
         <Typography sx={{ fontSize: 40, mt: 1 }}> Sign Up </Typography>
         <TextField 
@@ -71,6 +70,11 @@ const SignUpCard = () => {
         >
           Sign Up
         </Button>
+        <Divider variant="middle" />
+        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 4 }}>
+          <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
+          <Button>Sign In</Button>
+        </Box>    
       </Box>
     </Card>
   );
