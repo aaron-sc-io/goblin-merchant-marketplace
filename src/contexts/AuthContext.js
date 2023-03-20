@@ -3,32 +3,34 @@ import { auth } from '../firebase-config';
 
 const AuthContext = React.createContext();
 
-export function useAuth() {
+export const useAuth = () => {
   return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
-    });
-
-    return unsubscribe;
-  }, []);
 
   const handleSignup = (email, password) => {
     return auth.createUserWithEmailAndPassword(email, password);
   };
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
+
   const value = {
     currentUser,
-    signUp
+    handleSignup
   }
 
   return (
-    <AuthContext.Provider value={value}>
-
+    <AuthContext.Provider 
+      value={value}
+    >
+      {children}
     </AuthContext.Provider>
   )
 }
