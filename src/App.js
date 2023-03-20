@@ -1,10 +1,10 @@
 import { AuthProvider } from "./contexts/AuthContext";
-import LoginDemo from "./LoginDemo";
+import SignUpCard from "./components/SignUpCard/SignUpCard";
 
 const App = () => {
   return (
     <AuthProvider>
-      {/* <LoginDemo /> */}
+      <SignUpCard />
     </AuthProvider>
   )
 };
