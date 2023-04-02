@@ -1,6 +1,7 @@
 import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 // TODO Also add username/email login func
@@ -11,8 +12,9 @@ const SignUpCard = () => {
   const [password, setPassword] = useState('');
   const [confirmpass, setConfirmPass] = useState('');
   const { handleSignup } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmitClick = async (e) => {
     e.preventDefault();
 
     if (password !== confirmpass) {
@@ -23,6 +25,7 @@ const SignUpCard = () => {
       setError('');
       setLoading(true);
       await handleSignup(username, password);
+      navigate('/');
     }
     catch (e) {
       setError('Failed to create an account.');
@@ -64,7 +67,7 @@ const SignUpCard = () => {
         <Button 
           variant='contained' 
           disabled={loading} 
-          onClick={handleSubmit}
+          onClick={handleSubmitClick}
           sx={{ width: '150px', pb: 1 }}
         >
           Sign Up

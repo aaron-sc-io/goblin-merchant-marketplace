@@ -1,6 +1,7 @@
 import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 // TODO Also add username/email login func
@@ -10,12 +11,14 @@ const SignInCard = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { handleSignin } = useAuth();
+  const navigate = useNavigate();
 
   const handleSignInSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
       await handleSignin(username, password);
+      navigate('/');
     } catch (e) {
       setError('Failed to sign in');
       // replace console logs with error switch display
