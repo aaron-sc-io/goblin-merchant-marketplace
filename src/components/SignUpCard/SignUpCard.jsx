@@ -1,34 +1,32 @@
-import { TextField, Box, Button, Card, Typography, Divider } from '@mui/material';
+import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 
 // TODO Also add username/email login func
 const SignUpCard = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { handleSignup } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-
-  console.log(error);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmpass, setConfirmPass] = useState('');
+  const { handleSignup } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (passwordRef.current.value !== 
-      passwordConfirmRef.current.value) {
-        return setError('Passwords do not match');
+    if (password !== confirmpass) {
+        return setError('Passwords do not match.');
     }
 
     try {
       setError('');
       setLoading(true);
-      await handleSignup(emailRef.current.value, passwordRef.current.value);
+      await handleSignup(username, password);
     }
     catch (e) {
-      setError('Failed to create an account');
+      setError('Failed to create an account.');
+      console.log(e);
     }
     setLoading(false);
   }
@@ -38,11 +36,12 @@ const SignUpCard = () => {
     <Card sx={{ width: '300px', minHeight: '450px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
         <Typography sx={{ fontSize: 40, mt: 1 }}> Sign Up </Typography>
+        {error && <Alert severity="error">{error}</Alert>}
         <TextField 
           id='email-address'
           label='Email Address'
           variant='filled'
-          ref={emailRef}
+          onChange={e => setUsername(e.target.value)}
           sx={{ width: '250px', pb: 2, mt: 2 }}
           />
         <TextField
@@ -50,7 +49,7 @@ const SignUpCard = () => {
           label='Password'
           type='password'
           variant='filled'
-          ref={passwordRef}
+          onChange={e => setPassword(e.target.value)}
           sx={{ width: '250px', pb: 2 }}
           />
         <TextField
@@ -59,7 +58,7 @@ const SignUpCard = () => {
           type='password'
           autoComplete='current-password'
           variant='filled'
-          ref={passwordConfirmRef}
+          onChange={e => setConfirmPass(e.target.value)}
           sx={{ width: '250px', pb: 2 }}
           />
         <Button 

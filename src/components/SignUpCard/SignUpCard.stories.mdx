@@ -1,8 +1,13 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { AuthProvider } from "../../contexts/AuthContext";
 import SignUpCard from './SignUpCard'
 
 export const Template = (props) => {
-  return (<SignUpCard />);
+  return (
+  <AuthProvider>
+    <SignUpCard />
+  </AuthProvider>
+  );
 };
 
 <Meta
