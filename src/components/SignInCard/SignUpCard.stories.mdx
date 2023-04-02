@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { AuthProvider } from "../../contexts/AuthContext";
+import SignInCard from './SignInCard'
+
+export const Template = (props) => {
+  return (
+  <AuthProvider>
+    <SignInCard />
+  </AuthProvider>
+  );
+};
+
+<Meta
+  title='Components/SignInCard'
+  component={SignInCard}
+/>
+
+# SignInCard
+<Description of={SignInCard}/>
+
+
+## Example
+<Canvas>
+  <Story name='SignInCard'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'SignInCard'} />
