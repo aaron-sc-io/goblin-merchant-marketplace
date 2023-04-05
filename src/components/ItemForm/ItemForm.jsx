@@ -111,6 +111,11 @@ const ItemCategorySelector = ({ formik }) => {
         formik.setFieldValue('name', jewelry[0].value);
         formik.setFieldValue('category', 'Jewelry');
         break;
+      case 'Helmet':
+        setItemList(helmets);
+        formik.setFieldValue('name', helmets[0].value);
+        formik.setFieldValue('category', 'Helmet');
+        break;
       case 'All Items':
         setItemList(allItems);
         formik.setFieldValue('name', allItems[0].value);
@@ -121,26 +126,36 @@ const ItemCategorySelector = ({ formik }) => {
     }
   };
 
-  const handleSetItemDefaults = (item) => {
-
+  const handleSetItemDefaults = () => {
+    const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
+    formik.setFieldValue('baseStats.statNames.statName1', itemDefaultObject.baseStats.statNames.statName1 ? itemDefaultObject.baseStats.statNames.statName1 : '');
+    formik.setFieldValue('baseStats.statValues.statValue1', itemDefaultObject.baseStats.statValues.statValue1 ? itemDefaultObject.baseStats.statValues.statValue1 : 0);
+    formik.setFieldValue('baseStats.statNames.statName2', itemDefaultObject.baseStats.statNames.statName2 ? itemDefaultObject.baseStats.statNames.statName2 : '');
+    formik.setFieldValue('baseStats.statValues.statValue2', itemDefaultObject.baseStats.statValues.statValue2 ? itemDefaultObject.baseStats.statValues.statValue2 : 0);
+    formik.setFieldValue('baseStats.statNames.statName3', itemDefaultObject.baseStats.statNames.statName3 ? itemDefaultObject.baseStats.statNames.statName3 : '');
+    formik.setFieldValue('baseStats.statValues.statValue3', itemDefaultObject.baseStats.statValues.statValue3 ? itemDefaultObject.baseStats.statValues.statValue3 : 0);
+    formik.setFieldValue('baseStats.statNames.statName4', itemDefaultObject.baseStats.statNames.statName4 ? itemDefaultObject.baseStats.statNames.statName4 : '');
+    formik.setFieldValue('baseStats.statValues.statValue4', itemDefaultObject.baseStats.statValues.statValue4 ? itemDefaultObject.baseStats.statValues.statValue4 : 0);
+    formik.setFieldValue('baseStats.statNames.statName5', itemDefaultObject.baseStats.statNames.statName5 ? itemDefaultObject.baseStats.statNames.statName5 : '');
+    formik.setFieldValue('baseStats.statValues.statValue5', itemDefaultObject.baseStats.statValues.statValue5 ? itemDefaultObject.baseStats.statValues.statValue5 : 0);
+    formik.setFieldValue('bonusStats.statNames.statName1', itemDefaultObject.bonusStats.statNames.statName1 ? itemDefaultObject.bonusStats.statNames.statName1 : '');
+    formik.setFieldValue('bonusStats.statValues.statValue1', itemDefaultObject.bonusStats.statValues.statValue1 ? itemDefaultObject.bonusStats.statValues.statValue1 : 0);
+    formik.setFieldValue('bonusStats.statNames.statName2', itemDefaultObject.bonusStats.statNames.statName2 ? itemDefaultObject.bonusStats.statNames.statName2 : '');
+    formik.setFieldValue('bonusStats.statValues.statValue2', itemDefaultObject.bonusStats.statValues.statValue2 ? itemDefaultObject.bonusStats.statValues.statValue2 : 0);
+    formik.setFieldValue('bonusStats.statNames.statName3', itemDefaultObject.bonusStats.statNames.statName3 ? itemDefaultObject.bonusStats.statNames.statName3 : '');
+    formik.setFieldValue('bonusStats.statValues.statValue3', itemDefaultObject.bonusStats.statValues.statValue3 ? itemDefaultObject.bonusStats.statValues.statValue3 : 0);
+    formik.setFieldValue('bonusStats.statNames.statName4', itemDefaultObject.bonusStats.statNames.statName4 ? itemDefaultObject.bonusStats.statNames.statName4 : '');
+    formik.setFieldValue('bonusStats.statValues.statValue4', itemDefaultObject.bonusStats.statValues.statValue4 ? itemDefaultObject.bonusStats.statValues.statValue4 : 0);
+    formik.setFieldValue('bonusStats.statNames.statName5', itemDefaultObject.bonusStats.statNames.statName5 ? itemDefaultObject.bonusStats.statNames.statName5 : '');
+    formik.setFieldValue('bonusStats.statValues.statValue5', itemDefaultObject.bonusStats.statValues.statValue5 ? itemDefaultObject.bonusStats.statValues.statValue5 : 0);
+    formik.setFieldValue('description', itemDefaultObject.description ? itemDefaultObject.description : '');
+    formik.setFieldValue('handType', itemDefaultObject.handType ? itemDefaultObject.handType : '');
+    formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass ? itemDefaultObject.requiredClass: '');
+    formik.setFieldValue('slotType', itemDefaultObject.slotType ? itemDefaultObject.slotType : '');
   };
 
-  // handleSetDefaults
   useEffect(() => {
-    const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
-    formik.setFieldValue('baseStats.statNames.statName1', itemDefaultObject.baseStats.statNames.statName1);
-    formik.setFieldValue('baseStats.statValues.statValue1', itemDefaultObject.baseStats.statValues.statValue1);
-    formik.setFieldValue('baseStats.statNames.statName2', itemDefaultObject.baseStats.statNames.statName2);
-    formik.setFieldValue('baseStats.statValues.statValue2', itemDefaultObject.baseStats.statValues.statValue2);
-    formik.setFieldValue('baseStats.statNames.statName3', itemDefaultObject.baseStats.statNames.statName3);
-    formik.setFieldValue('baseStats.statValues.statValue3', itemDefaultObject.baseStats.statValues.statValue3);
-    formik.setFieldValue('baseStats.statNames.statName4', itemDefaultObject.baseStats.statNames.statName4);
-    formik.setFieldValue('baseStats.statValues.statValue4', itemDefaultObject.baseStats.statValues.statValue4);
-    formik.setFieldValue('description', itemDefaultObject.description);
-    formik.setFieldValue('handType', itemDefaultObject.handType);
-    formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass);
-    formik.setFieldValue('slotType', itemDefaultObject.slotType);
-    // setBaseStatsDisabled depending on switch
+    handleSetItemDefaults();
   }, [formik.values.name]);
 
   return (
@@ -187,13 +202,11 @@ const ItemCategorySelector = ({ formik }) => {
 
 const BaseStatSelector = ({ formik }) => {
   const item = formik.values;
-  useEffect(() => {
-    // console.log(item.name);
-    //handleSetDefaults(item.name);
-  }, [item.name]);
+  console.log(item);
+
+  const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon' || item.slotType === 'Head');
 
   const StatLine1 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -205,8 +218,9 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName1', e.target.value)}}
               fullWidth
               variant='outlined'
-              disabled={isDisabled}
+              disabled={true}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -223,15 +237,15 @@ const BaseStatSelector = ({ formik }) => {
           onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue1', e.target.value)}}
           variant='outlined'
           type='number'
-          // disabled={isDisabled}
+          disabled={(item.baseStats.statNames.statName1 === '' || item.baseStats.statNames.statName1 === 'Movement Speed')}
           InputLabelProps={{ shrink: true }}
+          component={'span'}
         />
       </Box>
     </Box>
     );
   };
   const StatLine2 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2} >
         <Box sx={{ width: '250px' }} pr={1}>
@@ -243,9 +257,9 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName2', e.target.value)}}
               fullWidth
               variant='outlined'
-              disabled={isDisabled}
-              helperText={isDisabled ? '' : <Box pb={2}/> }
+              disabled={true}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -262,15 +276,15 @@ const BaseStatSelector = ({ formik }) => {
             onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue2', e.target.value)}}
             variant='outlined'
             type='number'
-            disabled={isDisabled}
+            disabled={(item.baseStats.statNames.statName2 === '' || item.baseStats.statNames.statName2 === 'Movement Speed')}
             InputLabelProps={{ shrink: true }}
+            component={'span'}
           />
         </Box>
       </Box>
     );
   };
   const StatLine3 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
@@ -282,8 +296,9 @@ const BaseStatSelector = ({ formik }) => {
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName3', e.target.value)}}
               fullWidth
               variant='outlined'
-              disabled={isDisabled}
+              disabled={true}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -300,28 +315,29 @@ const BaseStatSelector = ({ formik }) => {
             onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue3', e.target.value)}}
             variant='outlined'
             type='number'
-            disabled={isDisabled}
+            disabled={(item.baseStats.statNames.statName3 === '' || item.baseStats.statNames.statName3 === 'Movement Speed')}
             InputLabelProps={{ shrink: true }}
+            component={'span'}
           />
         </Box>
       </Box>
     );
   };
   const StatLine4 = () => {
-    const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon');
     return (
       <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
         <Box sx={{ width: '250px' }} pr={1}>
           <TextField
-              id='formik-textfield-base-stat-type-3'
+              id='formik-textfield-base-stat-type-4'
               select
               label='Base Stat 4'
-              value={item.baseStats.statNames.statName3}
+              value={item.baseStats.statNames.statName4}
               onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName4', e.target.value)}}
               fullWidth
               variant='outlined'
-              disabled={isDisabled}
+              disabled={true}
               InputLabelProps={{ shrink: true }}
+              component={'span'}
             >
               {baseStatTypes.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -338,7 +354,45 @@ const BaseStatSelector = ({ formik }) => {
             onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue4', e.target.value)}}
             variant='outlined'
             type='number'
-            disabled={isDisabled}
+            disabled={(item.baseStats.statNames.statName4 === '' || item.baseStats.statNames.statName4 === 'Movement Speed')}
+            InputLabelProps={{ shrink: true }}
+            component={'span'}
+          />
+        </Box>
+      </Box>
+    );
+  }
+  const StatLine5 = () => {
+    return (
+      <Box sx={{ display: 'flex', flexDirection: 'row' }} pb={2}>
+        <Box sx={{ width: '250px' }} pr={1}>
+          <TextField
+              id='formik-textfield-base-stat-type-5'
+              select
+              label='Base Stat 5'
+              value={item.baseStats.statNames.statName5}
+              onChange={(e) => {formik.setFieldValue('baseStats.statNames.statName5', e.target.value)}}
+              fullWidth
+              variant='outlined'
+              disabled={true}
+              InputLabelProps={{ shrink: true }}
+            >
+              {baseStatTypes.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </TextField>
+        </Box>
+        <Box sx={{ width: '75px' }}>
+          <TextField
+            id='formik-textfield-base-stat-value-5'
+            label='Value'
+            value={item.baseStats.statValues.statValue5}
+            onChange={(e) => {formik.setFieldValue('baseStats.statValues.statValue5', e.target.value)}}
+            variant='outlined'
+            type='number'
+            disabled={(item.baseStats.statNames.statName5 === '' || item.baseStats.statNames.statName5 === 'Movement Speed')}
             InputLabelProps={{ shrink: true }}
           />
         </Box>
@@ -352,6 +406,7 @@ const BaseStatSelector = ({ formik }) => {
       <StatLine2 />
       <StatLine3 />
       <StatLine4 />
+      <StatLine5 />
     </Box>
   )
 };
@@ -365,18 +420,33 @@ const BonusStatSelector = ({ formik }) => {
     switch (rarityString) {
       case 'Common':
         setRarityInteger(0);
+        formik.setFieldValue('bonusStats.statNames.statName1', '');
+        formik.setFieldValue('bonusStats.statNames.statName2', '');
+        formik.setFieldValue('bonusStats.statNames.statName3', '');
+        formik.setFieldValue('bonusStats.statNames.statName4', '');
+        formik.setFieldValue('bonusStats.statNames.statName5', '');
         break;
       case 'Uncommon':
         setRarityInteger(1);
+        formik.setFieldValue('bonusStats.statNames.statName2', '');
+        formik.setFieldValue('bonusStats.statNames.statName3', '');
+        formik.setFieldValue('bonusStats.statNames.statName4', '');
+        formik.setFieldValue('bonusStats.statNames.statName5', '');
         break;
       case 'Rare':
         setRarityInteger(2);
+        formik.setFieldValue('bonusStats.statNames.statName3', '');
+        formik.setFieldValue('bonusStats.statNames.statName4', '');
+        formik.setFieldValue('bonusStats.statNames.statName5', '');
         break;
       case 'Epic':
         setRarityInteger(3);
+        formik.setFieldValue('bonusStats.statNames.statName4', '');
+        formik.setFieldValue('bonusStats.statNames.statName5', '');
         break;
       case 'Legendary':
         setRarityInteger(4);
+        formik.setFieldValue('bonusStats.statNames.statName5', '');
         break;
       case 'Unique':
         setRarityInteger(5);
@@ -388,6 +458,11 @@ const BonusStatSelector = ({ formik }) => {
 
   useEffect(() => {
     handleSetRarity(item.rarity);
+    item.bonusStats.statNames.statName1 === '' && formik.setFieldValue('bonusStats.statValues.statValue1', 0);
+    item.bonusStats.statNames.statName2 === '' && formik.setFieldValue('bonusStats.statValues.statValue2', 0);
+    item.bonusStats.statNames.statName3 === '' && formik.setFieldValue('bonusStats.statValues.statValue3', 0);
+    item.bonusStats.statNames.statName4 === '' && formik.setFieldValue('bonusStats.statValues.statValue4', 0);
+    item.bonusStats.statNames.statName5 === '' && formik.setFieldValue('bonusStats.statValues.statValue5', 0);
   }, [item.rarity]);
 
   const StatLine1 = ({ isDisabled }) => {
@@ -591,6 +666,7 @@ const BonusStatSelector = ({ formik }) => {
 
 // MOVE TO itemFormUtilies.js and add imports to top
 ///////////////// ------- UTITILIES ------- /////////////////
+
 const itemClasses = [
   {
     value: '',
@@ -635,6 +711,10 @@ const itemClasses = [
   {
     value: 'Jewelry',
     label: 'Jewelry',
+  },
+  {
+    value: 'Helmet',
+    label: 'Helmets'
   }
 ];
 
@@ -693,8 +773,8 @@ const bonusStatTypes = [
     label: 'Attack Damage'
   },
   {
-    value: 'Armor',
-    label: 'Armor'
+    value: 'Armor Rating',
+    label: 'Armor Rating'
   },
   {
     value: 'All Attributes',
@@ -705,8 +785,36 @@ const bonusStatTypes = [
     label: 'Movement Speed'
   },
   {
-    value: 'Weapon Damage',
-    label: 'Weapon Damage'
+    value: 'Headshot Reduction',
+    label: 'Headshot Reduction'
+  },
+  {
+    value: 'Movement Speed',
+    label: 'Movement Speed'
+  },
+  {
+    value: 'Magic Resistance',
+    label: 'Magic Resistance'
+  },
+  {
+    value: 'Strength',
+    label: 'Strength'
+  },
+  {
+    value: 'Agility',
+    label: 'Agility'
+  },
+  {
+    value: 'Resourcefulness',
+    label: 'Resourcefulness'
+  },
+  {
+    value: 'Will',
+    label: 'Will'
+  },
+  {
+    value: 'Knowledge',
+    label: 'Knowledge'
   }
 ];
 
@@ -716,17 +824,57 @@ const baseStatTypes = [
     label: 'No Stat'
   },
   {
-    value: 'Weapon Damage',
-    label: 'Weapon Damage'
+    value: 'Attack Damage',
+    label: 'Attack Damage'
+  },
+  {
+    value: 'Armor Rating',
+    label: 'Armor Rating'
+  },
+  {
+    value: 'All Attributes',
+    label: 'All Attributes'
   },
   {
     value: 'Movement Speed',
     label: 'Movement Speed'
   },
   {
-    value: 'Armor',
-    label: 'Armor'
+    value: 'Headshot Reduction',
+    label: 'Headshot Reduction'
   },
+  {
+    value: 'Projectile Reduction',
+    label: 'Projectile Reduction'
+  },
+  {
+    value: 'Weapon Damage',
+    label: 'Weapon Damage'
+  },
+  {
+    value: 'Magic Resistance',
+    label: 'Magic Resistance'
+  },
+  {
+    value: 'Strength',
+    label: 'Strength'
+  },
+  {
+    value: 'Agility',
+    label: 'Agility'
+  },
+  {
+    value: 'Resourcefulness',
+    label: 'Resourcefulness'
+  },
+  {
+    value: 'Will',
+    label: 'Will'
+  },
+  {
+    value: 'Knowledge',
+    label: 'Knowledge'
+  }
 ];
 
 const daggers = [
@@ -931,6 +1079,59 @@ const jewelry = [
     label: 'Ring of Quickness'
   },
 ];
+
+const helmets = [
+  {
+    value: 'Armet',
+    label: 'Armet'
+  },
+  {
+    value: 'Barbuta Helmet',
+    label: 'Barbuta Helmet'
+  },
+  {
+    value: 'Gjermundbu',
+    label: 'Gjermundbu'
+  },
+  {
+    value: 'Viking Helmet',
+    label: 'Viking Helmet'
+  },
+  {
+    value: 'Visored Barbuta Helmet',
+    label: 'Visored Barbuta Helmet'
+  },
+  {
+    value: 'Kettle Hat',
+    label: 'Kettle Hat'
+  },
+  {
+    value: 'Leather Cap',
+    label: 'Leather Cap'
+  },
+  {
+    value: 'Ranger Hood',
+    label: 'Ranger Hood'
+  },
+  {
+    value: 'Rogue Cowl',
+    label: 'Rogue Cowl'
+  },
+  {
+    value: 'Chapel De Fer',
+    label: 'Chapel De Fer'
+  },
+  {
+    value: 'Chaperon',
+    label: 'Chaperon'
+  },
+  {
+    value: 'Wizard Hat',
+    label: 'Wizard Hat'
+  },
+
+
+]
 
 const allItems = [
   {

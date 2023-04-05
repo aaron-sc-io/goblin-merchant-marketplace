@@ -1,3 +1,4 @@
+
 export const weaponValues1 = {
   weaponType: 'Dagger',
       weaponName: 'Example Dagger',

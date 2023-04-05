@@ -7,7 +7,7 @@ import EquipmentCard from '../EquipmentCard/EquipmentCard';
 export const Template = (props) => {
   const formik = useFormik({
     initialValues: {
-      category: 'Swords',
+      category: 'Sword',
       name: 'Arming Sword',
       rarity: 'Common',
       slotType: 'Secondary Weapon',
@@ -19,13 +19,15 @@ export const Template = (props) => {
           statName1: 'Weapon Damage',
           statName2: 'Movement Speed',
           statName3: '',
-          statName4: ''
+          statName4: '',
+          statName5: ''
         },
         statValues: {
           statValue1: 25,
           statValue2: -10,
           statValue3: 0,
-          statValue4: 0
+          statValue4: 0,
+          statValue5: 0
         }
       },
       bonusStats: {

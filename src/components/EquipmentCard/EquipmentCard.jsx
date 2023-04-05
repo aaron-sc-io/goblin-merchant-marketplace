@@ -112,7 +112,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick, isDisabled }) =
         > 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
-            <Typography sx={{ color: 'white', py: 3 }}> ITEM_IMAGE_PLACEHOLDER </Typography>
+            <Typography sx={{ color: 'white', py: 3 }}> {weaponInfo.name}_IMG_TEMP </Typography>
             <EquipmentStats formik={weaponInfo} />
             <Divider variant='middle' />
             <Divider variant='middle' /> 
@@ -297,7 +297,7 @@ const EquipmentDescription = ({ formik }) => {
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          Slot Type:&nbsp;
+        {weaponInfo.slotType !== '' ? 'Slot Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.slotType}
@@ -305,7 +305,7 @@ const EquipmentDescription = ({ formik }) => {
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          Hand Type:&nbsp;
+          {weaponInfo.handType !== '' ? 'Hand Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           {weaponInfo.handType}
@@ -355,7 +355,7 @@ const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
             &#9900;
           </Typography>  
           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px', width: '85%', justifyContent: 'center' }}>
-            {baseStatType} {baseStatValue}
+            {baseStatType}: {baseStatValue}
           </Box>
           <Typography align='right' fontSize='12px'>
             &#9900;
