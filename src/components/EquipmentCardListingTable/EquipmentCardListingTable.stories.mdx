@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import EquipmentCardListingTable from './EquipmentCardListingTable';
+import { weaponValues1, weaponValues2, weaponValues3 } from './listingExamples';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase-config'
+import { useFormik } from 'formik';
+import { useEffect, useState } from 'react';
+
+export const Template = (props) => {
+  const [listings, setListings] = useState();
+  const listingsRef = collection(db, 'listings');
+  const getListings = async () => {
+    await getDocs(listingsRef).then((querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => ({...doc.data(), listingId: doc.id }));
+      setListings(data);
+    });
+  };
+  useEffect(() => {
+    getListings();
+  }, []);
+  return (
+    <>
+      <EquipmentCardListingTable listings={listings} />
+    </>
+  )
+};
+
+<Meta
+  title='Containers/EquipmentCardListingTable'
+  component={EquipmentCardListingTable}
+/>
+
+# EquipmentCardListingTable
+<Description of={EquipmentCardListingTable}/>
+
+
+## Example
+<Canvas>
+  <Story name='EquipmentCardListingTable'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'EquipmentCardListingTable'} />

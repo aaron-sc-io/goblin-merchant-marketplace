@@ -128,26 +128,8 @@ const ItemCategorySelector = ({ formik }) => {
 
   const handleSetItemDefaults = () => {
     const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
-    formik.setFieldValue('baseStats.statNames.statName1', itemDefaultObject.baseStats.statNames.statName1 ? itemDefaultObject.baseStats.statNames.statName1 : '');
-    formik.setFieldValue('baseStats.statValues.statValue1', itemDefaultObject.baseStats.statValues.statValue1 ? itemDefaultObject.baseStats.statValues.statValue1 : 0);
-    formik.setFieldValue('baseStats.statNames.statName2', itemDefaultObject.baseStats.statNames.statName2 ? itemDefaultObject.baseStats.statNames.statName2 : '');
-    formik.setFieldValue('baseStats.statValues.statValue2', itemDefaultObject.baseStats.statValues.statValue2 ? itemDefaultObject.baseStats.statValues.statValue2 : 0);
-    formik.setFieldValue('baseStats.statNames.statName3', itemDefaultObject.baseStats.statNames.statName3 ? itemDefaultObject.baseStats.statNames.statName3 : '');
-    formik.setFieldValue('baseStats.statValues.statValue3', itemDefaultObject.baseStats.statValues.statValue3 ? itemDefaultObject.baseStats.statValues.statValue3 : 0);
-    formik.setFieldValue('baseStats.statNames.statName4', itemDefaultObject.baseStats.statNames.statName4 ? itemDefaultObject.baseStats.statNames.statName4 : '');
-    formik.setFieldValue('baseStats.statValues.statValue4', itemDefaultObject.baseStats.statValues.statValue4 ? itemDefaultObject.baseStats.statValues.statValue4 : 0);
-    formik.setFieldValue('baseStats.statNames.statName5', itemDefaultObject.baseStats.statNames.statName5 ? itemDefaultObject.baseStats.statNames.statName5 : '');
-    formik.setFieldValue('baseStats.statValues.statValue5', itemDefaultObject.baseStats.statValues.statValue5 ? itemDefaultObject.baseStats.statValues.statValue5 : 0);
-    formik.setFieldValue('bonusStats.statNames.statName1', itemDefaultObject.bonusStats.statNames.statName1 ? itemDefaultObject.bonusStats.statNames.statName1 : '');
-    formik.setFieldValue('bonusStats.statValues.statValue1', itemDefaultObject.bonusStats.statValues.statValue1 ? itemDefaultObject.bonusStats.statValues.statValue1 : 0);
-    formik.setFieldValue('bonusStats.statNames.statName2', itemDefaultObject.bonusStats.statNames.statName2 ? itemDefaultObject.bonusStats.statNames.statName2 : '');
-    formik.setFieldValue('bonusStats.statValues.statValue2', itemDefaultObject.bonusStats.statValues.statValue2 ? itemDefaultObject.bonusStats.statValues.statValue2 : 0);
-    formik.setFieldValue('bonusStats.statNames.statName3', itemDefaultObject.bonusStats.statNames.statName3 ? itemDefaultObject.bonusStats.statNames.statName3 : '');
-    formik.setFieldValue('bonusStats.statValues.statValue3', itemDefaultObject.bonusStats.statValues.statValue3 ? itemDefaultObject.bonusStats.statValues.statValue3 : 0);
-    formik.setFieldValue('bonusStats.statNames.statName4', itemDefaultObject.bonusStats.statNames.statName4 ? itemDefaultObject.bonusStats.statNames.statName4 : '');
-    formik.setFieldValue('bonusStats.statValues.statValue4', itemDefaultObject.bonusStats.statValues.statValue4 ? itemDefaultObject.bonusStats.statValues.statValue4 : 0);
-    formik.setFieldValue('bonusStats.statNames.statName5', itemDefaultObject.bonusStats.statNames.statName5 ? itemDefaultObject.bonusStats.statNames.statName5 : '');
-    formik.setFieldValue('bonusStats.statValues.statValue5', itemDefaultObject.bonusStats.statValues.statValue5 ? itemDefaultObject.bonusStats.statValues.statValue5 : 0);
+    formik.setFieldValue('baseStats.statValues', itemDefaultObject.baseStats.statValues && itemDefaultObject.baseStats.statValues);
+    formik.setFieldValue('bonusStats.statValues', itemDefaultObject.bonusStats.statValues && itemDefaultObject.bonusStats.statValues);
     formik.setFieldValue('description', itemDefaultObject.description ? itemDefaultObject.description : '');
     formik.setFieldValue('handType', itemDefaultObject.handType ? itemDefaultObject.handType : '');
     formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass ? itemDefaultObject.requiredClass: '');
@@ -202,7 +184,6 @@ const ItemCategorySelector = ({ formik }) => {
 
 const BaseStatSelector = ({ formik }) => {
   const item = formik.values;
-  console.log(item);
 
   const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon' || item.slotType === 'Head');
 

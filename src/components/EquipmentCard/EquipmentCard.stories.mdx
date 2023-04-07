@@ -67,7 +67,7 @@ export const Template = (props) => {
         }
       }
   }});
-  return (<EquipmentCard formik={formik} isDisabled={false} handleClick={handleClick}/>);
+  return (<EquipmentCard data={formik.values} isDisabled={false} handleClick={handleClick}/>);
 };
 
 <Meta

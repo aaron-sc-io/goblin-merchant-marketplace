@@ -35,7 +35,9 @@ const headerColorStyles = {
   },
 };
 
-const EquipmentCard = ({ formik, isDisabled, handleClick }) => {
+
+// TODO LOADING animation when form and table are loading
+const EquipmentCard = ({ data, isDisabled, handleClick }) => {
   const [headerColors, setHeaderColors] = useState(headerColorStyles.common);
   const handleEquipmentCardHeaderStyle = (rarity) => {
     switch (rarity) {
@@ -61,12 +63,12 @@ const EquipmentCard = ({ formik, isDisabled, handleClick }) => {
   };
 
   useEffect(() => {
-    handleEquipmentCardHeaderStyle(formik.values.rarity);
-  }, [formik.values.rarity]);
-  
+    handleEquipmentCardHeaderStyle(data.rarity);
+  }, [data.rarity]);
+
   return (
       <EquipmentCardFront
-          formik={formik}
+          data={data}
           //headerColorStyles={headerColorStyles}
           handleClick={handleClick}
           headerColors={headerColors}
@@ -80,9 +82,7 @@ const EquipmentCard = ({ formik, isDisabled, handleClick }) => {
   );
 };
 
-const EquipmentCardFront = ({ formik, headerColors, handleClick, isDisabled }) => {
-  const weaponInfo = formik.values;
-
+const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => {
   const equipmentCardStyles = {
     width: '300px',
     minHeight: '100px',
@@ -111,13 +111,13 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick, isDisabled }) =
           maxHeight={equipmentCardStyles.maxHeight}
         > 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <EquipmentHeader formik={weaponInfo} headerColors={headerColors} />
-            <Typography sx={{ color: 'white', py: 3 }}> {weaponInfo.name}_IMG_TEMP </Typography>
-            <EquipmentStats formik={weaponInfo} />
+            <EquipmentHeader data={data} headerColors={headerColors} />
+            <Typography sx={{ color: 'white', py: 3 }}> {data.name}_IMG_TEMP </Typography>
+            <EquipmentStats data={data} />
             <Divider variant='middle' />
             <Divider variant='middle' /> 
             <Box sx={{ height: '20%' }}>
-              <EquipmentDescription formik={weaponInfo} />
+              <EquipmentDescription data={data} />
             </Box>
             <Divider variant='middle' />
             <Divider variant='middle' />
@@ -182,8 +182,7 @@ const EquipmentCardFront = ({ formik, headerColors, handleClick, isDisabled }) =
 //   )
 // };
 
-const EquipmentHeader = ({ formik, headerColors }) => {
-  const weaponInfo = formik;
+const EquipmentHeader = ({ data, headerColors }) => {
   return (
     <Box
       bgcolor={headerColors.backGroundColor}
@@ -196,7 +195,7 @@ const EquipmentHeader = ({ formik, headerColors }) => {
       <Box>
         <Typography component={'span'}>
           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
-            {weaponInfo.name}
+            {data.name}
           </Box>
         </Typography>
       </Box>
@@ -204,8 +203,7 @@ const EquipmentHeader = ({ formik, headerColors }) => {
   )
 };
 
-const EquipmentStats = ({ formik }) => {
-  const equipmentStats = formik;
+const EquipmentStats = ({ data }) => {
   const [rarityInteger, setRarityInteger] = useState(0);
   
   const handleSetRarity = (rarityString) => {
@@ -230,61 +228,64 @@ const EquipmentStats = ({ formik }) => {
     }
   };
   useEffect(() => {
-    handleSetRarity(formik.rarity);
-  }, [formik.rarity]);
+    handleSetRarity(data.rarity);
+  }, [data.rarity]);
   return (
     <Box sx={{ py: 0.7 }} color={colorLibrary.textGrey}> 
       {/* BASE STATS */}
       <BaseStatTextLine 
-        baseStatType={equipmentStats.baseStats.statNames.statName1}
-        baseStatValue={equipmentStats.baseStats.statValues.statValue1}
+        baseStatType={data.baseStats.statNames.statName1}
+        baseStatValue={data.baseStats.statValues.statValue1}
       />
       <BaseStatTextLine 
-        baseStatType={equipmentStats.baseStats.statNames.statName2}
-        baseStatValue={equipmentStats.baseStats.statValues.statValue2}
+        baseStatType={data.baseStats.statNames.statName2}
+        baseStatValue={data.baseStats.statValues.statValue2}
       />
       <BaseStatTextLine 
-        baseStatType={equipmentStats.baseStats.statNames.statName3}
-        baseStatValue={equipmentStats.baseStats.statValues.statValue3}
+        baseStatType={data.baseStats.statNames.statName3}
+        baseStatValue={data.baseStats.statValues.statValue3}
       />
       <BaseStatTextLine 
-        baseStatType={equipmentStats.baseStats.statNames.statName4}
-        baseStatValue={equipmentStats.baseStats.statValues.statValue4}
+        baseStatType={data.baseStats.statNames.statName4}
+        baseStatValue={data.baseStats.statValues.statValue4}
+      />
+      <BaseStatTextLine 
+        baseStatType={data.baseStats.statNames.statName5}
+        baseStatValue={data.baseStats.statValues.statValue5}
       />
       {/* BONUS STATS */}
       <Box>
         {rarityInteger > 0 ? 
           <BonusStatTextLine 
-            bonusStatType={equipmentStats.bonusStats.statNames.statName1}
-            bonusStatValue={equipmentStats.bonusStats.statValues.statValue1}/>
+            bonusStatType={data.bonusStats.statNames.statName1}
+            bonusStatValue={data.bonusStats.statValues.statValue1}/>
         : null} 
         {rarityInteger > 1 ? 
           <BonusStatTextLine
-            bonusStatType={equipmentStats.bonusStats.statNames.statName2}
-            bonusStatValue={equipmentStats.bonusStats.statValues.statValue2}/> 
+            bonusStatType={data.bonusStats.statNames.statName2}
+            bonusStatValue={data.bonusStats.statValues.statValue2}/> 
         : null}
         {rarityInteger > 2 ? 
           <BonusStatTextLine 
-            bonusStatType={equipmentStats.bonusStats.statNames.statName3}
-            bonusStatValue={equipmentStats.bonusStats.statValues.statValue3}/>
+            bonusStatType={data.bonusStats.statNames.statName3}
+            bonusStatValue={data.bonusStats.statValues.statValue3}/>
         : null} 
         {rarityInteger > 3 ? 
           <BonusStatTextLine
-            bonusStatType={equipmentStats.bonusStats.statNames.statName4}
-            bonusStatValue={equipmentStats.bonusStats.statValues.statValue4}/> 
+            bonusStatType={data.bonusStats.statNames.statName4}
+            bonusStatValue={data.bonusStats.statValues.statValue4}/> 
         : null} 
         {rarityInteger > 4 ? 
           <BonusStatTextLine 
-            bonusStatType={equipmentStats.bonusStats.statNames.statName5}
-            bonusStatValue={equipmentStats.bonusStats.statValues.statValue5}/>
+            bonusStatType={data.bonusStats.statNames.statName5}
+            bonusStatValue={data.bonusStats.statValues.statValue5}/>
         : null}
       </Box>  
     </Box>  
   );
 };
 
-const EquipmentDescription = ({ formik }) => {
-  const weaponInfo = formik;
+const EquipmentDescription = ({ data }) => {
   return (
     <Box sx={{ py: 0.7 }}>
       <Box sx={{ textAlign: 'center' }}>
@@ -292,23 +293,23 @@ const EquipmentDescription = ({ formik }) => {
           Required Class:&nbsp;
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.requiredClass.join(', ')}
+          {data.requiredClass.join(', ')}
         </Typography>
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-        {weaponInfo.slotType !== '' ? 'Slot Type: ' : ''}
+        {data.slotType !== '' ? 'Slot Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.slotType}
+          {data.slotType}
         </Typography>
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.handType !== '' ? 'Hand Type: ' : ''}
+          {data.handType !== '' ? 'Hand Type: ' : ''}
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.handType}
+          {data.handType}
         </Typography>
       </Box>
       <Box sx={{ textAlign: 'center' }}>
@@ -316,7 +317,7 @@ const EquipmentDescription = ({ formik }) => {
           Weapon Type:&nbsp;
         </Typography>
         <Typography component={'span'} sx={{ color: colorLibrary.textBrown, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
-          {weaponInfo.category}
+          {data.category}
         </Typography>
       </Box>
     </Box>
