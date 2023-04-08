@@ -294,7 +294,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'Two-Handed',
     description: 'The sheer weight and length of this mighty double-edge blade can be felt pulling on you as you swing.',
-    requiredClass: ['Barbarian', 'Figher'],
+    requiredClass: ['Barbarian', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -611,7 +611,7 @@ export const itemSchemas = [
     slotType: 'Secondary Weapon',
     handType: 'One-Handed', 
     description: '--',
-    requiredClass: ['Cleric','Fighter'],
+    requiredClass: ['Cleric', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -654,7 +654,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'Two-Handed', 
     description: '--',
-    requiredClass: ['Cleric','Wizard'],
+    requiredClass: ['Cleric', 'Wizard'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -693,7 +693,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'Two-Handed', 
     description: '--',
-    requiredClass: ['Cleric','Wizard'],
+    requiredClass: ['Cleric', 'Wizard'],
     baseStats: {
       statNames: {
         statName1: 'Magical Damage',    
@@ -853,7 +853,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'Two-Handed', 
     description: '--',
-    requiredClass: ['Fighter','Ranger','Wizard'],
+    requiredClass: ['Fighter', 'Ranger', 'Wizard'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1013,7 +1013,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon', 
     handType: 'One-Handed', 
     description: '--',
-    requiredClass: ['Barbarian','Fighter'],
+    requiredClass: ['Barbarian', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1052,7 +1052,7 @@ export const itemSchemas = [
     slotType: 'Secondary Weapon', 
     handType: 'One-Handed',
     description: '--',
-    requiredClass: ['Barbarian','Fighter'],
+    requiredClass: ['Barbarian', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1169,7 +1169,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'Two-Handed', 
     description: '--',
-    requiredClass: ['Barbarian','Fighter'],
+    requiredClass: ['Barbarian', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1372,7 +1372,7 @@ export const itemSchemas = [
     slotType: 'Primary Weapon',
     handType: 'One-Handed',
     description: '--',
-    requiredClass: ['Rogue','Wizard'],
+    requiredClass: ['Rogue', 'Wizard'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1450,7 +1450,7 @@ export const itemSchemas = [
     slotType: 'Secondary Weapon',
     handType: 'One-Handed',
     description: '--',
-    requiredClass: ['Fighter','Rogue'],
+    requiredClass: ['Fighter', 'Rogue'],
     baseStats: {
       statNames: {
         statName1: 'Weapon Damage',
@@ -1884,7 +1884,7 @@ export const itemSchemas = [
     slotType: 'Head',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Barbarian'],
+    requiredClass: ['Fighter', 'Barbarian'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -1925,7 +1925,7 @@ export const itemSchemas = [
     slotType: 'Head',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -1966,7 +1966,7 @@ export const itemSchemas = [
     slotType: 'Head',
     handType: '',
     description: '--',
-    requiredClass: ['Chaperon'],
+    requiredClass: ['Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2048,7 +2048,7 @@ export const itemSchemas = [
     slotType: 'Head',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2377,7 +2377,7 @@ export const itemSchemas = [
     slotType: 'Chest',
     handType: '',
     description: '--',
-    requiredClass: ['Rogue','Ranger','Fighter'],
+    requiredClass: ['Rogue', 'Ranger', 'Fighter'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2459,7 +2459,7 @@ export const itemSchemas = [
     slotType: 'Chest',
     handType: '',
     description: '--',
-    requiredClass: ['Wizard','Cleric'],
+    requiredClass: ['Wizard', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2541,7 +2541,7 @@ export const itemSchemas = [
     slotType: 'Chest',
     handType: '',
     description: '--',
-    requiredClass: ['Wizard','Cleric'],
+    requiredClass: ['Wizard', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2623,7 +2623,7 @@ export const itemSchemas = [
     slotType: 'Chest',
     handType: '',
     description: '--',
-    requiredClass: ['Wizard','Cleric'],
+    requiredClass: ['Wizard', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -2746,7 +2746,7 @@ export const itemSchemas = [
     slotType: 'Chest',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -3034,7 +3034,7 @@ export const itemSchemas = [
     slotType: 'Legs',
     handType: '',
     description: '--',
-    requiredClass: ['FIghter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -3076,7 +3076,7 @@ export const itemSchemas = [
     slotType: 'Hands',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
@@ -3487,7 +3487,7 @@ export const itemSchemas = [
     slotType: 'Foot',
     handType: '',
     description: '--',
-    requiredClass: ['Fighter','Cleric'],
+    requiredClass: ['Fighter', 'Cleric'],
     baseStats: {
       statNames: {
         statName1: 'Armor Rating',
