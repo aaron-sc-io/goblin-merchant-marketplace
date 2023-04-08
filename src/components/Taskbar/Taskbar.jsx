@@ -1,43 +1,20 @@
-import { TextField, Box, Button, Typography, ButtonGroup, Select, MenuItem, InputLabel } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import FaceIcon from '@mui/icons-material/Face';
+import SendIcon from '@mui/icons-material/Send';
 
-const Taskbar = ({ handleClick }) => {
+const Taskbar = ({ handleSignOutClick, handleNewSubmitClick, handleHomeClick, handleSignInClick, userIsSignedIn }) => {
   return(
-    <Box sx={{ display: 'flex', flexDirection: 'row', height: '38px', backgroundColor: "#D3D3D3" }}>
-      <Box sx={{ display: 'flex', justifyContent: 'in-between' }}>
-
-
-        
-        
-        <Typography style={{ marginRight: 450 }}>
-          <Button sx={{ color:"black" }} >
-            <HomeIcon onClick={handleClick}></HomeIcon>
-          </Button> 
-        </Typography>
-
-        <Typography style={{ marginRight: 450 }}>
-          <ButtonGroup variant="text" aria-label="text button group">
-            <Button onClick={handleClick}>One</Button>
-            <Button onClick={handleClick}>Two</Button>
-            <Button onClick={handleClick}>Three</Button>
-          </ButtonGroup>
-        </Typography>
-
-        <Typography>
-
-          <Button sx={{ color: "black" }}>
-            <FaceIcon onClick={handleClick}></FaceIcon>
-          </Button>
-        </Typography>
-
-        
-    
-
-      </Box>
-
-      
-
+    <Box sx={{ display: 'flex', flexDirection: 'row', height: '50px', backgroundColor: '#D3D3D3', width: '1200px', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Button sx={{ color:'primary', minWidth: '10%', height: '75%', ml: 0.75 }} variant='contained' onClick={handleHomeClick} >
+        <HomeIcon />
+      </Button> 
+      <Button sx={{ color: 'primary', width: '25%', height: '75%' }} variant='contained' onClick={handleNewSubmitClick} disabled={!userIsSignedIn}>
+        <Typography sx={{ color: 'white' }}>CREATE NEW LISTING &nbsp;</Typography>
+        <SendIcon sx={{ color: 'white' }} />
+      </Button>
+      {userIsSignedIn
+      ? <Button sx={{ color:'primary', minWidth: '10%', height: '75%', mr: 0.75 }} variant='contained' onClick={handleSignOutClick}>Sign Out</Button>
+      : <Button sx={{ color:'primary', minWidth: '10%', height: '75%', mr: 0.75 }} variant='contained' onClick={handleSignInClick}>Sign In</Button>}
     </Box>
   );
 };
