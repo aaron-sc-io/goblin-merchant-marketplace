@@ -5,14 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 // TODO Also add username/email login func
-const SignUpCard = () => {
+const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpass, setConfirmPass] = useState('');
   const { handleSignup } = useAuth();
-  const navigate = useNavigate();
 
   const handleSubmitClick = async (e) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ const SignUpCard = () => {
       setError('');
       setLoading(true);
       await handleSignup(username, password);
-      navigate('/');
+      handleNavigateRoot();
     }
     catch (e) {
       setError('Failed to create an account.');
@@ -75,7 +74,7 @@ const SignUpCard = () => {
         <Divider variant="middle" />
         <Box sx={{ display: 'flex', alignItems: 'center',  mt: 4 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
-          <Button>Sign In</Button>
+          <Button onClick={handleNavigateSignIn}>Sign In</Button>
         </Box>    
       </Box>
     </Card>
