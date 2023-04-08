@@ -1,7 +1,8 @@
-import EquipmentCard from '../EquipmentCard/EquipmentCard';
+import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
-import { useState, useEffect } from 'react';
+
+import EquipmentCard from '../EquipmentCard/EquipmentCard';
 
 const EquipmentCardListingTable = ({ listings }) => {
   const [listingData, setListingData] = useState([]);

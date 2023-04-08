@@ -1,10 +1,9 @@
-import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import EquipmentCardListingTable from './EquipmentCardListingTable';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 import { useEffect, useState } from 'react';
 
-export const Template = (props) => {
+const EquipmentCardListingTableContainer = () => {
   const [listings, setListings] = useState();
   const listingsRef = collection(db, 'listings');
   const getListings = async () => {
@@ -17,27 +16,8 @@ export const Template = (props) => {
     getListings();
   }, []);
   return (
-    <>
-      <EquipmentCardListingTable listings={listings} />
-    </>
+    <EquipmentCardListingTable listings={listings} />
   )
-};
+}
 
-<Meta
-  title='Containers/EquipmentCardListingTable'
-  component={EquipmentCardListingTable}
-/>
-
-# EquipmentCardListingTable
-<Description of={EquipmentCardListingTable}/>
-
-
-## Example
-<Canvas>
-  <Story name='EquipmentCardListingTable'>
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-# Props
-<ArgsTable story={'EquipmentCardListingTable'} />
+export default EquipmentCardListingTableContainer
