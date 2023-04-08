@@ -35,10 +35,3 @@ needs a few essential features, described below.
       ListingCard
 </pre>
 <br/>
-
-**Tables:**
-<pre>
-  LISTING
-    - ID, STRING, 8UUID
-    - CREATED_DATE, DATE
-</pre>
