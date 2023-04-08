@@ -4,6 +4,7 @@ import { Button, Box, Typography } from '@mui/material';
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
 import { db } from '../../firebase-config';
 import { collection, addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 const ItemFormContainer = () => {
   const formik = useFormik({
@@ -52,24 +53,30 @@ const ItemFormContainer = () => {
     listingId: '',
     contactInfo: ''
   }});
+  const navigate = useNavigate();
   const listingsRef = collection(db, 'listings');
   const handleSubmitListing = async () => {
-    await addDoc(listingsRef, formik.values);
+    try {
+      await addDoc(listingsRef, formik.values);
+      navigate('/');
+    } catch (e) {
+      console.log(e);
+    }
+
     console.log('submitted');
+    //try catch navigate to listing
   };
   return (
-    <>
-      <Box sx={{ display: 'flex', flexDirection: 'row', width: '1000px' }}>
-        <ItemForm formik={formik}/>
-        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <Typography>//// -------- ITEM PREVIEW  --------  ////</Typography>
-          <EquipmentCard data={formik.values} isDisabled={true} />
-          <Button onClick={handleSubmitListing}>
-            Submit
-          </Button>
-        </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'row', maxWidth: '1000px', alignItems: 'center', pt: 2, mx: 5, margin: 'auto' }}>
+      <ItemForm formik={formik}/>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Typography> ITEM PREVIEW </Typography>
+        <EquipmentCard data={formik.values} isDisabled={true} />
+        <Button onClick={handleSubmitListing}>
+          Submit
+        </Button>
       </Box>
-    </>
+    </Box>
   )
 }
 
