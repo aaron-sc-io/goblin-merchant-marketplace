@@ -7,6 +7,7 @@ import { Box, Card } from '@mui/material'
 
 import SignUpCardContainer from './components/SignUpCard/SignUpCardContainer';
 import SignInCardContainer from './components/SignInCard/SignInCardContainer';
+import PasswordResetCard from './components/PasswordResetCard/PasswordResetCard';
 import ItemFormContainer from './components/ItemForm/ItemFormContainer';
 import EquipmentCardListingTableContainer from './components/EquipmentCardListingTable/EquipmentCardListingTableContainer';
 
@@ -28,7 +29,7 @@ const App = () => {
                   />
                 <Route exact path = '/signup' element={<SignUpCardContainer />} />
                 <Route exact path = '/signin' element={<SignInCardContainer />} />
-                <Route exact path = '/password-reset' element={<SignInCardContainer />} />
+                <Route exact path = '/password-reset' element={<PasswordResetCard />} />
                 <Route exact path = '/' element={<EquipmentCardListingTableContainer />} 
                   />
               </Routes>
