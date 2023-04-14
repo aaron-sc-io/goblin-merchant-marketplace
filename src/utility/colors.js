@@ -17,5 +17,7 @@ export const colorLibrary = {
   green: '#2e7d32',
   amber: '#ffc107',
   amberBrown: '#994d00',
-  textBrown: '#AA9C8C'
+  textBrown: '#AA9C8C',
+  darkYellow: '#423b22',
+  lightYellow: '#fcffb0'
 };

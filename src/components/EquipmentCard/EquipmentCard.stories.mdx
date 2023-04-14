@@ -2,50 +2,27 @@ import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-do
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 import { Grid, TextField, Box, MenuItem } from '@mui/material';
+import { itemSchemas } from '../../utility/itemSchemas';
 
 export const Template = (props) => {
   const handleClick = () => alert('Directory');
+  const armingSword = itemSchemas[0];
+  const listingData = {
+    listingPrice: '300',
+    finalSellingPrice: '',
+    listingId: '',
+    contactInfo: '--------------#0001'
+  };
+  const armingSwordListing = {...armingSword, ...listingData };
   const formik = useFormik({
-    initialValues: {
-      category: 'Dagger',
-      name: 'Example Dagger',
-      rarity: 'Rare',
-      slotType: 'Secondary Weapon',
-      handType: 'One-Handed',
-      description: '',
-      requiredClass: [],
-      baseStats: {
-        statNames: {
-          statName1: 'Weapon Damage',
-          statName2: 'Movement Speed',
-          statName3: null,
-          statName4: null
-        },
-        statValues: {
-          statValue1: 20,
-          statValue2: -10,
-          statValue3: null,
-          statValue4: null
-        }
-      },
-      bonusStats: {
-        statNames: {
-          statName1: 'All Attributes',
-          statName2: 'Movement Speed',
-          statName3: null,
-          statName4: null,
-          statName5: null
-        },
-        statValues: {
-          statValue1: 2,
-          statValue2: 2,
-          statValue3: null,
-          statValue4: null,
-          statValue5: null
-        }
-      }
-  }});
-  return (<EquipmentCard data={formik.values} isDisabled={false} handleClick={handleClick}/>);
+    initialValues: armingSwordListing
+  });
+  return (
+    <EquipmentCard 
+      data={formik.values}
+      isDisabled={false} 
+      handleClick={handleClick} />
+  )
 };
 
 <Meta

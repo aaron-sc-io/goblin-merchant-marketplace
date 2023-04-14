@@ -1,12 +1,7 @@
-// HOOKS
 import { useState, useEffect } from 'react';
-// UTILITIES
-// import ReactCardFlip from 'react-card-flip';
-
-// MUI CORE
 import { Button, Box, Typography, Divider } from '@mui/material';
-// MUI COLORS
 import { colorLibrary } from '../../utility/colors';
+import coinsMini from './coinsMini.png';
 
 const headerColorStyles = {
   common: {
@@ -28,6 +23,10 @@ const headerColorStyles = {
   legendary: {
     backGroundColor: colorLibrary.amberBrown,
     borderAndTextColor: colorLibrary.amber
+  },
+  unique: {
+    backGroundColor: colorLibrary.darkYellow,
+    borderAndTextColor: colorLibrary.lightYellow
   },
   default: {
     backGroundColor: colorLibrary.darkPurple,
@@ -55,6 +54,9 @@ const EquipmentCard = ({ data, isDisabled, handleClick }) => {
         break;
       case 'Legendary':
         setHeaderColors(headerColorStyles.legendary);
+        break;
+      case 'Unique':
+        setHeaderColors(headerColorStyles.unique);
         break;
       default:
         setHeaderColors(headerColorStyles.common);
@@ -88,6 +90,10 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
     minHeight: '100px',
     border: 4
   };
+  
+  const itemImgString = data.name.replace(/ /g,"_") + '_' + data.rarity;
+  const itemImgPath = `/itemImages/${itemImgString}.png`;
+  console.log(itemImgPath);
 
   return (
     <Button onClick={handleClick} disabled={isDisabled}>
@@ -112,75 +118,26 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
         > 
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <EquipmentHeader data={data} headerColors={headerColors} />
-            <Typography sx={{ color: 'white', py: 3 }}> {data.name}_IMG_TEMP </Typography>
+            <Box sx={{ display: 'flex', alignSelf: 'center', flexDirection: 'column', alignItems: 'center', py: 0.5, mr: -0.5 }} >
+              <img src={itemImgPath}/>
+            </Box>
             <EquipmentStats data={data} />
-            <Divider variant='middle' />
-            <Divider variant='middle' /> 
-            <Box sx={{ height: '20%' }}>
+            <Divider variant="middle"  />
+            <Divider variant="middle"  />
+            <Box>
               <EquipmentDescription data={data} />
             </Box>
-            <Divider variant='middle' />
-            <Divider variant='middle' />
+            <Divider variant="middle" />
+            <Divider variant="middle" />
+            <Box>
+              <ListingDescription data={data} />
+            </Box>
           </Box>
         </Box>
       </Box>
     </Button>
   );
 };
-
-// const EquipmentCardBack = ({ formik, headerColors, handleClick }) => {
-//   const weaponInfo = formik.values;
-//   return (
-//     <Button onClick={handleClick}>
-//       {/* Container */}
-//       <Box
-//         align='center'
-//         sx={{
-//           borderColor: colorLibrary.darkGrey,
-//           bgcolor: colorLibrary.darkGrey,
-//           width: equipmentCardStyles.width,
-//           minHeight: equipmentCardStyles.minHeight,
-//           maxHeight: (equipmentCardStyles.maxHeight+1)
-//         }}
-//         border={equipmentCardStyles.border}
-//       >
-//         {/* Styling Box for secondary border*/}
-//         <Box
-//           border={2}
-//           borderColor={headerColors.borderAndTextColor}
-//           minHeight={equipmentCardStyles.minHeight}
-//           maxHeight={equipmentCardStyles.maxHeight}
-//         > 
-//           <Box>
-//             <ContactHeader formik={weaponInfo} />
-//           </Box>
-//         </Box>
-//       </Box>
-//     </Button>
-//   );
-// };
-
-// const ContactHeader = ({ formik }) => {
-//   const weaponInfo = formik;
-//   return (
-//     <Box
-//       bgcolor={colorLibrary.darkPurple}
-//       color={colorLibrary.lightPurple}
-//       borderBottom={1}
-//       borderColor={colorLibrary.lightPurple}
-//       width='100%'
-//       pt={1}
-//     >
-//       <Box>
-//         <Typography component={'span'}>
-//           <Box sx={{ textAlign: 'center', fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '23px', pb: 0.7 }}>
-//             {'Discord: {}'}
-//           </Box>
-//         </Typography>
-//       </Box>
-//     </Box>
-//   )
-// };
 
 const EquipmentHeader = ({ data, headerColors }) => {
   return (
@@ -367,6 +324,30 @@ const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
     </>
   );
 };
+
+const ListingDescription = ({ data }) => {
+  console.log(data);
+  return (
+    <Box sx={{ py: 1.2, display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' , width: '30%', pl: 2 }}>
+        <img src={coinsMini} width='40%' height='40%' />
+        <Typography component={'span'} sx={{ color: colorLibrary.white, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          {data?.listingPrice ? data.listingPrice : 0}
+        </Typography>
+      </Box>
+      <Box sx={{ textAlign: 'left', width: '80%' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
+          Discord:&nbsp;
+        </Typography>
+        <Typography component={'span'} sx={{ color: colorLibrary.white, fontFamily: 'Helvetica Neue', fontSize: '16px' }}>
+          {data.contactInfo}
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+
 
 
 export default EquipmentCard;
