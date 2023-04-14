@@ -1149,15 +1149,6 @@ const helmets = [
 
 ]
 
-const allItems = [
-  {
-    value: 'Felling Axe',
-    label: 'Felling Axe'
-  },
-  {
-    value: 'Rondel Dagger',
-    label: 'Rondel Dagger'
-  }
-];
+const allItems = [...swords, ...daggers, ...axes, ...maces, ...polearms, ...bows, ...magicalWeapons, ...shields, ...helmets, ...jewelry];
 
 export default ItemForm;
