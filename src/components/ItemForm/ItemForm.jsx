@@ -657,7 +657,7 @@ const ListingDetails = ({ formik }) => {
         <SellIcon sx={{ color: 'action.active', mr: 1 }} />
         <TextField
           id='formik-textfield-price'
-          label='Price'
+          label='Price (gold)'
           value={item.listingPrice}
           onChange={(e) => {formik.setFieldValue('listingPrice', e.target.value)}}
           variant='standard'
