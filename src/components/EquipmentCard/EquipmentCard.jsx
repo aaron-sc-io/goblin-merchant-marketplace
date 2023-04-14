@@ -348,6 +348,4 @@ const ListingDescription = ({ data }) => {
 };
 
 
-
-
 export default EquipmentCard;
