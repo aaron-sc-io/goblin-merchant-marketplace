@@ -57,8 +57,10 @@ const ItemFormContainer = () => {
   const listingsRef = collection(db, 'listings');
   const handleSubmitListing = async () => {
     try {
-      await addDoc(listingsRef, formik.values);
-      navigate('/');
+      const listing = await addDoc(listingsRef, formik.values);
+      const listingId = listing._key.path.segments[1];
+      console.log(listingId);
+      navigate(`/listing/${listingId}`);
     } catch (e) {
       console.log(e);
     }
@@ -67,13 +69,13 @@ const ItemFormContainer = () => {
     //try catch navigate to listing
   };
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', maxWidth: '1000px', alignItems: 'center', pt: 2, mx: 5, margin: 'auto' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', maxWidth: '1000px', alignItems: 'center', py: 2, mx: 5, margin: 'auto' }}>
       <ItemForm formik={formik}/>
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <Typography> ITEM PREVIEW </Typography>
         <EquipmentCard data={formik.values} isDisabled={true} />
-        <Button onClick={handleSubmitListing}>
-          Submit
+        <Button onClick={handleSubmitListing} variant='contained'>
+          Submit Listing
         </Button>
       </Box>
     </Box>

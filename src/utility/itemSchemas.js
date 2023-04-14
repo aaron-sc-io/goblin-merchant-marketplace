@@ -105,13 +105,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 25,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -144,13 +146,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 36,
         statValue2: -25,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -183,13 +187,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 18,
         statValue2: -17,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -222,13 +228,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 20,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -261,13 +269,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 35,
         statValue2: -40,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -300,13 +310,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 40,
         statValue2: -50,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -341,13 +353,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 32,
         statValue2: -25,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -380,13 +394,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 53,
         statValue2: -25,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -419,13 +435,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 34,
         statValue2: -25,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -458,13 +476,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 30,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -500,13 +520,15 @@ export const itemSchemas = [
         statName1: 'Armor Rating',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 26,
         statValue2: -12,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -539,13 +561,15 @@ export const itemSchemas = [
         statName1: 'Armor Rating',   
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 48,
         statValue2: -65, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -578,13 +602,15 @@ export const itemSchemas = [
         statName1: 'Armor Rating',   
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 30,
         statValue2: -15,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -617,13 +643,15 @@ export const itemSchemas = [
         statName1: 'Armor Rating',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 12,
         statValue2: -7,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -660,13 +688,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 24,
         statValue2: -20,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -699,13 +729,15 @@ export const itemSchemas = [
         statName1: 'Magical Damage',    
         statName2: 'Movement Speed',
         statName3: '',             
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 3,
         statValue2: -10, 
         statValue3: 0,                
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -744,7 +776,8 @@ export const itemSchemas = [
         statValue1: 11,
         statValue2: -30,  
         statValue3: 9,              
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -777,13 +810,15 @@ export const itemSchemas = [
         statName1: 'Magical Damage',  
         statName2: 'Movement Speed',
         statName3: '',                     
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 3,
         statValue2: -25, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -820,13 +855,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 52,
         statValue2: -40, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -859,13 +896,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 46,
         statValue2: -40, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -898,13 +937,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 16,
         statValue2: -30, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -937,13 +978,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 30,
         statValue2: -40, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -976,13 +1019,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 37,
         statValue2: -50,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1025,7 +1070,8 @@ export const itemSchemas = [
         statValue1: 24,
         statValue2: -30, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1058,13 +1104,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 20,
         statValue2: -25,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1097,13 +1145,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 40,
         statValue2: -40,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1136,13 +1186,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 48,
         statValue2: -45,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1175,13 +1227,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 42,
         statValue2: -45, 
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1218,13 +1272,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 35,
         statValue2: -40,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1257,13 +1313,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 44,
         statValue2: -50,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1296,13 +1354,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 46,
         statValue2: -50,  
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1339,13 +1399,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 20,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1378,13 +1440,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 19,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1417,13 +1481,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 19,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1456,13 +1522,15 @@ export const itemSchemas = [
         statName1: 'Weapon Damage',
         statName2: 'Movement Speed',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 21,
         statValue2: -10,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1496,13 +1564,15 @@ export const itemSchemas = [
         statName1: 'Resourcefulness',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1535,13 +1605,15 @@ export const itemSchemas = [
         statName1: 'Knowledge',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1574,13 +1646,15 @@ export const itemSchemas = [
         statName1: 'Strength',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1613,13 +1687,15 @@ export const itemSchemas = [
         statName1: 'Will',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1652,13 +1728,15 @@ export const itemSchemas = [
         statName1: 'Agility',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1691,13 +1769,15 @@ export const itemSchemas = [
         statName1: 'Resourcefulness',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1730,13 +1810,15 @@ export const itemSchemas = [
         statName1: 'Strength',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1769,13 +1851,15 @@ export const itemSchemas = [
         statName1: 'Will',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
@@ -1808,13 +1892,15 @@ export const itemSchemas = [
         statName1: 'Agility',
         statName2: '',
         statName3: '',
-        statName4: ''
+        statName4: '',
+        statName5: ''
       },
       statValues: {
         statValue1: 1,
         statValue2: 0,
         statValue3: 0,
-        statValue4: 0
+        statValue4: 0,
+        statValue5: 0
       }
     },
     bonusStats: {
