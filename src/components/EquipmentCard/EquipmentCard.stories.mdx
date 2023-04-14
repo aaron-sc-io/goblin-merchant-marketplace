@@ -2,28 +2,6 @@ import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-do
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
 import { Grid, TextField, Box, MenuItem } from '@mui/material';
-const rarities = [
-  {
-    value: 'Uncommon',
-    label: 'Uncommon',
-  },
-  {
-    value: 'Rare',
-    label: 'Rare',
-  },
-  {
-    value: 'Epic',
-    label: 'Epic',
-  },
-  {
-    value: 'Legendary',
-    label: 'Legendary',
-  },
-  {
-    value: 'Unique',
-    label: 'Unique',
-  }
-];
 
 export const Template = (props) => {
   const handleClick = () => alert('Directory');

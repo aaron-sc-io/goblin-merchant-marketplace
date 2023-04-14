@@ -128,12 +128,12 @@ const ItemCategorySelector = ({ formik }) => {
 
   const handleSetItemDefaults = () => {
     const itemDefaultObject = itemSchemas.filter(item => { return item.name === formik.values.name })[0];
-    formik.setFieldValue('baseStats.statValues', itemDefaultObject.baseStats.statValues && itemDefaultObject.baseStats.statValues);
-    formik.setFieldValue('bonusStats.statValues', itemDefaultObject.bonusStats.statValues && itemDefaultObject.bonusStats.statValues);
-    formik.setFieldValue('description', itemDefaultObject.description ? itemDefaultObject.description : '');
-    formik.setFieldValue('handType', itemDefaultObject.handType ? itemDefaultObject.handType : '');
-    formik.setFieldValue('requiredClass', itemDefaultObject.requiredClass ? itemDefaultObject.requiredClass: '');
-    formik.setFieldValue('slotType', itemDefaultObject.slotType ? itemDefaultObject.slotType : '');
+    formik.setFieldValue('baseStats', itemDefaultObject?.baseStats && itemDefaultObject.baseStats);
+    formik.setFieldValue('bonusStats', itemDefaultObject?.bonusStats && itemDefaultObject.bonusStats);
+    formik.setFieldValue('description', itemDefaultObject?.description ? itemDefaultObject.description : '');
+    formik.setFieldValue('handType', itemDefaultObject?.handType ? itemDefaultObject.handType : '');
+    formik.setFieldValue('requiredClass', itemDefaultObject?.requiredClass ? itemDefaultObject.requiredClass: '');
+    formik.setFieldValue('slotType', itemDefaultObject?.slotType ? itemDefaultObject.slotType : '');
   };
 
   useEffect(() => {
@@ -184,8 +184,6 @@ const ItemCategorySelector = ({ formik }) => {
 
 const BaseStatSelector = ({ formik }) => {
   const item = formik.values;
-
-  const isDisabled = (item.slotType === 'Primary Weapon' || item.slotType === 'Secondary Weapon' || item.slotType === 'Head');
 
   const StatLine1 = () => {
     return (
