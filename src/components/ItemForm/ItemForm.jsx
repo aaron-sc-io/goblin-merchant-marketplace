@@ -2,6 +2,8 @@ import { TextField, Grid, MenuItem, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { itemSchemas } from '../../utility/itemSchemas';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import SellIcon from '@mui/icons-material/Sell';
 import { colorLibrary } from '../../utility/colors';
 
 const ItemForm = ({ formik }) => {
@@ -16,6 +18,11 @@ const ItemForm = ({ formik }) => {
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <RaritySelector formik={formik} />
             <BonusStatSelector formik={formik} />
+          </Box>
+        </Grid>
+        <Grid item sm={12} px={1.5}>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <ListingDetails formik={formik} />
           </Box>
         </Grid>
       </Grid>
@@ -642,6 +649,40 @@ const BonusStatSelector = ({ formik }) => {
   
 };
 
+const ListingDetails = ({ formik }) => {
+  const item = formik.values;
+  return(
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <SellIcon sx={{ color: 'action.active', mr: 1 }} />
+        <TextField
+          id='formik-textfield-price'
+          label='Price'
+          value={item.listingPrice}
+          onChange={(e) => {formik.setFieldValue('listingPrice', e.target.value)}}
+          variant='standard'
+          type='number'
+          InputLabelProps={{ shrink: true }}
+          component={'span'}
+        />
+      </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <AccountCircle sx={{ color: 'action.active', mr: 1 }} />
+        <TextField
+          id='formik-textfield-contactInfo'
+          label='Discord'
+          value={item.contactInfo}
+          onChange={(e) => {formik.setFieldValue('contactInfo', e.target.value)}}
+          variant='standard'
+          InputLabelProps={{ shrink: true }}
+          component={'span'}
+        />
+      </Box>
+    </Box>
+    
+    
+  );
+}
 
 // MOVE TO itemFormUtilies.js and add imports to top
 ///////////////// ------- UTITILIES ------- /////////////////
@@ -736,7 +777,7 @@ const rarities = [
   {
     value: 'Unique',
     label:  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <CropSquareIcon/> 
+              <CropSquareIcon sx={{ color: colorLibrary.darkYellow }}/> 
               &nbsp;Unique
             </Box>
   }
@@ -766,10 +807,6 @@ const bonusStatTypes = [
   {
     value: 'Headshot Reduction',
     label: 'Headshot Reduction'
-  },
-  {
-    value: 'Movement Speed',
-    label: 'Movement Speed'
   },
   {
     value: 'Magic Resistance',
