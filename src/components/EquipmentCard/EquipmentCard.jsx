@@ -339,7 +339,7 @@ const ListingDescription = ({ data }) => {
         <Typography component={'span'} sx={{ color: colorLibrary.textGrey, fontFamily: 'Helvetica Neue', textTransform: 'capitalize', fontSize: '16px' }}>
           Discord:&nbsp;
         </Typography>
-        <Typography component={'span'} sx={{ color: colorLibrary.white, fontFamily: 'Helvetica Neue', fontSize: '16px' }}>
+        <Typography component={'span'} sx={{ color: colorLibrary.white, fontFamily: 'Helvetica Neue', fontSize: '16px', textTransform: 'capitalize' }}>
           {data.contactInfo}
         </Typography>
       </Box>
