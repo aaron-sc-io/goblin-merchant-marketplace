@@ -67,12 +67,12 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           variant='contained' 
           disabled={loading} 
           onClick={handleSubmitClick}
-          sx={{ width: '150px', pb: 1 }}
+          sx={{ width: '150px', mb: 3 }}
         >
           Sign Up
         </Button>
-        <Divider variant="middle" />
-        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 4 }}>
+        <Divider variant="middle" style={{width:'80%'}} />
+        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
           <Button onClick={handleNavigateSignIn}>Sign In</Button>
         </Box>    

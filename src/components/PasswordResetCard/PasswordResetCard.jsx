@@ -1,7 +1,7 @@
-import { TextField, Box, Button, Card, Typography, Alert } from '@mui/material';
+import { TextField, Box, Button, Card, Typography, Alert, Divider } from '@mui/material';
 
-const PasswordResetCard = ({ handleForgotPassSubmit, loading, error, setUsername }) => {
-  {/* Follow the structure of SignIn/SignUpCard and Container, and do not make a storybook file. You can view your changes via npm start, and navving to /password-reset */}
+const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loading, error, message, setUsername }) => {
+  console.log(message);
   return (
     <Card sx={{ width: '300px', minHeight: '350px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
@@ -19,15 +19,15 @@ const PasswordResetCard = ({ handleForgotPassSubmit, loading, error, setUsername
           variant='contained' 
           disabled={loading} 
           onClick={handleForgotPassSubmit}
-          sx={{ width: '150px', mb: 0.5 }}
+          sx={{ width: '150px', mb: 4 }}
         >
           Reset
         </Button>
-        {/* <Box sx={{ display: 'flex', alignItems: 'center'}}>
-          <Button onClick={handleNavigateForgotPass} sx={{ textTransform: 'none', mb: 2 }}>
-            <Typography sx={{ fontSize: 15 }}>Forgot Password? </Typography>
-          </Button>
-        </Box> */}
+        <Divider variant="middle" style={{width:'80%'}} />
+        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2 }}>
+          <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
+          <Button onClick={handleNavigateSignIn}>Sign In</Button>
+        </Box>    
       </Box>
     </Card>
   )
