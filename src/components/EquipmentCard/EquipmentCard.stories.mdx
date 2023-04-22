@@ -1,34 +1,27 @@
-import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { useFormik } from 'formik';
 import EquipmentCard from './EquipmentCard';
-import { Grid } from '@material-ui/core';
+import { Grid, TextField, Box, MenuItem } from '@mui/material';
+import { itemSchemas } from '../../utility/itemSchemas';
 
 export const Template = (props) => {
+  const handleClick = () => alert('Directory');
+  const armingSword = itemSchemas[0];
+  const listingData = {
+    listingPrice: '300',
+    finalSellingPrice: '',
+    listingId: '',
+    contactInfo: '--------------#0001'
+  };
+  const armingSwordListing = {...armingSword, ...listingData };
   const formik = useFormik({
-    initialValues: {
-      weaponType: 'Dagger',
-      weaponName: 'Example Dagger',
-      weaponBaseStats: {
-        weaponDmg: 30,
-        weaponMoveSpd: -10
-      },
-      weaponBonusStats: {
-        bonusPhysDmg: 2,
-        bonusMgcDmg: 2,
-        bonusMoveSpd: 2
-      },
-      weaponSlotType: 'Secondary Weapon',
-      weaponHandType: 'One-Handed'
-    }
+    initialValues: armingSwordListing
   });
   return (
-    <Grid container>
-      <Grid item>
-        <EquipmentCard
-          formik={formik}
-        />
-      </Grid>
-    </Grid>
+    <EquipmentCard 
+      data={formik.values}
+      isDisabled={false} 
+      handleClick={handleClick} />
   )
 };
 
@@ -50,3 +43,4 @@ export const Template = (props) => {
 
 # Props
 <ArgsTable story={'EquipmentCard'} />
+
