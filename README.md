@@ -14,7 +14,7 @@ However, in order to have a fully functional site, a bit more needs done:
  - ListingTable: Needs fully functional filter
  - SignInContainers: Need proper styling
  - 
- 
+</pre>
  
 ## Sprint 1 
 
