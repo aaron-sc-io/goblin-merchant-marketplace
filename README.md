@@ -3,11 +3,11 @@
 ## Sprint 2
 During Sprint 1 a decent amount of work was done, covering most of the app functionality:
 <pre>
- - EquipmentCard
- - ListingTable
- - SignInCards
- - SubmissionForm
- - Firebase setup for Users + Listings
+ - Firebase setup for User Login, and listing storage
+ - EquipmentCard, to display an individual listing
+ - ListingTable, to display sets of listings
+ - SignInCards, user functionality for signIn/signOut/signUp/ForgotPass
+ - SubmissionForm, allowing the user to push items to the database
 </pre>
 
 However, in order to have a fully functional site, a bit more needs done:
