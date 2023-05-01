@@ -13,8 +13,8 @@ During Sprint 1 a decent amount of work was done, covering most of the app funct
 However, in order to have a fully functional site, a bit more needs done:
 <pre>
  - EquipmentCard: Item images and styling need to be fixed and updated for new equipment
- - ListingTable: Needs fully functional filter
- - SignInContainers: Need proper styling
+ - ListingTable: Needs fully functional filter to allow tailored results
+ - SignInContainers: Need proper styling to be centered on page
  - ListingPage: Needs created
  - ProfilePage: Needs created
 </pre>
