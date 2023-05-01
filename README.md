@@ -1,19 +1,22 @@
 # Market-n-Marketer
 
 ## Sprint 2
+During Sprint 1 a decent amount of work was done, covering most of the app functionality:
 <pre>
-During Sprint 1 a decent amount of work was done:
  - EquipmentCard
  - ListingTable
  - SignInCards
  - SubmissionForm
  - Firebase setup for Users + Listings
+</pre>
 
 However, in order to have a fully functional site, a bit more needs done:
+<pre>
  - EquipmentCard: Item images and styling need to be fixed and updated for new equipment
  - ListingTable: Needs fully functional filter
  - SignInContainers: Need proper styling
- - 
+ - ListingPage: Needs created
+ - ProfilePage: Needs created
 </pre>
  
 ## Sprint 1 
