@@ -26,16 +26,16 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
   };
 
   return(
-    <Card sx={{ width: '300px', minHeight: '350px' }}>
+    <Card sx={{ width: '300px', height: '500px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-        <Typography sx={{ fontSize: 40, mt: 1 }}> Log In </Typography>
+        <Typography sx={{ fontSize: 40, my: 1 }}> Log In </Typography>
         {error && <Alert severity="error">{error}</Alert>}
         <TextField 
           id='email-address'
           label='Email Address'
           variant='filled'
           onChange={e => setUsername(e.target.value)}
-          sx={{ width: '250px', my: 2 }}
+          sx={{ width: '250px', mt: 1 }}
           />
         <TextField
           id='password'
@@ -43,7 +43,7 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
           type='password'
           variant='filled'
           onChange={e => setPassword(e.target.value)}
-          sx={{ width: '250px', mb: 2 }}
+          sx={{ width: '250px', mb: 3 }}
           />
         <Button 
           variant='contained' 
@@ -54,8 +54,8 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
           Submit
         </Button>
         <Box sx={{ display: 'flex', alignItems: 'center'}}>
-          <Button onClick={handleNavigateForgotPass} sx={{ textTransform: 'none', mb: 2 }}>
-            <Typography sx={{ fontSize: 15 }}>Forgot Password? </Typography>
+          <Button onClick={handleNavigateForgotPass} sx={{ textTransform: 'none', mb: 1 }}>
+            Forgot Password?
           </Button>
         </Box>
         <Divider variant="middle" style={{width:'80%'}} />

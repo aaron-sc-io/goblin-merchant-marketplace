@@ -3,10 +3,10 @@ import { TextField, Box, Button, Card, Typography, Alert, Divider } from '@mui/m
 const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loading, error, message, setUsername }) => {
   console.log(message);
   return (
-    <Card sx={{ width: '300px', minHeight: '350px' }}>
+    <Card sx={{ width: '300px', height: '500px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-        <Typography sx={{ fontSize: 25, mt: 7 }}> Forgot Password? </Typography>
-        <Typography sx={{ fontSize: 15, mb: 2 }}> Enter your email to reset </Typography>
+        <Typography sx={{ fontSize: 30, mt: 3 }}> Forgot Password? </Typography>
+        <Typography sx={{ fontSize: 15, mb: 3 }}> Enter your email to reset </Typography>
         {error && <Alert severity="error">{error}</Alert>}
         <TextField 
           id='email-address'
@@ -19,15 +19,14 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
           variant='contained' 
           disabled={loading} 
           onClick={handleForgotPassSubmit}
-          sx={{ width: '150px', mb: 4 }}
+          sx={{ width: '150px' }}
         >
           Reset
         </Button>
-        <Divider variant="middle" style={{width:'80%'}} />
-        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2, mb: 15 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
           <Button onClick={handleNavigateSignIn}>Sign In</Button>
-        </Box>    
+        </Box>  
       </Box>
     </Card>
   )

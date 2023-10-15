@@ -35,16 +35,16 @@ const PasswordResetCardContainer = () => {
     setLoading(false);
   }
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', py: 5 }}>
       <PasswordResetCard
-      handleForgotPassSubmit={handleForgotPassSubmit}
-      handleNavigateSignIn={handleNavigateSignIn}
-      error={error}
-      loading={loading}
-      message={message}
-      setUsername={setUsername} />
+        handleForgotPassSubmit={handleForgotPassSubmit}
+        handleNavigateSignIn={handleNavigateSignIn}
+        error={error}
+        loading={loading}
+        message={message}
+        setUsername={setUsername}
+      />
     </Box>
-    
   );
 }
 

@@ -35,9 +35,9 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
 
 
   return(
-    <Card sx={{ width: '300px', minHeight: '450px' }}>
+    <Card sx={{ width: '300px', minHeight: '500px' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-        <Typography sx={{ fontSize: 40, mt: 1 }}> Sign Up </Typography>
+        <Typography sx={{ fontSize: 40, my: 1 }}> Sign Up </Typography>
         {error && <Alert severity="error">{error}</Alert>}
         <TextField 
           id='email-address'
