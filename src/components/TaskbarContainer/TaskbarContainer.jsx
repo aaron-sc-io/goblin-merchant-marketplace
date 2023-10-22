@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Taskbar from '../Taskbar/Taskbar';
 
-const Dashboard = () => {
+const TaskbarContainer = () => {
   const [error, setError] = useState('');
   const { currentUser, handleSignout } = useAuth();
   const navigate = useNavigate();
@@ -47,4 +47,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+export default TaskbarContainer;

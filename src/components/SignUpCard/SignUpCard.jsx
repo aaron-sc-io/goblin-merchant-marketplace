@@ -44,7 +44,7 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           label='Email Address'
           variant='filled'
           onChange={e => setUsername(e.target.value)}
-          sx={{ width: '250px', pb: 2, mt: 2 }}
+          sx={{ width: '250px', mb: 1, mt: 2 }}
           />
         <TextField
           id='password'
@@ -52,7 +52,7 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           type='password'
           variant='filled'
           onChange={e => setPassword(e.target.value)}
-          sx={{ width: '250px', pb: 2 }}
+          sx={{ width: '250px', mb: 1 }}
           />
         <TextField
           id='password-confirm-input'
@@ -61,18 +61,18 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           autoComplete='current-password'
           variant='filled'
           onChange={e => setConfirmPass(e.target.value)}
-          sx={{ width: '250px', pb: 2 }}
+          sx={{ width: '250px' }}
           />
         <Button 
           variant='contained' 
           disabled={loading} 
           onClick={handleSubmitClick}
-          sx={{ width: '150px', mb: 3 }}
+          sx={{ width: '150px', my: 2 }}
         >
           Sign Up
         </Button>
-        <Divider variant="middle" style={{width:'80%'}} />
-        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2 }}>
+        <Divider variant="middle" style={{ width:'80%' }} />
+        <Box sx={{ display: 'flex', alignItems: 'center',  mt: 1 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
           <Button onClick={handleNavigateSignIn}>Sign In</Button>
         </Box>    

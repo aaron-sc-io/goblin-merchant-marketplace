@@ -1,6 +1,6 @@
 import { AuthProvider } from './contexts/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './components/Dashboard/Dashboard';
+import TaskbarContainer from './components/TaskbarContainer/TaskbarContainer';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 import { Box, Card } from '@mui/material'
@@ -18,7 +18,7 @@ const App = () => {
         <Box sx={{ backgroundColor: '#AAAAAA', height: '1000vh' }}>
           <Box sx={{ justifyContent: 'center', maxWidth: '1200px', margin: 'auto', px: '10px' }}>
             <Box sx={{ py: '10px' }}>
-              <Dashboard /> {/* Rename to taskbar */}
+              <TaskbarContainer />
             </Box>
             <Card sx={{ backgroundColor: '#DDDDDD' }}>
               <Routes>
