@@ -15,8 +15,9 @@ However, in order to have a fully functional site, a bit more needs done:
  - EquipmentCard: Item images and styling need to be fixed and updated for new equipment
  - ListingTable: Needs fully functional filter to allow tailored results
  - SignInContainers: Need proper styling to be centered on page
- - ListingPage: Needs created
- - ProfilePage: Needs created
+ - SignInContainers: Back end needs proper fixing to reset password
+ - Individual ListingPage: Needs created
+ - Individual ProfilePage: Needs created
 </pre>
  
 ## Sprint 1 
