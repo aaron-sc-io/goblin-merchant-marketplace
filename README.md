@@ -16,6 +16,7 @@ However, in order to have a fully functional site, a bit more needs done:
  - ListingTable: Needs fully functional filter to allow tailored results
  - SignInContainers: Need proper styling to be centered on page
  - SignInContainers: Back end needs proper fixing to reset password
+ - EquipmentSchemas.js: Default values for items need to be updated to include new items and all updated values
  - Individual ListingPage: Needs created
  - Individual ProfilePage: Needs created
 </pre>
