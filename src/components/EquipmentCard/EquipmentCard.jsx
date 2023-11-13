@@ -71,16 +71,10 @@ const EquipmentCard = ({ data, isDisabled, handleClick }) => {
   return (
       <EquipmentCardFront
           data={data}
-          //headerColorStyles={headerColorStyles}
           handleClick={handleClick}
           headerColors={headerColors}
           isDisabled={isDisabled}
       />
-      // <EquipmentCardBack
-      //   formik={formik}
-      //   handleClick={handleClick}
-      //   headerColors={headerColors}
-      // />
   );
 };
 
@@ -326,7 +320,6 @@ const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
 };
 
 const ListingDescription = ({ data }) => {
-  console.log(data);
   return (
     <Box sx={{ py: 1.2, display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' , width: '30%', pl: 2 }}>
