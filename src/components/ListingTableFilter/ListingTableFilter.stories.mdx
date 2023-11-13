@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { useFormik } from 'formik';
+import ListingTableFilter from './ListingTableFilter';
+
+export const Template = (props) => {
+  const formik = useFormik({
+    initialValues: {
+      minValue: 0,
+      maxValue: 1250
+    }
+  });
+  return (
+    <ListingTableFilter />
+  )
+};
+
+<Meta
+  title='Components/ListingTableFilter'
+  component={ListingTableFilter}
+/>
+
+# ListingTableFilter
+<Description of={ListingTableFilter}/>
+
+
+## Example
+<Canvas>
+  <Story name='ListingTableFilter'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'ListingTableFilter'} />

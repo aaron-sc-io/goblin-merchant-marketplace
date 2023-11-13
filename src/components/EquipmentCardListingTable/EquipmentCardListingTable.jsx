@@ -11,7 +11,6 @@ const EquipmentCardListingTable = ({ listings }) => {
   }, [listings]);
   return (
     <Box sx={{ width: '1200px' }}>
-      <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1 }}/> {/* banner temp for fitlers */}
       <ResponsiveMasonry
         columnsCountBreakPoints={{600: 3, 900: 4}}
       >

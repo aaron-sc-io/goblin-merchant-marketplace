@@ -1,5 +1,6 @@
 import EquipmentCardListingTable from './EquipmentCardListingTable';
 import { collection, getDocs } from 'firebase/firestore';
+import { Box } from '@mui/material';
 import { db } from '../../firebase-config';
 import { useEffect, useState } from 'react';
 
@@ -16,7 +17,10 @@ const EquipmentCardListingTableContainer = () => {
     getListings();
   }, []);
   return (
-    <EquipmentCardListingTable listings={listings} />
+    <>
+      <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1 }}/> {/* banner temp for fitlers */}
+      <EquipmentCardListingTable listings={listings} />
+    </>
   )
 }
 
