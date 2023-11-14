@@ -2,6 +2,7 @@
 
 ## Sprint 2
 Here's a short video detailing everything accomplished in Sprint1: https://youtu.be/9d41UDdtRnU
+
 During Sprint 1 a decent amount of work was done, covering most of the app functionality:
 <pre>
  - Firebase setup for User Login, and listing storage
