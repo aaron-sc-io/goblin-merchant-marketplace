@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ProfilePage from './ProfilePage';
+import { useState } from 'react';
+
+export const Template = (props) => {
+  const username = 'username'
+  const repScore = 123
+  const discord = 'discord'
+  const listingData = { // Arming Sword
+    category: 'Sword',
+    name: 'Arming Sword',
+    rarity: 'Common',
+    slotType: 'Primary Weapon',
+    handType: 'Two-Handed',
+    description: 'A thin blade with leather bindings, supporting a firm grip for hasty attacks that feel light to the hand.',
+    requiredClass: ['Fighter'],
+    baseStats: {
+      statNames: {
+        statName1: 'Weapon Damage',
+        statName2: 'Movement Speed',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 25,
+        statValue2: -10,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    },
+    bonusStats: {
+      statNames: {
+        statName1: '',
+        statName2: '',
+        statName3: '',
+        statName4: '',
+        statName5: ''
+      },
+      statValues: {
+        statValue1: 0,
+        statValue2: 0,
+        statValue3: 0,
+        statValue4: 0,
+        statValue5: 0
+      }
+    }
+  }
+  return (
+    <ProfilePage
+      username={username}
+      repScore={repScore}
+      discord={discord}
+      data={listingData}
+    />);
+};
+
+<Meta
+  title='Components/ProfilePage'
+  component={ProfilePage}
+/>
+
+# Taskbar
+<Description of={ProfilePage}/>
+
+
+## Example
+<Canvas>
+  <Story name='ProfilePage'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'ProfilePage'} />
