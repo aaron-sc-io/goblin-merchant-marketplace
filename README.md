@@ -1,6 +1,7 @@
 # Market-n-Marketer
 
 ## Sprint 2
+Here's a short video detailing everything accomplished in Sprint1: https://youtu.be/9d41UDdtRnU
 During Sprint 1 a decent amount of work was done, covering most of the app functionality:
 <pre>
  - Firebase setup for User Login, and listing storage
@@ -21,7 +22,7 @@ However, in order to have a fully functional site, a bit more needs done:
  - Individual ProfilePage: Needs created
 </pre>
 
-Here's a short video detailing everything accomplished in Sprint1: https://youtu.be/9d41UDdtRnU
+
 
 ## Sprint 1 
 
