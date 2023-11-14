@@ -20,7 +20,9 @@ However, in order to have a fully functional site, a bit more needs done:
  - Individual ListingPage: Needs created
  - Individual ProfilePage: Needs created
 </pre>
- 
+
+Here's a short video detailing everything accomplished in Sprint1: https://youtu.be/9d41UDdtRnU
+
 ## Sprint 1 
 
 **Initial Requirements:**
