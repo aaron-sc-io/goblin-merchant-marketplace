@@ -3,6 +3,8 @@ import { colorLibrary } from '../../utility/colors';
 import { useState } from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 const ProfilePage = ({username, discord, repScore, data}) => {
   const [currentTab, setCurrentTab] = useState('userInfo')
@@ -67,7 +69,7 @@ const ProfilePage = ({username, discord, repScore, data}) => {
           }
           { currentTab === 'previousSales' && 
           <Box sx={{color: colorLibrary.lightGrey}}>
-            previousSales
+            <HorizontalListings data={data}/>
           </Box>
           }
           { currentTab === 'reviews' && 
@@ -83,26 +85,48 @@ const ProfilePage = ({username, discord, repScore, data}) => {
 }
 
 const HorizontalListings = ({data}) => {
-  const [value, setValue] = useState('1');
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
 
-  const handleChange = (event, newValue) => setValue(newValue);
+  const handleClick = () => {
+    console.log('clicked')
+  }
   return (
-    <Tabs
-      value={value}
-      onChange={handleChange}
-      variant="scrollable"
-      scrollButtons
+    <Carousel
+      swipeable={true}
+      draggable={true}
+      showDots={true}
+      responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
     >
-    <Tab icon={<EquipmentCard data={data} handleClick={console.log('clciked')}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-    <Tab icon={<EquipmentCard data={data}/>} />
-  </Tabs>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+      <EquipmentCard data={data} handleClick={handleClick}/>
+    </Carousel>
   )
 }
 
 export default ProfilePage
+ 
