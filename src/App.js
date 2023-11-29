@@ -10,12 +10,13 @@ import SignInCardContainer from './components/SignInCard/SignInCardContainer';
 import PasswordResetCardContainer from './components/PasswordResetCard/PasswordResetCardContainer';
 import ItemFormContainer from './components/ItemForm/ItemFormContainer';
 import EquipmentCardListingTableContainer from './components/EquipmentCardListingTable/EquipmentCardListingTableContainer';
+import background from './stories/assets/background.webp';
 
 const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <Box sx={{ backgroundColor: '#AAAAAA', height: '1000vh' }}>
+        <Box sx={{backgroundImage: `url(${background})`}}>
           <Box sx={{ justifyContent: 'center', maxWidth: '1200px', margin: 'auto', px: '10px' }}>
             <Box sx={{ py: '10px' }}>
               <TaskbarContainer />
