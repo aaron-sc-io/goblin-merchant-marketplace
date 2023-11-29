@@ -5,15 +5,16 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import listingFixture from './ListingFixture';
 
-const ProfilePage = ({username, discord, repScore, data}) => {
+const ProfilePage = ({username, discord, repScore, listingData = listingFixture}) => {
   const [currentTab, setCurrentTab] = useState('userInfo')
-
+  console.log(listingFixture)
   return (
   <>
     <Card sx={{ 
       backgroundColor: colorLibrary.lightGrey, 
-      width: '850px',
+      width: '1050px',
       height: '800px'
     }}>
       <Box sx={{  
@@ -26,7 +27,7 @@ const ProfilePage = ({username, discord, repScore, data}) => {
         </Box>
         <Card sx={{ 
           backgroundColor: colorLibrary.darkGrey, 
-          width: '800px',
+          width: '1000px',
           height: '600px',
           alignSelf: 'center'
         }}>
@@ -63,13 +64,20 @@ const ProfilePage = ({username, discord, repScore, data}) => {
           </Box>
           }
           { currentTab === 'activeListings' && 
-          <Box sx={{color: colorLibrary.lightGrey}}>
-            <HorizontalListings data={data}/>
+          <Box sx={{
+            color: colorLibrary.lightGrey,
+            pl: .75,
+            height:'1000px'
+          }}>
+            <HorizontalListings listingData={ listingData }/>
           </Box>
           }
           { currentTab === 'previousSales' && 
-          <Box sx={{color: colorLibrary.lightGrey}}>
-            <HorizontalListings data={data}/>
+          <Box sx={{
+            color: colorLibrary.lightGrey,
+            pl: .75
+          }}>
+            <HorizontalListings listingData={ listingData }/>
           </Box>
           }
           { currentTab === 'reviews' && 
@@ -84,12 +92,12 @@ const ProfilePage = ({username, discord, repScore, data}) => {
   )
 }
 
-const HorizontalListings = ({data}) => {
+const HorizontalListings = ({ listingData }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2,
-      slidesToSlide: 1 // optional, default to 1.
+      items: 3,
+      slidesToSlide: 3 // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -109,8 +117,8 @@ const HorizontalListings = ({data}) => {
   return (
     <Carousel
       swipeable={true}
-      draggable={true}
       showDots={true}
+      renderButtonGroupOutside={true}
       responsive={responsive}
       ssr={true} // means to render carousel on server-side.
       containerClass="carousel-container"
@@ -118,12 +126,13 @@ const HorizontalListings = ({data}) => {
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
     >
-      <EquipmentCard data={data} handleClick={handleClick}/>
-      <EquipmentCard data={data} handleClick={handleClick}/>
-      <EquipmentCard data={data} handleClick={handleClick}/>
-      <EquipmentCard data={data} handleClick={handleClick}/>
-      <EquipmentCard data={data} handleClick={handleClick}/>
-      <EquipmentCard data={data} handleClick={handleClick}/>
+      {listingData && listingData.map((listing) => (
+      <Box sx={{
+        height: '400px'
+      }}>
+        <EquipmentCard data={listing} />
+      </Box>
+      ))}
     </Carousel>
   )
 }
