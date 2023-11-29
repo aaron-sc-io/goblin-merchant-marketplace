@@ -33,7 +33,7 @@ const TaskbarContainer = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
       <Card>
         <Taskbar
           handleSignOutClick={handleSignOutClick}

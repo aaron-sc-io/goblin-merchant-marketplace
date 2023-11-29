@@ -102,7 +102,7 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
         align='center'
         sx={{
           borderColor: colorLibrary.darkGrey,
-          bgcolor: colorLibrary.darkGrey,
+          bgcolor: colorLibrary.darkestGrey,
           width: equipmentCardStyles.width,
           minHeight: equipmentCardStyles.minHeight,
           maxHeight: (equipmentCardStyles.maxHeight+1)
