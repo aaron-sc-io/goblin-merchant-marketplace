@@ -10,13 +10,13 @@ const EquipmentCardListingTable = ({ listings }) => {
     setListingData(listings);
   }, [listings]);
   return (
-    <Box sx={{ width: '1500px' }}>
-      <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1 }}/> {/* banner temp for fitlers */}
-      <Box sx={{ backgroundColor: '#777777', m: 1 }}>
+    <Box sx={{ width: '1550px' }}>
+      <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1}}/> {/* banner temp for filters */}
+      <Box sx={{ backgroundColor: '#777777', p: '10px', m: 1.5}}>
         <ResponsiveMasonry
-          columnsCountBreakPoints={{900: 3, 1200: 4, 1500: 5}}
+          columnsCountBreakPoints={{300: 1, 600: 2, 900: 3, 1200: 4, 1500: 5}}
         >
-          <Masonry>
+          <Masonry gutter='2px'>
             {listingData && listingData.map((listing) => (
               <EquipmentCard data={listing} />
             ))}

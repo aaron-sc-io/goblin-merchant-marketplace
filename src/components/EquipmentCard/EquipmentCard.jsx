@@ -71,16 +71,11 @@ const EquipmentCard = ({ data, isDisabled, handleClick }) => {
   return (
       <EquipmentCardFront
           data={data}
-          //headerColorStyles={headerColorStyles}
           handleClick={handleClick}
           headerColors={headerColors}
           isDisabled={isDisabled}
       />
-      // <EquipmentCardBack
-      //   formik={formik}
-      //   handleClick={handleClick}
-      //   headerColors={headerColors}
-      // />
+
   );
 };
 
@@ -105,7 +100,8 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
           bgcolor: colorLibrary.darkestGrey,
           width: equipmentCardStyles.width,
           minHeight: equipmentCardStyles.minHeight,
-          maxHeight: (equipmentCardStyles.maxHeight+1)
+          maxHeight: (equipmentCardStyles.maxHeight+1),
+          boxShadow: 10
         }}
         border={equipmentCardStyles.border}
       >
