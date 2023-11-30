@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button, Box, Typography, Divider } from '@mui/material';
 import { colorLibrary } from '../../utility/colors';
 import coinsMini from './coinsMini.png';
+import background from '../../utility/img/background.webp';
 
 const headerColorStyles = {
   common: {
@@ -75,7 +76,6 @@ const EquipmentCard = ({ data, isDisabled, handleClick }) => {
           headerColors={headerColors}
           isDisabled={isDisabled}
       />
-
   );
 };
 
@@ -96,6 +96,8 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
       <Box
         align='center'
         sx={{
+          backgroundImage: `url(${background})`,
+          opacity: 0.9,
           borderColor: colorLibrary.darkGrey,
           bgcolor: colorLibrary.darkestGrey,
           width: equipmentCardStyles.width,
