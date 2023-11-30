@@ -13,7 +13,7 @@ export const colorLibrary = {
   grey: grey[500],
   grey2: grey[600],
   darkGrey: '#606060',
-  darkestGrey: '#d9d9d9',
+  darkestGrey: '#474747',
   neonGreen: '#76ff03',
   green: '#2e7d32',
   amber: '#ffc107',
