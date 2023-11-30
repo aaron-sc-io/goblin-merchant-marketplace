@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import DndButton from './DndButton';
+// import { useState } from 'react';
+
+export const Template = (props) => {
+  return (
+    <DndButton
+      />);
+};
+
+<Meta
+  title='Components/DndButton'
+  component={DndButton}
+/>
+
+# Taskbar
+<Description of={DndButton}/>
+
+
+## Example
+<Canvas>
+  <Story name='DndButton'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'DndButton'} />

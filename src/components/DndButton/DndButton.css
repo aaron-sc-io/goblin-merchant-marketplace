@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+.frame {
+  display: block;
+  height: auto;
+}
+
+.frameOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #f1f1f1; 
+  
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+}
+
+.container:hover .frameOverlay {
+  opacity: 1;
+}
