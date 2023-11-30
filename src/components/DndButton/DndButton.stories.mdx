@@ -3,9 +3,13 @@ import DndButton from './DndButton';
 // import { useState } from 'react';
 
 export const Template = (props) => {
+  const buttonText = 'BUTTON'
+  const handleClick = () => console.log('clicked!');
   return (
     <DndButton
-      />);
+    text={buttonText}
+    onClick={handleClick}
+  />);
 };
 
 <Meta
