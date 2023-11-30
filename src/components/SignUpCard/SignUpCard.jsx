@@ -2,7 +2,7 @@ import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/m
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import DndButton from '../DndButton/DndButton'; 
 
 // TODO Also add username/email login func
 const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
@@ -61,16 +61,9 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           autoComplete='current-password'
           variant='filled'
           onChange={e => setConfirmPass(e.target.value)}
-          sx={{ width: '250px' }}
+          sx={{ width: '250px', mb: 2 }}
           />
-        <Button 
-          variant='contained' 
-          disabled={loading} 
-          onClick={handleSubmitClick}
-          sx={{ width: '150px', my: 2 }}
-        >
-          Sign Up
-        </Button>
+        <DndButton text={'SIGN UP'} onClick={handleSubmitClick} disabled={loading}/>
         <Divider variant="middle" style={{ width:'80%' }} />
         <Box sx={{ display: 'flex', alignItems: 'center',  mt: 1 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
