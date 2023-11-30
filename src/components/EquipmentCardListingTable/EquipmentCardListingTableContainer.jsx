@@ -17,7 +17,7 @@ const EquipmentCardListingTableContainer = () => {
     getListings();
   }, []);
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', py: 5 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
       <EquipmentCardListingTable listings={listings} />
     </Box>
   )
