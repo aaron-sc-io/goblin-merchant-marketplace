@@ -16,8 +16,8 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <Box sx={{backgroundImage: `url(${background})`}}>
-          <Box sx={{ justifyContent: 'center', maxWidth: '1550px', margin: 'auto', px: '10px' }}>
+        <Box sx={{ backgroundImage: `url(${background})`, minHeight: '100vh'}}>
+          <Box sx={{ justifyContent: 'center', maxWidth: '1550px', margin: 'auto', px: '5px', minHeight: '1vh', pb: 5 }}>
             <Box sx={{ py: '10px' }}>
               <TaskbarContainer />
             </Box>
