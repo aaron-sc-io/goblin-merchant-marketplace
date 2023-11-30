@@ -2,9 +2,9 @@ import './DndButton.css';
 import button_default from '../../utility/img/button_default_cropped.webp';
 import button_frame from '../../utility/img/button_frame.webp';
 
-const DndButton = ({ sizeVariant, text, onClick }) => {
+const DndButton = ({ disabled, sizeVariant, text, onClick }) => {
   return (
-    <button class="button" onClick={onClick}>
+    <button class="button" disabled={disabled} onClick={onClick}>
       <div class="container">
         <div class="button-text">{text}</div>
         <img src={button_default} alt="Avatar" class="frame" />
