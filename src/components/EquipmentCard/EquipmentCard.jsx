@@ -69,13 +69,12 @@ const EquipmentCard = ({ data, isDisabled, handleClick }) => {
   }, [data.rarity]);
 
   return (
-      <EquipmentCardFront
-          data={data}
-          handleClick={handleClick}
-          headerColors={headerColors}
-          isDisabled={isDisabled}
-      />
-
+    <EquipmentCardFront
+      data={data}
+      handleClick={handleClick}
+      headerColors={headerColors}
+      isDisabled={isDisabled}
+    />
   );
 };
 
@@ -88,7 +87,7 @@ const EquipmentCardFront = ({ data, headerColors, handleClick, isDisabled }) => 
   
   const itemImgString = data.name.replace(/ /g,"_") + '_' + data.rarity;
   const itemImgPath = `/itemImages/${itemImgString}.png`;
-  console.log(itemImgPath);
+  // console.log(itemImgPath);
 
   return (
     <Button onClick={handleClick} disabled={isDisabled}>
@@ -322,7 +321,6 @@ const BaseStatTextLine = ({ baseStatValue, baseStatType }) => {
 };
 
 const ListingDescription = ({ data }) => {
-  console.log(data);
   return (
     <Box sx={{ py: 1.2, display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' , width: '30%', pl: 2 }}>
