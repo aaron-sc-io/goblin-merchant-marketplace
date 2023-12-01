@@ -30,7 +30,7 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
         </Box>
       </Card>
       <div style={{ position: 'absolute', top: -15, left: -10, height: '530px', width: '320px', zIndex: 0 }}>
-        <img src={cardFrame} alt="card-frame" style={{ width: '100%', height: '100%' }}/>
+        <img src={cardFrame} alt="card-frame" draggable="false" style={{ width: '100%', height: '100%' }}/>
       </div>
     </div>
   )

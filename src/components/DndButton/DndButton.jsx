@@ -18,10 +18,10 @@ const DndButton = ({ disabled, sizeVariant, text, onClick }) => {
   return (
     <button class={`button ${buttonSize}`} disabled={disabled} onClick={onClick}>
       <div class="container">
-        <img src={button_default_highlight} alt="Avatar" class="button-default-highlight" />
+        <img src={button_default_highlight} alt="Avatar" class="button-default-highlight" draggable="false"/>
         <div class="button-text">{text}</div>
-        <img src={button_default} alt="Avatar" class="frame" />
-        <img src={button_frame} alt="Avatar" class="frame-overlay" />
+        <img src={button_default} alt="Avatar" class="frame" draggable="false"/>
+        <img src={button_frame} alt="Avatar" class="frame-overlay" draggable="false"/>
       </div>
     </button>
   );
