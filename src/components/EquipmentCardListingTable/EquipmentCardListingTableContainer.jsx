@@ -1,7 +1,6 @@
 import EquipmentCardListingTable from './EquipmentCardListingTable';
 import { Box } from '@mui/material';
 import { collection, getDocs } from 'firebase/firestore';
-import { Box } from '@mui/material';
 import { db } from '../../firebase-config';
 import { useEffect, useState } from 'react';
 
