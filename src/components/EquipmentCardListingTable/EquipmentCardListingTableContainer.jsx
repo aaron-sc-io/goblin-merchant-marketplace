@@ -1,4 +1,5 @@
 import EquipmentCardListingTable from './EquipmentCardListingTable';
+import { Box } from '@mui/material';
 import { collection, getDocs } from 'firebase/firestore';
 import { Box } from '@mui/material';
 import { db } from '../../firebase-config';
@@ -17,10 +18,9 @@ const EquipmentCardListingTableContainer = () => {
     getListings();
   }, []);
   return (
-    <>
-      <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1 }}/> {/* banner temp for fitlers */}
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
       <EquipmentCardListingTable listings={listings} />
-    </>
+    </Box>
   )
 }
 

@@ -1,7 +1,7 @@
 import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
-
+import DndButton from '../DndButton/DndButton';
 
 // TODO Also add username/email login func
 const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNavigateCreateAccount }) => {
@@ -45,14 +45,7 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
           onChange={e => setPassword(e.target.value)}
           sx={{ width: '250px', mb: 3 }}
           />
-        <Button 
-          variant='contained' 
-          disabled={loading} 
-          onClick={handleSignInSubmit}
-          sx={{ width: '150px', mb: 0.5 }}
-        >
-          Submit
-        </Button>
+        <DndButton text={'SUBMIT'} onClick={handleSignInSubmit} disabled={loading}/>
         <Box sx={{ display: 'flex', alignItems: 'center'}}>
           <Button onClick={handleNavigateForgotPass} sx={{ textTransform: 'none', mb: 1 }}>
             Forgot Password?
@@ -60,9 +53,10 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
         </Box>
         <Divider variant="middle" style={{width:'80%'}} />
         <Box sx={{ display: 'flex', alignItems: 'center',  my: 3.5 }}>
-          <Button sx={{ fontSize: 15, backgroundColor: 'primary' }} onClick={handleNavigateCreateAccount} variant='contained'>
+          {/* <Button sx={{ fontSize: 15, backgroundColor: 'primary' }} onClick={handleNavigateCreateAccount} variant='contained'>
             Create New Account
-          </Button>
+          </Button> */}
+          <DndButton text={'REGISTER'} onClick={handleNavigateCreateAccount}/>
         </Box>  
       </Box>
     </Card>
