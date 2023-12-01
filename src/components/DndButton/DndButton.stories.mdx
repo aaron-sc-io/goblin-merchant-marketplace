@@ -3,12 +3,14 @@ import DndButton from './DndButton';
 // import { useState } from 'react';
 
 export const Template = (props) => {
-  const buttonText = 'SIGN UP'
+  const buttonText = 'ASDF'
+  const size = 1
   const handleClick = () => console.log('clicked!');
   return (
     <DndButton
     text={buttonText}
     onClick={handleClick}
+    sizeVariant={size}
   />);
 };
 
