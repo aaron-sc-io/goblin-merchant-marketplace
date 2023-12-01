@@ -20,7 +20,7 @@ const EquipmentCardListingTableContainer = () => {
     <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
       <EquipmentCardListingTable listings={listings} />
     </Box>
-  )
-}
+  );
+};
 
 export default EquipmentCardListingTableContainer
