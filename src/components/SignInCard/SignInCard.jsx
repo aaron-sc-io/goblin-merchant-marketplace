@@ -3,7 +3,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
 import DndButton from '../DndButton/DndButton';
 
-
 // TODO Also add username/email login func
 const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNavigateCreateAccount }) => {
   const [error, setError] = useState('');
@@ -54,9 +53,10 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
         </Box>
         <Divider variant="middle" style={{width:'80%'}} />
         <Box sx={{ display: 'flex', alignItems: 'center',  my: 3.5 }}>
-          <Button sx={{ fontSize: 15, backgroundColor: 'primary' }} onClick={handleNavigateCreateAccount} variant='contained'>
+          {/* <Button sx={{ fontSize: 15, backgroundColor: 'primary' }} onClick={handleNavigateCreateAccount} variant='contained'>
             Create New Account
-          </Button>
+          </Button> */}
+          <DndButton text={'REGISTER'} onClick={handleNavigateCreateAccount}/>
         </Box>  
       </Box>
     </Card>
