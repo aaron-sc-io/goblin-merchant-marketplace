@@ -63,7 +63,7 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
           onChange={e => setConfirmPass(e.target.value)}
           sx={{ width: '250px', mb: 2 }}
           />
-        <DndButton text={'SIGN UP'} onClick={handleSubmitClick} disabled={loading}/>
+        <DndButton text={'SUBMIT'} onClick={handleSubmitClick} disabled={loading}/>
         <Divider variant="middle" style={{ width:'80%' }} />
         <Box sx={{ display: 'flex', alignItems: 'center',  mt: 1 }}>
           <Typography sx={{ fontSize: 15 }}>Already have an account?   </Typography>
