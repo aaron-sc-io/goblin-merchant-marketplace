@@ -2,8 +2,8 @@
 // All Listing Object Options
 const category = [];
 const name = [];
-const requiredClass = [];
-const rarity = [];
+const requiredClass = ['Wizard', 'Bard', 'Fighter', 'Barbarian', 'Rogue', 'Ranger', 'Warlock', 'Cleric'];
+const rarity = ['Uncommon', 'Common', 'Rare', 'Epic', 'Legendary', 'Unique'];
 const slotType = [];
 const enchantments = [];
 
