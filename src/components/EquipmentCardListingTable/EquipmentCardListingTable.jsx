@@ -59,10 +59,12 @@ const ListingTableFilter = ({ formik }) => {
   return (
     <>
       <IconButton onClick={handleExpandClick} sx={{ width: '65px', height: '50px', ml: 1, mt: 1 }}>
-        {expanded
-          ? <CloseIcon sx={{ width: '100%', height: 'auto' }}/>
-          : <MenuIcon sx={{ width: '100%', height: 'auto' }}/>
-        }
+        <Tooltip title='Filters' placement="right">
+          {expanded
+            ? <CloseIcon sx={{ width: '100%', height: 'auto' }}/>
+            : <MenuIcon sx={{ width: '100%', height: 'auto' }}/>
+          }
+        </Tooltip>
       </IconButton>
       {expanded ?
         <Box sx={{ backgroundColor: '#777777', height: '175px', m: 1.5, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
