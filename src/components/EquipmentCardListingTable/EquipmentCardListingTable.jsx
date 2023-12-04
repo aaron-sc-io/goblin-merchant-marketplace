@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
-import { Box, IconButton } from '@mui/material';
+
+import { Box, IconButton, TextField } from '@mui/material';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 import MenuIcon from '@mui/icons-material/Menu';
-import defaultListingFilters from './defaultListingFilters';
+import CloseIcon from '@mui/icons-material/Close';
 
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
+import defaultListingFilters from './defaultListingFilters';
 
 const EquipmentCardListingTable = ({ listings }) => {
   const [listingData, setListingData] = useState([]);
@@ -53,15 +55,22 @@ const ListingTableFilter = ({ filters }) => {
   };
   return (
     <>
-      <IconButton onClick={handleExpandClick}>
-        <MenuIcon />
+      <IconButton onClick={handleExpandClick} sx={{ width: '65px', height: '50px', ml: 1, mt: 1 }}>
+        {expanded
+          ? <CloseIcon sx={{ width: '100%', height: 'auto' }}/>
+          : <MenuIcon sx={{ width: '100%', height: 'auto' }}/>
+        }
       </IconButton>
       {expanded ?
-        <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1.5, display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-          <Box sx={{ width: '45%', backgroundColor: '#fff', height: '200px', my: 1.5}}>
-            <div>yo</div>
+        <Box sx={{ backgroundColor: '#777777', height: '175px', m: 1.5, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+          <Box sx={{ width: '50%', backgroundColor: '#fff', height: '165px', m: 1}}>
+            {/* Rarity Checkbox Selector */}
+            {/* Class Checkbox Selector */}
+            <TextField>
+            
+            </TextField>
           </Box>
-          <Box sx={{ width: '45%', backgroundColor: '#fff', height: '150px', my: 1.5}}>
+          <Box sx={{ width: '50%', backgroundColor: '#fff', height: '165px', m: 1}}>
             <div>yo</div>
           </Box>
         </Box>
