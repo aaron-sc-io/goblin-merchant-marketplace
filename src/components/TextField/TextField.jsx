@@ -3,28 +3,32 @@ import { TextField  } from '@mui/material';
 import { styled } from '@mui/system';
 
 const CssTextField = styled(TextField)({
-  backgroundColor: '#CECECE', // Grey background
+  backgroundColor: 'black',
   '& .MuiOutlinedInput-root': {
     borderRadius: '0',
     '& fieldset': {
-      borderColor: 'transparent', // No border color initially
+      borderColor: 'transparent',
     },
     '&:hover fieldset': {
-      borderColor: 'transparent', // Remove border on hover
-      borderBottom: '1px solid black', // Saddle brown bottom border
+      borderColor: 'transparent',
+      borderBottom: '2px solid #CECECE',
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'transparent', // Remove border on focus
-      borderBottom: '3px solid black', 
+      borderColor: 'transparent',
+      borderBottom: '3px solid #CECECE', 
     },
   },
   '& .MuiInputLabel-root': {
-    color: 'black', // Darker saddle brown label color
-    fontFamily: 'Cinzel Decorative, cursive', // Medieval-style font
-    '&:Mui-focused': {
-      backgroundColor: 'red'
-    }
+    color: '#FF8E00',
+    fontFamily: "'Ibarra Real Nova', serif",
+    paddingTop: '4.5px',
   },
+  '& .MuiInputBase-input': {
+    paddingTop: '20px',
+    paddingBottom: '13px',
+    fontFamily: "'Ibarra Real Nova', serif",
+  },
+  '& .MuiInputLabel-shrink': { opacity: 0 }
 });
 
 const CustomTextField = ({ ...props }) => {
@@ -33,8 +37,9 @@ const CustomTextField = ({ ...props }) => {
       label={props.label}
       name={props.name}
       type={props.type}
-      inputProps={{ style: { fontFamily: 'nunito', color: 'black', className: 'ibarra' } }}
-      InputLabelProps={{ disableAnimation:'true', onfocus: { display: 'none' } }}
+      inputProps={{ style: { color: '#CECECE' }}}
+      InputLabelProps={{ disableAnimation: true }}
+      onChange={props.onChange}
     />
   );
 };

@@ -1,7 +1,8 @@
-import { TextField, Box, Button, Card, Typography, Alert } from '@mui/material';
+import { Box, Button, Card, Typography, Alert } from '@mui/material';
 import DndButton from '../DndButton/DndButton';
 import background from '../../utility/img/background.webp'
 import cardFrame from '../../utility/img/inven_frame.webp'
+import CustomTextField from '../TextField/TextField';
 import '../../utility/ibarraFont.css';
 
 const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loading, error, message, setUsername }) => {
@@ -14,27 +15,28 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
       <Card sx={{ width: '300px', height: '500px', borderRadius: '30px', 
       backgroundImage: `url(${background})`, color: '#CECECE'}}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-          <Typography class={'ibarra-xl'}> Forgot Password? </Typography>
-          <Typography class={'ibarra-s'}> Enter your email to reset </Typography>
+          <Box sx={{ mb: -1, mt: 4 }}>
+            <Typography class={'ibarra-xl no-line-height'}> Forgot Password? </Typography>
+          </Box>
+          <Box sx={{ mb: 5 }}>
+            <Typography class={'ibarra-s no-line-height'}> Enter your email to reset </Typography>
+          </Box>
           {error && <Alert severity="error">{error}</Alert>}
-          <TextField 
+          <CustomTextField 
             id='email-address'
+            name='email-address'
             label='Email Address'
-            variant='filled'
             onChange={e => setUsername(e.target.value)}
-            sx={{ width: '250px', my: 2}}
-            inputProps={{ style: { background: '#CECECE' } }}
           />
-          <Box>
+          <Box sx={{ mt: 5 }}>
             <DndButton text={'RESET'} onClick={handleForgotPassSubmit} disabled={loading}/>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center',  mt: 2, mb: 15}}>
-            <Typography class={'ibarra-s'}>Already have an account?   </Typography>
-            <Button onClick={handleNavigateSignIn}>Sign In</Button>
+          <Box sx={{ display: 'flex', alignItems: 'center', mt: 15 }}>
+            <Typography class={'ibarra-s'}>Already have an account?</Typography>
+            <Button sx={{ fontFamily: "'Ibarra Real Nova', serif", color: '#FF8E00', p: 0, marginLeft: '10px', ":hover": {color: '#FFB353'} }} onClick={handleNavigateSignIn}>Sign In</Button>
           </Box>  
         </Box>
       </Card>
-
     </div>
   )
 }
