@@ -13,7 +13,7 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
         <img src={cardFrame} alt="card-frame" draggable="false" style={{ width: '100%', height: '100%' }}/>
       </div>
       <Card sx={{ width: '300px', height: '500px', borderRadius: '30px', 
-      backgroundImage: `url(${background})`, color: '#CECECE'}}>
+      backgroundImage: `url(${background})`, color: '#CECECE' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
           <Box sx={{ mb: -1, mt: 4 }}>
             <Typography class={'ibarra-xl no-line-height'}> Forgot Password? </Typography>
@@ -31,7 +31,7 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
           <Box sx={{ mt: 5 }}>
             <DndButton text={'RESET'} onClick={handleForgotPassSubmit} disabled={loading}/>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', mt: 15 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography class={'ibarra-s'}>Already have an account?</Typography>
             <Button sx={{ fontFamily: "'Ibarra Real Nova', serif", color: '#FF8E00', p: 0, marginLeft: '10px', ":hover": {color: '#FFB353'} }} onClick={handleNavigateSignIn}>Sign In</Button>
           </Box>  
