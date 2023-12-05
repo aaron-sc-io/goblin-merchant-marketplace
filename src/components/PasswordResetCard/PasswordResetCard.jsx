@@ -3,7 +3,7 @@ import DndButton from '../DndButton/DndButton';
 import background from '../../utility/img/background.webp'
 import cardFrame from '../../utility/img/inven_frame.webp'
 import CustomTextField from '../TextField/TextField';
-import '../../utility/ibarraFont.css';
+import '../../utility/styles/ibarraFont.css';
 
 const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loading, error, message, setUsername }) => {
   console.log(message);

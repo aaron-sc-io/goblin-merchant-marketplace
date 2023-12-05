@@ -5,7 +5,7 @@ import CustomTextField from '../TextField/TextField';
 import DndButton from '../DndButton/DndButton';
 import background from '../../utility/img/background.webp';
 import cardFrame from '../../utility/img/inven_frame.webp';
-import '../../utility/ibarraFont.css'; 
+import '../../utility/styles/ibarraFont.css'; 
 
 // TODO Also add username/email login func
 const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNavigateCreateAccount }) => {

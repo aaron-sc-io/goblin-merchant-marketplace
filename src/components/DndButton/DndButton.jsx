@@ -1,5 +1,5 @@
 import './DndButton.css';
-import '../../utility/ibarraFont.css'
+import '../../utility/styles/ibarraFont.css'
 import button_default from '../../utility/img/button_default.webp';
 import button_default_highlight from '../../utility/img/button_default_highlight.webp';
 import button_frame from '../../utility/img/button_frame.webp';
