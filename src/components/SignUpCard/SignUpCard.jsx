@@ -40,7 +40,7 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
     <div style={{ position: 'relative' }}>
       <div style={{ position: 'absolute', top: -15, left: -10, height: '530px', width: '320px' }}>
         <img src={cardFrame} alt="card-frame" draggable="false" style={{ width: '100%', height: '100%' }}/>
-    </div>
+      </div>
       <Card sx={{ width: '300px', height: '500px', borderRadius: '30px', 
       backgroundImage: `url(${background})`, color: '#CECECE' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
