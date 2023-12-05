@@ -1,4 +1,4 @@
-import { Box,  } from '@mui/material';
+import { Box } from '@mui/material';
 import DndButton from '../DndButton/DndButton';
 
 const Taskbar = ({ handleSignOutClick, handleNewSubmitClick, handleHomeClick, handleSignInClick, userIsSignedIn }) => {
