@@ -6,7 +6,6 @@ import CustomTextField from '../TextField/TextField';
 import '../../utility/styles/ibarraFont.css';
 
 const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loading, error, message, setUsername }) => {
-  console.log(message);
   return (
     <div style={{ position: 'relative' }}>
       <div style={{ position: 'absolute', top: -15, left: -10, height: '530px', width: '320px' }}>
