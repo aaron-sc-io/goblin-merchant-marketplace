@@ -1,7 +1,7 @@
 import { red, blue, purple, grey } from '@mui/material/colors';
 
 export const colorLibrary = {
-  blu: blue[500],
+  blu: '#66b3ff',
   darkBlu: blue[900],
   neonBlu: '#00e5ff',
   red: red[500],
@@ -13,6 +13,7 @@ export const colorLibrary = {
   grey: grey[500],
   grey2: grey[600],
   darkGrey: '#606060',
+  darkestGrey: '#474747',
   neonGreen: '#76ff03',
   green: '#2e7d32',
   amber: '#ffc107',

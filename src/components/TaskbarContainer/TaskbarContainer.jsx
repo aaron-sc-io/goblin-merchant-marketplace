@@ -8,6 +8,7 @@ const TaskbarContainer = () => {
   const [error, setError] = useState('');
   const { currentUser, handleSignout } = useAuth();
   const navigate = useNavigate();
+  console.log(error);
 
   const handleSignOutClick = async (e) => {
     setError('');
@@ -33,7 +34,7 @@ const TaskbarContainer = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
       <Card>
         <Taskbar
           handleSignOutClick={handleSignOutClick}

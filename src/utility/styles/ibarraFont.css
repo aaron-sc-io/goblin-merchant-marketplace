@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;500;700&display=swap');
+
+.ibarra-s, .ibarra, .ibarra-l, .ibarra-xl {
+  font-family: 'Ibarra Real Nova', serif;
+  font-weight: 500;
+  text-shadow: 2px 2px 3px#000000;
+}
+
+.ibarra-s {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.ibarra {
+  font-size: 19px;
+  line-height: 18px;
+}
+
+.ibarra-l {
+  font-size: 25px;
+  line-height: 24px;
+}
+
+.ibarra-xl {
+  font-size: 30px;
+  line-height: 29px;
+}
+
+.ibarra-xxl {
+  font-size: 35px;
+  line-height: 34px;
+}
+
+.letter-spacing {
+  letter-spacing: 1px ;
+}
+
+.no-line-height {
+  line-height: 0;
+}
