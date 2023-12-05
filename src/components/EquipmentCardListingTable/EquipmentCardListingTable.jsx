@@ -16,14 +16,23 @@ const EquipmentCardListingTable = ({ listings }) => {
   const [listingData, setListingData] = useState([]);
   const formik = useFormik({
     initialValues: {
-      // ...defaultListingFilters TODO
+      requiredClass: ['Wizard', 'Bard', 'Fighter', 'Barbarian', 'Rogue', 'Ranger', 'Warlock', 'Cleric'],
       rarity: ['Uncommon', 'Common', 'Rare', 'Epic', 'Legendary', 'Unique']
     }
   });
+
+  console.log(formik.values);
+
   const applyFilter = (data, filters) => { 
     return data.filter(obj =>
-      Object.entries(filters).every(([prop, find]) => find.includes(obj[prop]))
-    )
+      Object.entries(filters).every(([prop, find]) => {
+        if (Array.isArray(obj[prop])) {
+          return find.some(value => obj[prop].includes(value));  // Check if any element in the array matches the filter values
+        } else {
+          return find.includes(obj[prop]); // Check if the property matches any of the filter values
+        }
+      })
+    );
   };
 
   useEffect(() => {
@@ -73,6 +82,7 @@ const ListingTableFilter = ({ formik }) => {
               <strong>Rarities:  </strong>
             </Typography>
             <RarityFilter formik={formik} />
+            <RequiredClassFilter formik={formik} />
           </Box>
           <Box sx={{ width: '50%', backgroundColor: '#fff', height: '165px', m: 1}}>
             <div>yo</div>
@@ -143,6 +153,67 @@ const RarityCheckbox = ({ rarity, handleRarityUpdate, color }) => {
         onChange={handleCheckChange}  
       />
     </Tooltip>
+  )
+};
+
+const RequiredClassFilter = ({ formik }) => {
+  const requiredClassFilters = new Set(formik.values.requiredClass);
+  const handleClassUpdate = (checkboxIsChecked, requiredClass) => {
+    checkboxIsChecked
+    ? requiredClassFilters.delete(requiredClass)
+    : requiredClassFilters.add(requiredClass);
+    formik.setFieldValue('requiredClass', Array.from(requiredClassFilters));
+  };
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <RequiredClassCheckbox 
+        requiredClass='Fighter'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Bard'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Wizard'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Rogue'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Warlock'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Ranger'
+        handleClassUpdate={handleClassUpdate} />
+      <RequiredClassCheckbox 
+        requiredClass='Cleric'
+        handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox 
+        requiredClass='Barbarian'
+        handleClassUpdate={handleClassUpdate} />
+    </Box>
+  );
+};
+
+const RequiredClassCheckbox = ({ requiredClass, handleClassUpdate }) => {
+  const [checked, setChecked] = useState(true)
+  const handleCheckChange = () => {
+    handleClassUpdate(checked, requiredClass);
+    setChecked(!checked);
+  };
+  return (
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Checkbox
+          sx={{
+            m: -0.8,
+            '& .MuiSvgIcon-root': { fontSize: 26 },
+          }}
+          checked={checked}
+          onChange={handleCheckChange}  
+        />
+        <Typography>{requiredClass}</Typography>
+      </Box>
+      
   )
 };
 
