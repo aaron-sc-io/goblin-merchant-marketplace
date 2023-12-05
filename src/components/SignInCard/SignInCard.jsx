@@ -37,7 +37,7 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
       <Card sx={{ width: '300px', height: '500px', borderRadius: '30px', 
       backgroundImage: `url(${background})`, color: '#CECECE' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-          <Box sx={{ mb: -1, mt: 4 }}>
+          <Box sx={{  mt: 4 }}>
             <Typography class={'ibarra-xl no-line-height'}> Log In </Typography>
           </Box>
           {error && <Alert severity="error">{error}</Alert>}
