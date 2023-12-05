@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import CustomSelectField from './SelectField';
+
+export const Template = (props) => {
+  return (
+    <CustomSelectField
+    props={props}
+    label={'testing select'}
+  />);
+};
+
+<Meta
+  title='Components/CustomSelectField'
+  component={CustomSelectField}
+/>
+
+# CustomSelectField
+<Description of={CustomSelectField}/>
+
+## Example
+<Canvas>
+  <Story name='CustomSelectField'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'CustomSelectField'} />
