@@ -20,7 +20,6 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
       handleNavigateRoot();
     } catch (e) {
       setError('Failed to sign in');
-      // replace console logs with error switch display
       console.log(e);
     }
     setLoading(false);

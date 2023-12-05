@@ -13,9 +13,7 @@ const EquipmentCardListingTable = ({ listings }) => {
     <Box sx={{ width: '1550px' }}>
       <Box sx={{ backgroundColor: '#777777', height: '200px', m: 1.5 }}/> {/* banner temp for filters */}
       <Box sx={{ backgroundColor: '#777777', p: '10px', m: 1.5 }}>
-        <ResponsiveMasonry
-          columnsCountBreakPoints={{300: 1, 600: 2, 900: 3, 1200: 4, 1500: 5}}
-        >
+        <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 600: 2, 900: 3, 1200: 4, 1500: 5 }}>
           <Masonry gutter='2px'>
             {listingData && listingData.map((listing) => (
               <EquipmentCard data={listing} />
