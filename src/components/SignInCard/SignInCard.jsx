@@ -1,7 +1,11 @@
-import { TextField, Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
+import { Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import CustomTextField from '../TextField/TextField';
 import DndButton from '../DndButton/DndButton';
+import background from '../../utility/img/background.webp';
+import cardFrame from '../../utility/img/inven_frame.webp';
+import '../../utility/styles/ibarraFont.css'; 
 
 // TODO Also add username/email login func
 const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNavigateCreateAccount }) => {
@@ -26,40 +30,45 @@ const SignInCard = ({ handleNavigateRoot, handleNavigateForgotPass, handleNaviga
   };
 
   return(
-    <Card sx={{ width: '300px', height: '500px' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
-        <Typography sx={{ fontSize: 40, my: 1 }}> Log In </Typography>
-        {error && <Alert severity="error">{error}</Alert>}
-        <TextField 
-          id='email-address'
-          label='Email Address'
-          variant='filled'
-          onChange={e => setUsername(e.target.value)}
-          sx={{ width: '250px', mt: 1 }}
-          />
-        <TextField
-          id='password'
-          label='Password'
-          type='password'
-          variant='filled'
-          onChange={e => setPassword(e.target.value)}
-          sx={{ width: '250px', mb: 3 }}
-          />
-        <DndButton text={'SUBMIT'} onClick={handleSignInSubmit} disabled={loading}/>
-        <Box sx={{ display: 'flex', alignItems: 'center'}}>
-          <Button onClick={handleNavigateForgotPass} sx={{ textTransform: 'none', mb: 1 }}>
-            Forgot Password?
-          </Button>
+    <div style={{ position: 'relative' }}>
+      <div style={{ position: 'absolute', top: -15, left: -10, height: '530px', width: '320px' }}>
+        <img src={cardFrame} alt="card-frame" draggable="false" style={{ width: '100%', height: '100%' }}/>
+      </div>
+      <Card sx={{ width: '300px', height: '500px', borderRadius: '30px', 
+      backgroundImage: `url(${background})`, color: '#CECECE' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
+          <Box sx={{  mt: 4 }}>
+            <Typography class={'ibarra-xl no-line-height'}> Log In </Typography>
+          </Box>
+          {error && <Alert severity="error">{error}</Alert>}
+          <Box sx={{ mb: .5, mt: 1 }}>
+            <CustomTextField 
+              id='email-address'
+              label='Email Address'
+              onChange={e => setUsername(e.target.value)}
+              />
+          </Box>
+          <CustomTextField
+            id='password'
+            label='Password'
+            type='password'
+            onChange={e => setPassword(e.target.value)}
+            />
+          <Box sx={{ mt: 5 }}>
+            <DndButton text={'SUBMIT'} onClick={handleSignInSubmit} disabled={loading}/>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center'}}>
+            <Button onClick={handleNavigateForgotPass} sx={{ fontFamily: "'Ibarra Real Nova', serif", color: '#FF8E00', p: 0, ":hover": {color: '#FFB353'} }}>
+              Forgot Password?
+            </Button>
+          </Box>
+          <Divider variant="middle" style={{width:'80%'}} />
+          <Box sx={{ display: 'flex', alignItems: 'center',  my: 3.5 }}>
+            <DndButton text={'REGISTER'} onClick={handleNavigateCreateAccount}/>
+          </Box>  
         </Box>
-        <Divider variant="middle" style={{width:'80%'}} />
-        <Box sx={{ display: 'flex', alignItems: 'center',  my: 3.5 }}>
-          {/* <Button sx={{ fontSize: 15, backgroundColor: 'primary' }} onClick={handleNavigateCreateAccount} variant='contained'>
-            Create New Account
-          </Button> */}
-          <DndButton text={'REGISTER'} onClick={handleNavigateCreateAccount}/>
-        </Box>  
-      </Box>
-    </Card>
+      </Card>
+    </div>
   );
 };
 

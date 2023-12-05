@@ -1,14 +1,10 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import DndButton from '../DndButton/DndButton';
 
 const Taskbar = ({ handleSignOutClick, handleNewSubmitClick, handleHomeClick, handleSignInClick, userIsSignedIn }) => {
   return(
-    <Box sx={{ display: 'flex', flexDirection: 'row', height: '85px', width: '1200px', backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', height: '85px', width: '100vw', backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
       <DndButton text={'HOME'} onClick={handleHomeClick}/>
-      {/* <Button sx={{ color: 'primary', width: '25%', height: '75%' }} variant='contained' onClick={handleNewSubmitClick} disabled={!userIsSignedIn}>
-        <Typography sx={{ color: 'white' }}>CREATE NEW LISTING &nbsp;</Typography>
-        <SendIcon sx={{ color: 'white' }} />
-      </Button> */}
       <DndButton text={'CREATE NEW LISTING'} onClick={handleNewSubmitClick} disabled={!userIsSignedIn} sizeVariant={2}/>
       {userIsSignedIn
       ? <DndButton text={'SIGN OUT'} onClick={handleSignOutClick}/>

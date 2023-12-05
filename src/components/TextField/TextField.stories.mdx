@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import CustomTextField from './TextField';
+
+export const Template = (props) => {
+  return (
+    <CustomTextField
+    label={'...'}
+  />);
+};
+
+<Meta
+  title='Components/CustomTextField'
+  component={CustomTextField}
+/>
+
+# Taskbar
+<Description of={CustomTextField}/>
+
+
+## Example
+<Canvas>
+  <Story name='CustomTextField'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'CustomTextField'} />
