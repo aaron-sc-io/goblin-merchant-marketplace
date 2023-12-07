@@ -1,9 +1,9 @@
 import '../../utility/styles/ibarraFont.css';
-import { TextField } from '@mui/material';
+import CssSelectField from './CssSelectField';
 
 const CustomSelectField = ({ ...props }) => {
   return (
-    <TextField
+    <CssSelectField
       label={props.label}
       name={props.name}
       type={props.type}
