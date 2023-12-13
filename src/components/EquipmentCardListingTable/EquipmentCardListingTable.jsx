@@ -21,7 +21,7 @@ const EquipmentCardListingTable = ({ listings }) => {
     }
   });
 
-  console.log(formik.values);
+  console.log('formik', formik.values);
 
   const applyFilter = (data, filters) => { 
     return data.filter(obj =>
@@ -60,11 +60,13 @@ const EquipmentCardListingTable = ({ listings }) => {
 };
 
 const ListingTableFilter = ({ formik }) => {
-  // Move Rarity Filter
   const [expanded, setExpanded] = useState(true);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const requiredClassFilters = new Set(formik.values.requiredClass);
+
   return (
     <>
       <IconButton onClick={handleExpandClick} sx={{ width: '65px', height: '50px', ml: 1, mt: 1 }}>
@@ -76,16 +78,19 @@ const ListingTableFilter = ({ formik }) => {
         </Tooltip>
       </IconButton>
       {expanded ?
-        <Box sx={{ backgroundColor: '#777777', height: '175px', m: 1.5, display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-          <Box sx={{ width: '50%', backgroundColor: '#fff', height: '165px', m: 1, display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ backgroundColor: '#777777', height: '400px', m: 1.5, display: 'flex', justifyContent: 'space-evenly', justifyContent: 'flex-start' }}>
+          <Box sx={{ width: '20%', backgroundColor: '#fff', height: '385px', m: 1, display: 'flex', flexDirection: 'column' }}>
             <Typography sx={{ pl: 0.8 }}>
               <strong>Rarities:  </strong>
             </Typography>
             <RarityFilter formik={formik} />
-            <RequiredClassFilter formik={formik} />
-          </Box>
-          <Box sx={{ width: '50%', backgroundColor: '#fff', height: '165px', m: 1}}>
-            <div>yo</div>
+            <Typography sx={{ pl: 0.8 }}>
+              <strong>Classes:  </strong>
+            </Typography>
+            <RequiredClassFilter
+              formik={formik}
+              requiredClassFilters={requiredClassFilters}
+              />
           </Box>
         </Box>
       : null}
@@ -156,47 +161,114 @@ const RarityCheckbox = ({ rarity, handleRarityUpdate, color }) => {
   )
 };
 
-const RequiredClassFilter = ({ formik }) => {
-  const requiredClassFilters = new Set(formik.values.requiredClass);
+const RequiredClassFilter = ({ formik, requiredClassFilters }) => {
+  const [allChecked, setAllChecked] = useState(requiredClassFilters.length === 8); // magic number TODO
+  const [rogueChecked, setRogueChecked] = useState(requiredClassFilters.has('Rogue'));
+  const [fighterChecked, setFighterChecked] = useState(requiredClassFilters.has('Fighter'));
+  const [barbarianChecked, setBarbarianChecked] = useState(requiredClassFilters.has('Barbarian'));
+  const [clericChecked, setClericChecked] = useState(requiredClassFilters.has('Cleric'));
+  const [rangerChecked, setRangerChecked] = useState(requiredClassFilters.has('Ranger'));
+  const [warlockChecked, setWarlockChecked] = useState(requiredClassFilters.has('Warlock'));
+  const [wizardChecked, setWizardChecked] = useState(requiredClassFilters.has('Wizard'));
+  const [bardChecked, setBardChecked] = useState(requiredClassFilters.has('Bard'));
+
   const handleClassUpdate = (checkboxIsChecked, requiredClass) => {
     checkboxIsChecked
     ? requiredClassFilters.delete(requiredClass)
     : requiredClassFilters.add(requiredClass);
     formik.setFieldValue('requiredClass', Array.from(requiredClassFilters));
   };
+  
+  const handleSetAll = (bool) => {
+    setRogueChecked(bool);
+    setFighterChecked(bool);
+    setBarbarianChecked(bool);
+    setClericChecked(bool);
+    setRangerChecked(bool);
+    setWarlockChecked(bool);
+    setWizardChecked(bool);
+    setBardChecked(bool);
+  };
+
+  const handleAllCheckClick = () => {
+    if(allChecked) {
+      formik.setFieldValue('requiredClass', []);
+      setAllChecked(false);
+      handleSetAll(false);
+    }
+    else {
+      formik.setFieldValue('requiredClass', ['Wizard', 'Bard', 'Fighter', 'Barbarian', 'Rogue', 'Ranger', 'Warlock', 'Cleric']);
+      setAllChecked(true);
+      handleSetAll(true);
+    };
+  };
+
+  useEffect(() => {
+    if (formik.values.requiredClass.length === 8) {
+      setAllChecked(true);
+    } else {
+      setAllChecked(false);
+    };
+  }, [formik.values.requiredClass]);
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <RequiredClassCheckbox 
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Checkbox sx={{ m: -0.8, '& .MuiSvgIcon-root': { fontSize: 26 } }}
+          checked={allChecked}
+          onChange={handleAllCheckClick} />
+        <Typography>
+          All Classes
+        </Typography>
+      </Box>
+      <RequiredClassCheckbox
+        checked={fighterChecked}
+        setChecked={setFighterChecked}
         requiredClass='Fighter'
         handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={bardChecked}
+        setChecked={setBardChecked}
         requiredClass='Bard'
         handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={wizardChecked}
+        setChecked={setWizardChecked}
         requiredClass='Wizard'
         handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={rogueChecked}
+        setChecked={setRogueChecked}
         requiredClass='Rogue'
         handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={warlockChecked}
+        setChecked={setWarlockChecked}
         requiredClass='Warlock'
         handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={rangerChecked}
+        setChecked={setRangerChecked}
         requiredClass='Ranger'
         handleClassUpdate={handleClassUpdate} />
       <RequiredClassCheckbox 
+        checked={clericChecked}
+        setChecked={setClericChecked}
         requiredClass='Cleric'
         handleClassUpdate={handleClassUpdate} />
-        <RequiredClassCheckbox 
+      <RequiredClassCheckbox
+        checked={barbarianChecked}
+        setChecked={setBarbarianChecked}
         requiredClass='Barbarian'
         handleClassUpdate={handleClassUpdate} />
+      {/* <RequiredClassCheckbox 
+        requiredClass='Monk'
+        handleClassUpdate={handleClassUpdate} /> */}
     </Box>
   );
 };
 
-const RequiredClassCheckbox = ({ requiredClass, handleClassUpdate }) => {
-  const [checked, setChecked] = useState(true)
+const RequiredClassCheckbox = ({ requiredClass, handleClassUpdate, checked, setChecked }) => {
   const handleCheckChange = () => {
     handleClassUpdate(checked, requiredClass);
     setChecked(!checked);
