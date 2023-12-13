@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { colorLibrary } from '../../utility/colors';
 import EquipmentCard from '../EquipmentCard/EquipmentCard';
 import defaultListingFilters from './defaultListingFilters';
+import DropdownMenu from './DropdownMenus/DropdownMenu';
 
 const EquipmentCardListingTable = ({ listings }) => {
   const [listingData, setListingData] = useState([]);
@@ -69,7 +70,7 @@ const ListingTableFilter = ({ formik }) => {
 
   return (
     <>
-      <IconButton onClick={handleExpandClick} sx={{ width: '65px', height: '50px', ml: 1, mt: 1 }}>
+      <IconButton onClick={handleExpandClick} sx={{ width: '55px', height: '45px', ml: 1, mt: 1 }}>
         <Tooltip title='Filters' placement="right">
           {expanded
             ? <CloseIcon sx={{ width: '100%', height: 'auto' }}/>
@@ -80,17 +81,17 @@ const ListingTableFilter = ({ formik }) => {
       {expanded ?
         <Box sx={{ backgroundColor: '#777777', height: '400px', m: 1.5, display: 'flex', justifyContent: 'space-evenly', justifyContent: 'flex-start' }}>
           <Box sx={{ width: '20%', backgroundColor: '#fff', height: '385px', m: 1, display: 'flex', flexDirection: 'column' }}>
-            <Typography sx={{ pl: 0.8 }}>
-              <strong>Rarities:  </strong>
-            </Typography>
-            <RarityFilter formik={formik} />
-            <Typography sx={{ pl: 0.8 }}>
-              <strong>Classes:  </strong>
-            </Typography>
+            <RarityFilter
+              formik={formik}
+              />
             <RequiredClassFilter
               formik={formik}
               requiredClassFilters={requiredClassFilters}
               />
+          </Box>
+          <Box>
+            <DropdownMenu />
+            <DropdownMenu />
           </Box>
         </Box>
       : null}
@@ -99,6 +100,7 @@ const ListingTableFilter = ({ formik }) => {
 };
 
 const RarityFilter = ({ formik }) => {
+  const [isExpanded, setIsExpanded] = useState(true);
   const rarityFilters = new Set(formik.values.rarity);
   const handleRarityUpdate = (checkboxIsChecked, rarity) => {
     checkboxIsChecked
@@ -107,33 +109,52 @@ const RarityFilter = ({ formik }) => {
     formik.setFieldValue('rarity', Array.from(rarityFilters));
   };
 
+  const dropdownStyles = {
+    maxHeight: isExpanded ? '300px' : '0',
+    overflow: 'hidden',
+    transition: 'max-height 0.2s ease-out',
+  };
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <Box sx={{ display: 'flex' }}>
-      <RarityCheckbox 
-        rarity='Common'
-        color={colorLibrary.grey}
-        handleRarityUpdate={handleRarityUpdate} />
-      <RarityCheckbox 
-        rarity='Uncommon'
-        color={colorLibrary.neonGreen}
-        handleRarityUpdate={handleRarityUpdate} />
-      <RarityCheckbox
-        rarity='Rare'
-        color={colorLibrary.neonBlu} 
-        handleRarityUpdate={handleRarityUpdate} />
-      <RarityCheckbox 
-        rarity='Epic'
-        color={colorLibrary.lightPurple}
-        handleRarityUpdate={handleRarityUpdate} />
-      <RarityCheckbox 
-        rarity='Legendary' 
-        color={colorLibrary.amber}
-        handleRarityUpdate={handleRarityUpdate} />
-      <RarityCheckbox 
-        rarity='Unique'
-        color={colorLibrary.amberBrown}
-        handleRarityUpdate={handleRarityUpdate} />
-    </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <button onClick={toggleExpanded}> 
+          Rarities
+        </button>
+      </Box>
+      <div style={dropdownStyles}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignContent: 'left', width: '50px' }}>
+          <RarityCheckbox 
+            rarity='Common'
+            color={colorLibrary.grey}
+            handleRarityUpdate={handleRarityUpdate} />
+          <RarityCheckbox 
+            rarity='Uncommon'
+            color={colorLibrary.neonGreen}
+            handleRarityUpdate={handleRarityUpdate} />
+          <RarityCheckbox
+            rarity='Rare'
+            color={colorLibrary.neonBlu} 
+            handleRarityUpdate={handleRarityUpdate} />
+          <RarityCheckbox 
+            rarity='Epic'
+            color={colorLibrary.lightPurple}
+            handleRarityUpdate={handleRarityUpdate} />
+          <RarityCheckbox 
+            rarity='Legendary' 
+            color={colorLibrary.amber}
+            handleRarityUpdate={handleRarityUpdate} />
+          <RarityCheckbox 
+            rarity='Unique'
+            color={colorLibrary.amberBrown}
+            handleRarityUpdate={handleRarityUpdate} />
+        </Box>
+      </div>  
+    </Box>  
   )
 };
 
@@ -144,7 +165,7 @@ const RarityCheckbox = ({ rarity, handleRarityUpdate, color }) => {
     setChecked(!checked);
   };
   return (
-    <Tooltip title={rarity} followCursor>
+    <Box sx={{ display: 'flex', alignItems: 'center' }}> 
       <Checkbox
         sx={{
           m: -0.8,
@@ -157,11 +178,13 @@ const RarityCheckbox = ({ rarity, handleRarityUpdate, color }) => {
         checked={checked}
         onChange={handleCheckChange}  
       />
-    </Tooltip>
+      <Typography> {rarity} </Typography>
+    </Box>
   )
 };
 
 const RequiredClassFilter = ({ formik, requiredClassFilters }) => {
+  const [isExpanded, setIsExpanded] = useState(true);
   const [allChecked, setAllChecked] = useState(requiredClassFilters.length === 8); // magic number TODO
   const [rogueChecked, setRogueChecked] = useState(requiredClassFilters.has('Rogue'));
   const [fighterChecked, setFighterChecked] = useState(requiredClassFilters.has('Fighter'));
@@ -211,56 +234,73 @@ const RequiredClassFilter = ({ formik, requiredClassFilters }) => {
     };
   }, [formik.values.requiredClass]);
 
+  const dropdownStyles = {
+    maxHeight: isExpanded ? '300px' : '0',
+    overflow: 'hidden',
+    transition: 'max-height 0.2s ease-out',
+  };
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Checkbox sx={{ m: -0.8, '& .MuiSvgIcon-root': { fontSize: 26 } }}
-          checked={allChecked}
-          onChange={handleAllCheckClick} />
-        <Typography>
-          All Classes
-        </Typography>
+        <button onClick={toggleExpanded}> 
+          Classes
+        </button>
       </Box>
-      <RequiredClassCheckbox
-        checked={fighterChecked}
-        setChecked={setFighterChecked}
-        requiredClass='Fighter'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={bardChecked}
-        setChecked={setBardChecked}
-        requiredClass='Bard'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={wizardChecked}
-        setChecked={setWizardChecked}
-        requiredClass='Wizard'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={rogueChecked}
-        setChecked={setRogueChecked}
-        requiredClass='Rogue'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={warlockChecked}
-        setChecked={setWarlockChecked}
-        requiredClass='Warlock'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={rangerChecked}
-        setChecked={setRangerChecked}
-        requiredClass='Ranger'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox 
-        checked={clericChecked}
-        setChecked={setClericChecked}
-        requiredClass='Cleric'
-        handleClassUpdate={handleClassUpdate} />
-      <RequiredClassCheckbox
-        checked={barbarianChecked}
-        setChecked={setBarbarianChecked}
-        requiredClass='Barbarian'
-        handleClassUpdate={handleClassUpdate} />
+      <div style={dropdownStyles}>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Checkbox sx={{ m: -0.8, '& .MuiSvgIcon-root': { fontSize: 26 } }}
+              checked={allChecked}
+              onChange={handleAllCheckClick} />
+          <Typography>
+            All Classes
+          </Typography>
+        </Box>
+        <RequiredClassCheckbox
+          requiredClass='Fighter'
+          checked={fighterChecked}
+          setChecked={setFighterChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Bard'
+          checked={bardChecked}
+          setChecked={setBardChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Wizard'
+          checked={wizardChecked}
+          setChecked={setWizardChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Rogue'
+          checked={rogueChecked}
+          setChecked={setRogueChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Warlock'
+          checked={warlockChecked}
+          setChecked={setWarlockChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Ranger'
+          checked={rangerChecked}
+          setChecked={setRangerChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Cleric'
+          checked={clericChecked}
+          setChecked={setClericChecked}
+          handleClassUpdate={handleClassUpdate} />
+        <RequiredClassCheckbox
+          requiredClass='Barbarian'
+          checked={barbarianChecked}
+          setChecked={setBarbarianChecked}
+          handleClassUpdate={handleClassUpdate} />
+      </div>
       {/* <RequiredClassCheckbox 
         requiredClass='Monk'
         handleClassUpdate={handleClassUpdate} /> */}
@@ -274,7 +314,8 @@ const RequiredClassCheckbox = ({ requiredClass, handleClassUpdate, checked, setC
     setChecked(!checked);
   };
   return (
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}> 
+      {/* Icon instead of checkbox? */}
         <Checkbox
           sx={{
             m: -0.8,
