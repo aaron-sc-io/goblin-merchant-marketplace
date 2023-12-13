@@ -1,0 +1,36 @@
+.alert {
+  display: inline-flex;
+  background-color: rgb(56, 56, 56);
+  padding: 6px 16px 6px 12px;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.alert-container {
+  display: flex;
+  margin-right: 5px;
+}
+
+.alert-message {
+  color: white;
+}
+
+.error {
+  border-left: 4px solid red;
+  color: red;
+}
+
+.warning {
+  border-left: 4px solid rgb(255, 206, 136);
+  color: rgb(255, 206, 136);
+}
+
+.info {
+  border-left: 4px solid rgb(70, 70, 255);
+  color: rgb(70, 70, 255);
+}
+
+.success {
+  border-left: 4px solid rgb(0, 255, 0);
+  color: rgb(0, 255, 0);
+}
