@@ -1,7 +1,8 @@
-import { Box, Button, Card, Typography, Alert } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 import DndButton from '../DndButton/DndButton';
 import background from '../../utility/img/background.webp'
 import cardFrame from '../../utility/img/inven_frame.webp'
+import CustomAlert from '../Alert/CustomAlert';
 import CustomTextField from '../TextField/TextField';
 import '../../utility/styles/ibarraFont.css';
 
@@ -17,18 +18,20 @@ const PasswordResetCard = ({ handleForgotPassSubmit, handleNavigateSignIn, loadi
           <Box sx={{ mb: -1, mt: 4 }}>
             <Typography class={'ibarra-xl no-line-height'}> Forgot Password? </Typography>
           </Box>
-          <Box sx={{ mb: 5 }}>
+          <Box sx={{ mb: 3 }}>
             <Typography class={'ibarra-s no-line-height'}> Enter your email to reset </Typography>
           </Box>
-          {error && <Alert severity="error">{error}</Alert>}
-          <CustomTextField 
-            id='email-address'
-            name='email-address'
-            label='Email Address'
-            onChange={e => setUsername(e.target.value)}
-          />
+          {error && <CustomAlert severity='error' message={error} />}
+          <Box sx={{ mt: 1 }}>
+            <CustomTextField 
+              id='email-address'
+              name='email-address'
+              label='Email Address'
+              onChange={e => setUsername(e.target.value)}
+            />
+          </Box>
           <Box sx={{ mt: 5 }}>
-            <DndButton text={'RESET'} onClick={handleForgotPassSubmit} disabled={loading}/>
+            <DndButton text={'RESET'} onClick={handleForgotPassSubmit} disabled={loading} />
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography class={'ibarra-s'}>Already have an account?</Typography>

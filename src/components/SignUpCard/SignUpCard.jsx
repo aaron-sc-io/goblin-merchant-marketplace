@@ -1,6 +1,7 @@
-import { Box, Button, Card, Typography, Divider, Alert } from '@mui/material';
+import { Box, Button, Card, Typography, Divider } from '@mui/material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import CustomAlert from '../Alert/CustomAlert';
 import CustomTextField from '../TextField/TextField';
 import DndButton from '../DndButton/DndButton'; 
 import background from '../../utility/img/background.webp';
@@ -46,37 +47,38 @@ const SignUpCard = ({ handleNavigateRoot, handleNavigateSignIn }) => {
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 1 }}>
           <Box sx={{ mb: -1, mt: 4 }}>
             <Typography class={'ibarra-xl no-line-height'}> Sign Up </Typography>
-          </Box>          {error && <Alert severity="error">{error}</Alert>}
+          </Box>
+          {error && <CustomAlert severity='error' message={error} />}
           <Box sx={{ mb: .5, mt: 1 }}>
-          <CustomTextField 
-            id='email-address'
-            label='Email Address'
-            onChange={e => setUsername(e.target.value)}
+            <CustomTextField 
+              id='email-address'
+              label='Email Address'
+              onChange={e => setUsername(e.target.value)}
             />
           </Box>
           <Box sx={{ mb: .5 }}>
-          <CustomTextField
-            id='password'
-            label='Password'
-            type='password'
-            onChange={e => setPassword(e.target.value)}
+            <CustomTextField
+              id='password'
+              label='Password'
+              type='password'
+              onChange={e => setPassword(e.target.value)}
             />
           </Box>
           <Box sx={{ mb: 3 }}>
-          <CustomTextField
-            id='password-confirm-input'
-            label='Password Confirmation'
-            type='password'
-            autoComplete='current-password'
-            onChange={e => setConfirmPass(e.target.value)}
+            <CustomTextField
+              id='password-confirm-input'
+              label='Password Confirmation'
+              type='password'
+              autoComplete='current-password'
+              onChange={e => setConfirmPass(e.target.value)}
             />
           </Box>
-          <DndButton text={'SUBMIT'} onClick={handleSubmitClick} disabled={loading}/>
-          <Divider variant="middle" style={{ width:'80%' }} />
+            <DndButton text={'SUBMIT'} onClick={handleSubmitClick} disabled={loading}/>
+            <Divider variant="middle" style={{ width:'80%' }} />
           <Box sx={{ display: 'flex', alignItems: 'center',  mt: 1 }}>
             <Typography class={'ibarra-s'}>Already have an account?</Typography>
             <Button sx={{ fontFamily: "'Ibarra Real Nova', serif", color: '#FF8E00', p: 0, marginLeft: '10px', ":hover": {color: '#FFB353'} }} onClick={handleNavigateSignIn}>Sign In</Button>
-          </Box>    
+          </Box>
         </Box>
       </Card>
     </div>

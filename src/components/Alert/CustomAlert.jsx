@@ -7,7 +7,7 @@ import CheckIcon from '@mui/icons-material/CheckCircleOutlined';
 
 const CustomAlert = ({ severity, message }) => {
   return (
-    <div class={`alert ibarra ${severity}`}>
+    <div class={`alert ibarra-s ${severity}`}>
       <div class={`alert-container`} >
         {severity === 'error' && <ErrorIcon/>}
         {severity === 'warning' && <WarningIcon/>}
