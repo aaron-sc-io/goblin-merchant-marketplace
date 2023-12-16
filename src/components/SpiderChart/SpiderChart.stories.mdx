@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import SpiderChart from './SpiderChart';
+import { Box } from '@mui/material';
+
+
+
+export const Template = (props) => {
+  const chartLabels = ['Strength', 'Agility', 'Dexterity', 'Resourcefulness', 'Will', 'Knowledge', 'Vigor'];
+  const classes = ['Wizard', 'Cleric']
+  const wizardDefaultStats = [5, 16, 17, 15, 20, 28, 7];
+  const clericDefaultStats = [11, 12, 14, 10, 25, 20, 13];
+  const dataSets = [
+    {
+      label: classes[0],
+      data: wizardDefaultStats,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgb(54, 162, 235)',
+      borderWidth: 1,
+    },
+    {
+      label: classes[1],
+      data: clericDefaultStats,
+      backgroundColor: 'rgba(127, 255, 0, 0.2)',
+      borderColor: 'rgba(127, 255, 0, 1)',
+      borderWidth: 1,
+    }];
+  return (
+    <Box sx={{ width: '25%'}} >
+      <SpiderChart
+        datasets={dataSets}
+        labels={chartLabels}
+        />
+    </Box>
+    );
+};
+
+<Meta
+  title='Components/SpiderChart'
+  component={SpiderChart}
+/>
+
+# Taskbar
+<Description of={SpiderChart} />
+
+
+## Example
+<Canvas>
+  <Story name='SpiderChart'>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+# Props
+<ArgsTable story={'SpiderChart'} />
